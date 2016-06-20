@@ -1,14 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        
-    </head>
-    <body>
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+    <div class="mp-container">
+        <div class="intro-text">
+            <h1>MATMMUSIC</h1>
+            <h2>Better band recommendations based on your preferences.</h2>
+        </div>
+
+        <div class="form-centered">
+            <div class="title">
+                Recommendations based on:
+            </div>
+            <ul>
+                <li id="bands">
+                    <h2>bands</h2>
+                </li>
+                <li id="lastfm">
+                    <h2>lastfm</h2>
+
+                    <form action="#" method="post" class="hidden">
+                        <input type="text" placeholder="fill in account name" name="username">
+                        <input type="submit" value=">">
+                    </form>
+
+                </li>
+                <li id="genres">
+                    <h2>genres</h2>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--Backbone thingies -->
     <div id="main"></div>
 
-    
+
     <script type="text/template" id="RecViewTemplate">
         <h2><%= name %></h2>
     </script>
@@ -20,6 +54,7 @@
         </ul>
     </script>
 
-    <script src="dist/bundle.js"></script>
-    </body>
+    <!--<script src="dist/bundle.js"></script>-->
+</body>
+
 </html>
