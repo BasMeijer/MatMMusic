@@ -11,11 +11,15 @@ import RecommendationsList from './collections/RecommendationsList';
 import RecommendationView from './views/RecommendationView';
 import OptionView from './views/OptionView';
 
+
+
+document.addEventListener("User", function (e) {
+    var artists = new Artists({ username: e.detail.username });
+    getArtistsListened(artists);
+});
+
 var option = new OptionView();
 $('body').append(option.render().el);
-
-// var artists = new Artists();
-// getArtistsListened(artists);
 
 
 function getArtistsListened(artists) {
@@ -24,8 +28,7 @@ function getArtistsListened(artists) {
 
         artistNameList.forEach(function (element) {
             console.log("artist listened: " + element);
-            var recsList = new Recommendations({ artistname: element });
-            getRecommendations(recsList);
+            getRecommendations(new Recommendations({ artistname: element }));
         });
     });
 }
@@ -44,3 +47,4 @@ function getRecommendations(recsList) {
         });
     });
 }
+

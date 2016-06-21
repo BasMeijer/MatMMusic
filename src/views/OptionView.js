@@ -4,15 +4,34 @@ import $ from 'jquery';
 
 const OptionView = View.extend({
     template: _.template($("#OptionTemplate").html()),
-    event:{
-        'click .submit-option' : 'clickHandler'
+    initialize: function () {
+
+    },
+    events: {
+        'click #lastfm': 'lastfmClickHandler',
+        'submit #option-form': 'formHandler'
     },
     render: function () {
         this.el.innerHTML = this.template();
+
         return this;
     },
-    clickHandler : function(evt){
-        console.log('clicky');
+    lastfmClickHandler: function (evt) {
+        $('#lastfm').find('h2').empty();
+        $('#lastfm').find('.hidden').fadeIn();
+    },
+    formHandler: function (event) {
+        event.preventDefault();
+        var name = $('#username').val();
+        console.log(name);
+
+        var event = new CustomEvent("User", {
+            detail: {
+                username: name
+            }
+        });
+        document.dispatchEvent(event);
+
     },
     tagName: 'div',
     className: 'mp-container'
