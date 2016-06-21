@@ -9,7 +9,11 @@
 
 <body>
 
-    <div class="mp-container">
+    <!--Backbone thingies -->
+    <div id="main"></div>
+
+
+    <script type="text/template" id="OptionTemplate">
         <div class="intro-text">
             <h1>MATMMUSIC</h1>
             <h2>Better band recommendations based on your preferences.</h2>
@@ -27,8 +31,8 @@
                     <h2>lastfm</h2>
 
                     <form action="#" method="post" class="hidden">
-                        <input type="text" placeholder="fill in account name" name="username">
-                        <input type="submit" value=">">
+                        <input type="text" placeholder="fill in account name" name="username" id="username">
+                        <input type="submit" value=">" class="submit-option">
                     </form>
 
                 </li>
@@ -37,11 +41,8 @@
                 </li>
             </ul>
         </div>
-    </div>
 
-    <!--Backbone thingies -->
-    <div id="main"></div>
-
+    </script>
 
     <script type="text/template" id="RecViewTemplate">
         <h2><%= name %></h2>
@@ -54,7 +55,7 @@
         </ul>
     </script>
 
-    <!--<script src="dist/bundle.js"></script>-->
+    <script src="dist/bundle.js"></script>
 </body>
 
 </html>
