@@ -22,6 +22,7 @@ const AppRouter = Router.extend({
         $('body').append(option.render().el);
     },
     recommendations: function (username) {
+        $('body').empty();
         var artists = new Artists({ username: username });
         getArtistsListened(artists);
         /**
@@ -49,8 +50,8 @@ const AppRouter = Router.extend({
                 var similarList = recsList.pluck('similarartists');
                 var similarartists = new Recommendations(similarList[0].artist);
                 console.log(similarartists);
-                var View = new RecommendationsView({collection: similarartists});
-                $('#main').append(View.render().el);
+                var View = new RecommendationsView({ collection: similarartists });
+                $('body').append(View.render().el);
             });
         }
     }

@@ -19,3 +19,4 @@ document.addEventListener("User", function (e) {
 
 var router = new AppRouter();
 Backbone.history.start({pushState: true, root: '/SeriousJS/MellonMusic/'});
+
