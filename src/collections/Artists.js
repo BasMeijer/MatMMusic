@@ -14,7 +14,7 @@ const Artists = Collection.extend({
     model: Artist,
     parse: function (response) {
         var items = response.weeklyartistchart.artist;
-        console.log(items);
+        // console.log(items);
         return items;
     }
 });
