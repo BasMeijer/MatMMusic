@@ -5,7 +5,8 @@ import $ from 'jquery';
 import Recommendation from '../models/Recommendation';
 import Artists from '../collections/Artists';
 import Recommendations from '../collections/Recommendations';
-import RecommendationsView from '../views/RecommendationsView';
+import RecommendationView from '../views/RecommendationView';
+import DashboardView from '../views/DashboardView';
 
 /**
  * Router for the URL's
@@ -19,12 +20,15 @@ const AppRouter = Router.extend({
     },
     options: function () {
         var option = new OptionView();
-        $('body').append(option.render().el);
+        $('#main').append(option.render().el);
     },
     recommendations: function (username) {
-        $('body').empty();
+        $('#main').empty();
         var artists = new Artists({ username: username });
         getArtistsListened(artists);
+
+        var dbView = new DashboardView();
+        $('#main').append(dbView.render().el);
         /**
          * Gets the artists/bands the user listened to in that last week.
          * Then calls the getRecommendations function to get recommendations based on the listened artists.
@@ -48,10 +52,13 @@ const AppRouter = Router.extend({
         function getRecommendations(recsList) {
             recsList.fetch().then(function () {
                 var similarList = recsList.pluck('similarartists');
-                var similarartists = new Recommendations(similarList[0].artist);
-                console.log(similarartists);
-                var View = new RecommendationsView({ collection: similarartists });
-                $('body').append(View.render().el);
+                var similarartists = similarList[0].artist;
+
+                similarartists.forEach(function (element) {
+                    var rec = new Recommendation(element);
+                    var recView = new RecommendationView({ model: rec });
+                    $('.rec-container').append(recView.render().el);
+                });
             });
         }
     }
