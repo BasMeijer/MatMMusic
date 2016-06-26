@@ -23,15 +23,7 @@ const OptionView = View.extend({
     formHandler: function (event) {
         event.preventDefault();
         var name = $('#username').val();
-        // console.log(name);
-
-        // var event = new CustomEvent("User", {
-        //     detail: {
-        //         username: name
-        //     }
-        // });
-        // document.dispatchEvent(event);
-        Backbone.history.navigate('recommendations/'+ name +'' , { trigger: true });
+        Backbone.history.navigate('recommendations/'+ name +'/' , { trigger: true });
 
     },
     tagName: 'div',

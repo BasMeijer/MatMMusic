@@ -5,7 +5,7 @@ import $ from 'jquery';
 
 const RecommendationsView = View.extend({
     template: _.template($("#RecsViewTemplate").html()),
-    
+    className:'item-container',
     render:function(){
         this.el.innerHTML = this.template(this.collection);
         var ul = this.$('ul');

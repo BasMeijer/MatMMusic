@@ -9,13 +9,18 @@
 }
 html{
   font-family: $main-font;
+  color: $white;
 }
 html,body,#main{
   width: 100%;
   height:100%;
-  background-color: $white;
+  background-color: $red;
   padding:0;
   margin:0;
+}
+
+.hidden{
+  display:none;
 }
 
 //  ----------- Main Page STYLES -----------
@@ -111,18 +116,46 @@ html,body,#main{
   }
 }
 
-
+nav{
+  padding-bottom:50px;
+   ul{
+      list-style: none;
+      float:left;
+          li{
+            font-size:25px;
+            font-variant: small-caps;
+            float:left;
+            margin-right:25px;
+            a{
+              text-decoration: none;
+              color: $white;
+            }
+          }
+        }
+}
 
 #main{
+  .rolling{
+    position: absolute;
+    top:0;
+    right:0;
+    padding:50px;
+  }
   .rec-container{
+    box-sizing: border-box;
+    padding: 25px 0 25px 25px;
     background-color: $red;
-    width:60%;
+    width:100%;
     float:left;
+    .item-container{
+      float:left;
+      width: 100%;
+    }
     .recommendation-item{
-      padding:25px;
+      padding:25px 25px 25px 0;
       width:150px;
       float:left;
-      // position: relative;
+
       h2{
         color: #fff;
         float:left;

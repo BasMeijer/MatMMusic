@@ -19,7 +19,7 @@ import DashboardView from '../views/DashboardView';
 const AppRouter = Router.extend({
     routes: {
         '': 'options',
-        'recommendations/:username': 'recommendations',
+        'recommendations/:username/': 'recommendations',
     },
     options: function () {
         var option = new OptionView();
@@ -87,6 +87,7 @@ const AppRouter = Router.extend({
             console.log(recsList);
             var recsView = new RecommendationsView({ collection: recsList });
             $('.rec-container').append(recsView.render().el);
+            $('.rolling').addClass('hidden');
         }
     }
 });
