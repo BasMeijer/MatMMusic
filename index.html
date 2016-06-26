@@ -25,13 +25,19 @@
                 Recommendations based on:
             </div>
             <ul>
-                <li id="bands">
-                    <h2>bands</h2>
+                <li id="artists">
+                    <h2>artists</h2>
+
+                    <form action="#" method="post" class="hidden" id="artist-form">
+                        <input type="text" placeholder="fill in artist name" name="artistname" id="artistname">
+                        <input type="submit" value=">">
+                    </form>
+                    
                 </li>
                 <li id="lastfm">
-                    <h2 class="test">lastfm</h2>
+                    <h2>lastfm</h2>
 
-                    <form action="#" method="post" class="hidden" id="option-form">
+                    <form action="#" method="post" class="hidden" id="lastfm-form">
                         <input type="text" placeholder="fill in account name" name="username" id="username">
                         <input type="submit" value=">">
                     </form>

@@ -82,6 +82,7 @@ html,body,#main{
           border:none;
           text-align: center;
           font-size: 1.5rem;
+          background-color: #f4f6fd;
         }
         input[type=submit]{
           padding:5px 15px 5px 15px;
@@ -89,7 +90,7 @@ html,body,#main{
           height:100%;
           border:none;
           font-size: 1.5rem;
-          background-color: #fff;
+          background-color: #f4f6fd;
           color:#f80246;
         }
         input:focus{
@@ -112,6 +113,12 @@ html,body,#main{
     }
     li:nth-child(even) {
       background-color: #fff;
+       input[type=text]{
+         background-color: #fff;
+       }
+        input[type=submit]{
+          background-color: #fff;
+        }
     }
   }
 }
@@ -169,7 +176,6 @@ nav{
         float:left;
         // opacity: 0.9;
       }
-      a{}
     }
   }
 }
