@@ -46,7 +46,7 @@
 
 	'use strict';
 
-	var _AppRouter = __webpack_require__(11);
+	var _AppRouter = __webpack_require__(1);
 
 	var _AppRouter2 = _interopRequireDefault(_AppRouter);
 
@@ -54,1563 +54,140 @@
 
 	var router = new _AppRouter2.default();
 	Backbone.history.start({ pushState: true, root: '/SeriousJS/MellonMusic/' });
-
-	console.log('derp');
-	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xcbWFpbi5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBOzs7Ozs7QUFFQSxJQUFJLFNBQVMseUJBQWI7QUFDQSxTQUFTLE9BQVQsQ0FBaUIsS0FBakIsQ0FBdUIsRUFBQyxXQUFXLElBQVosRUFBa0IsTUFBTSx5QkFBeEIsRUFBdkI7O0FBR0EsUUFBUSxHQUFSLENBQVksTUFBWiIsImZpbGUiOiJtYWluLmpzIiwic291cmNlUm9vdCI6ImM6L3hhbXBwL2h0ZG9jcy9TZXJpb3VzSlMvTWVsbG9uTXVzaWMiLCJzb3VyY2VzQ29udGVudCI6WyJcclxuaW1wb3J0IEFwcFJvdXRlciBmcm9tICcuL3JvdXRlcnMvQXBwUm91dGVyJztcclxuXHJcbnZhciByb3V0ZXIgPSBuZXcgQXBwUm91dGVyKCk7XHJcbkJhY2tib25lLmhpc3Rvcnkuc3RhcnQoe3B1c2hTdGF0ZTogdHJ1ZSwgcm9vdDogJy9TZXJpb3VzSlMvTWVsbG9uTXVzaWMvJ30pO1xyXG5cclxuXHJcbmNvbnNvbGUubG9nKCdkZXJwJyk7Il19
+	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xcbWFpbi5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBOzs7Ozs7QUFFQSxJQUFJLFNBQVMseUJBQWI7QUFDQSxTQUFTLE9BQVQsQ0FBaUIsS0FBakIsQ0FBdUIsRUFBQyxXQUFXLElBQVosRUFBa0IsTUFBTSx5QkFBeEIsRUFBdkIiLCJmaWxlIjoibWFpbi5qcyIsInNvdXJjZVJvb3QiOiJjOi94YW1wcC9odGRvY3MvU2VyaW91c0pTL01lbGxvbk11c2ljIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbmltcG9ydCBBcHBSb3V0ZXIgZnJvbSAnLi9yb3V0ZXJzL0FwcFJvdXRlcic7XHJcblxyXG52YXIgcm91dGVyID0gbmV3IEFwcFJvdXRlcigpO1xyXG5CYWNrYm9uZS5oaXN0b3J5LnN0YXJ0KHtwdXNoU3RhdGU6IHRydWUsIHJvb3Q6ICcvU2VyaW91c0pTL01lbGxvbk11c2ljLyd9KTtcclxuXHJcbiJdfQ==
 
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
-	//     http://underscorejs.org
-	//     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	//     Underscore may be freely distributed under the MIT license.
+	'use strict';
 
-	(function() {
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
 
-	  // Baseline setup
-	  // --------------
+	var _backbone = __webpack_require__(2);
 
-	  // Establish the root object, `window` in the browser, or `exports` on the server.
-	  var root = this;
+	var _OptionView = __webpack_require__(5);
 
-	  // Save the previous value of the `_` variable.
-	  var previousUnderscore = root._;
+	var _OptionView2 = _interopRequireDefault(_OptionView);
 
-	  // Save bytes in the minified (but not gzipped) version:
-	  var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
+	var _jquery = __webpack_require__(4);
 
-	  // Create quick reference variables for speed access to core prototypes.
-	  var
-	    push             = ArrayProto.push,
-	    slice            = ArrayProto.slice,
-	    toString         = ObjProto.toString,
-	    hasOwnProperty   = ObjProto.hasOwnProperty;
+	var _jquery2 = _interopRequireDefault(_jquery);
 
-	  // All **ECMAScript 5** native function implementations that we hope to use
-	  // are declared here.
-	  var
-	    nativeIsArray      = Array.isArray,
-	    nativeKeys         = Object.keys,
-	    nativeBind         = FuncProto.bind,
-	    nativeCreate       = Object.create;
+	var _Recommendation = __webpack_require__(6);
 
-	  // Naked function reference for surrogate-prototype-swapping.
-	  var Ctor = function(){};
+	var _Recommendation2 = _interopRequireDefault(_Recommendation);
 
-	  // Create a safe reference to the Underscore object for use below.
-	  var _ = function(obj) {
-	    if (obj instanceof _) return obj;
-	    if (!(this instanceof _)) return new _(obj);
-	    this._wrapped = obj;
-	  };
+	var _Artists = __webpack_require__(7);
 
-	  // Export the Underscore object for **Node.js**, with
-	  // backwards-compatibility for the old `require()` API. If we're in
-	  // the browser, add `_` as a global object.
-	  if (true) {
-	    if (typeof module !== 'undefined' && module.exports) {
-	      exports = module.exports = _;
-	    }
-	    exports._ = _;
-	  } else {
-	    root._ = _;
-	  }
+	var _Artists2 = _interopRequireDefault(_Artists);
 
-	  // Current version.
-	  _.VERSION = '1.8.3';
+	var _Recommendations = __webpack_require__(9);
 
-	  // Internal function that returns an efficient (for current engines) version
-	  // of the passed-in callback, to be repeatedly applied in other Underscore
-	  // functions.
-	  var optimizeCb = function(func, context, argCount) {
-	    if (context === void 0) return func;
-	    switch (argCount == null ? 3 : argCount) {
-	      case 1: return function(value) {
-	        return func.call(context, value);
-	      };
-	      case 2: return function(value, other) {
-	        return func.call(context, value, other);
-	      };
-	      case 3: return function(value, index, collection) {
-	        return func.call(context, value, index, collection);
-	      };
-	      case 4: return function(accumulator, value, index, collection) {
-	        return func.call(context, accumulator, value, index, collection);
-	      };
-	    }
-	    return function() {
-	      return func.apply(context, arguments);
-	    };
-	  };
+	var _Recommendations2 = _interopRequireDefault(_Recommendations);
 
-	  // A mostly-internal function to generate callbacks that can be applied
-	  // to each element in a collection, returning the desired result — either
-	  // identity, an arbitrary callback, a property matcher, or a property accessor.
-	  var cb = function(value, context, argCount) {
-	    if (value == null) return _.identity;
-	    if (_.isFunction(value)) return optimizeCb(value, context, argCount);
-	    if (_.isObject(value)) return _.matcher(value);
-	    return _.property(value);
-	  };
-	  _.iteratee = function(value, context) {
-	    return cb(value, context, Infinity);
-	  };
+	var _CombinedRecommendations = __webpack_require__(10);
 
-	  // An internal function for creating assigner functions.
-	  var createAssigner = function(keysFunc, undefinedOnly) {
-	    return function(obj) {
-	      var length = arguments.length;
-	      if (length < 2 || obj == null) return obj;
-	      for (var index = 1; index < length; index++) {
-	        var source = arguments[index],
-	            keys = keysFunc(source),
-	            l = keys.length;
-	        for (var i = 0; i < l; i++) {
-	          var key = keys[i];
-	          if (!undefinedOnly || obj[key] === void 0) obj[key] = source[key];
+	var _CombinedRecommendations2 = _interopRequireDefault(_CombinedRecommendations);
+
+	var _RecommendationView = __webpack_require__(11);
+
+	var _RecommendationView2 = _interopRequireDefault(_RecommendationView);
+
+	var _RecommendationsView = __webpack_require__(12);
+
+	var _RecommendationsView2 = _interopRequireDefault(_RecommendationsView);
+
+	var _DashboardView = __webpack_require__(13);
+
+	var _DashboardView2 = _interopRequireDefault(_DashboardView);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * Router for the URL's
+	 *
+	 * @constructor
+	 */
+	var AppRouter = _backbone.Router.extend({
+	    routes: {
+	        '': 'options',
+	        'recommendations/:username': 'recommendations'
+	    },
+	    options: function options() {
+	        var option = new _OptionView2.default();
+	        (0, _jquery2.default)('#main').append(option.render().el);
+	    },
+	    recommendations: function recommendations(username) {
+	        // Empty the main div
+	        (0, _jquery2.default)('#main').empty();
+	        // Create the Dashboard View
+	        var dbView = new _DashboardView2.default();
+	        (0, _jquery2.default)('#main').append(dbView.render().el);
+	        // Creates the artists collection and calls the function to get the recommendations
+	        var artists = new _Artists2.default({ username: username });
+	        getRecommendationsList(artists);
+
+	        /**
+	         * 
+	         * Gets recommendations based on the users listens.
+	         * Fetches all the listened artists en then fetches similar artists.
+	         * @param {any} artists
+	         */
+	        function getRecommendationsList(artists) {
+	            var allCollections = new _CombinedRecommendations2.default();
+	            var itemsProcessed = 0;
+
+	            artists.fetch().then(function () {
+	                // Gets the bandnames the user listened to.
+	                var artistNameList = artists.pluck('name');
+	                // foreach bandname create a collection with similar artists and combines all those collections
+	                artistNameList.forEach(function (element) {
+	                    var tempCollection = new _Recommendations2.default({ artistname: element });
+
+	                    tempCollection.fetch({
+	                        success: function success(collection, response, options) {
+	                            // get the similar artist objects from the collection
+	                            var similarList = tempCollection.pluck('similarartists');
+	                            var similarartists = similarList[0].artist;
+	                            // make an recommendation object for each artist and adds it to the combined collection
+	                            similarartists.forEach(function (element) {
+	                                var rec = new _Recommendation2.default(element);
+	                                allCollections.add(rec);
+	                            });
+
+	                            // tracks if all the fetches are done, then calls the showRecommendations function
+	                            itemsProcessed++;
+	                            if (itemsProcessed === artistNameList.length) {
+	                                console.log("done with all");
+	                                showRecommendations(allCollections);
+	                            }
+	                        },
+	                        error: function error(collection, response, options) {
+	                            console.log("error");
+	                        }
+	                    });
+	                });
+	            });
 	        }
-	      }
-	      return obj;
-	    };
-	  };
 
-	  // An internal function for creating a new object that inherits from another.
-	  var baseCreate = function(prototype) {
-	    if (!_.isObject(prototype)) return {};
-	    if (nativeCreate) return nativeCreate(prototype);
-	    Ctor.prototype = prototype;
-	    var result = new Ctor;
-	    Ctor.prototype = null;
-	    return result;
-	  };
-
-	  var property = function(key) {
-	    return function(obj) {
-	      return obj == null ? void 0 : obj[key];
-	    };
-	  };
-
-	  // Helper for collection methods to determine whether a collection
-	  // should be iterated as an array or as an object
-	  // Related: http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength
-	  // Avoids a very nasty iOS 8 JIT bug on ARM-64. #2094
-	  var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
-	  var getLength = property('length');
-	  var isArrayLike = function(collection) {
-	    var length = getLength(collection);
-	    return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
-	  };
-
-	  // Collection Functions
-	  // --------------------
-
-	  // The cornerstone, an `each` implementation, aka `forEach`.
-	  // Handles raw objects in addition to array-likes. Treats all
-	  // sparse array-likes as if they were dense.
-	  _.each = _.forEach = function(obj, iteratee, context) {
-	    iteratee = optimizeCb(iteratee, context);
-	    var i, length;
-	    if (isArrayLike(obj)) {
-	      for (i = 0, length = obj.length; i < length; i++) {
-	        iteratee(obj[i], i, obj);
-	      }
-	    } else {
-	      var keys = _.keys(obj);
-	      for (i = 0, length = keys.length; i < length; i++) {
-	        iteratee(obj[keys[i]], keys[i], obj);
-	      }
-	    }
-	    return obj;
-	  };
-
-	  // Return the results of applying the iteratee to each element.
-	  _.map = _.collect = function(obj, iteratee, context) {
-	    iteratee = cb(iteratee, context);
-	    var keys = !isArrayLike(obj) && _.keys(obj),
-	        length = (keys || obj).length,
-	        results = Array(length);
-	    for (var index = 0; index < length; index++) {
-	      var currentKey = keys ? keys[index] : index;
-	      results[index] = iteratee(obj[currentKey], currentKey, obj);
-	    }
-	    return results;
-	  };
-
-	  // Create a reducing function iterating left or right.
-	  function createReduce(dir) {
-	    // Optimized iterator function as using arguments.length
-	    // in the main function will deoptimize the, see #1991.
-	    function iterator(obj, iteratee, memo, keys, index, length) {
-	      for (; index >= 0 && index < length; index += dir) {
-	        var currentKey = keys ? keys[index] : index;
-	        memo = iteratee(memo, obj[currentKey], currentKey, obj);
-	      }
-	      return memo;
-	    }
-
-	    return function(obj, iteratee, memo, context) {
-	      iteratee = optimizeCb(iteratee, context, 4);
-	      var keys = !isArrayLike(obj) && _.keys(obj),
-	          length = (keys || obj).length,
-	          index = dir > 0 ? 0 : length - 1;
-	      // Determine the initial value if none is provided.
-	      if (arguments.length < 3) {
-	        memo = obj[keys ? keys[index] : index];
-	        index += dir;
-	      }
-	      return iterator(obj, iteratee, memo, keys, index, length);
-	    };
-	  }
-
-	  // **Reduce** builds up a single result from a list of values, aka `inject`,
-	  // or `foldl`.
-	  _.reduce = _.foldl = _.inject = createReduce(1);
-
-	  // The right-associative version of reduce, also known as `foldr`.
-	  _.reduceRight = _.foldr = createReduce(-1);
-
-	  // Return the first value which passes a truth test. Aliased as `detect`.
-	  _.find = _.detect = function(obj, predicate, context) {
-	    var key;
-	    if (isArrayLike(obj)) {
-	      key = _.findIndex(obj, predicate, context);
-	    } else {
-	      key = _.findKey(obj, predicate, context);
-	    }
-	    if (key !== void 0 && key !== -1) return obj[key];
-	  };
-
-	  // Return all the elements that pass a truth test.
-	  // Aliased as `select`.
-	  _.filter = _.select = function(obj, predicate, context) {
-	    var results = [];
-	    predicate = cb(predicate, context);
-	    _.each(obj, function(value, index, list) {
-	      if (predicate(value, index, list)) results.push(value);
-	    });
-	    return results;
-	  };
-
-	  // Return all the elements for which a truth test fails.
-	  _.reject = function(obj, predicate, context) {
-	    return _.filter(obj, _.negate(cb(predicate)), context);
-	  };
-
-	  // Determine whether all of the elements match a truth test.
-	  // Aliased as `all`.
-	  _.every = _.all = function(obj, predicate, context) {
-	    predicate = cb(predicate, context);
-	    var keys = !isArrayLike(obj) && _.keys(obj),
-	        length = (keys || obj).length;
-	    for (var index = 0; index < length; index++) {
-	      var currentKey = keys ? keys[index] : index;
-	      if (!predicate(obj[currentKey], currentKey, obj)) return false;
-	    }
-	    return true;
-	  };
-
-	  // Determine if at least one element in the object matches a truth test.
-	  // Aliased as `any`.
-	  _.some = _.any = function(obj, predicate, context) {
-	    predicate = cb(predicate, context);
-	    var keys = !isArrayLike(obj) && _.keys(obj),
-	        length = (keys || obj).length;
-	    for (var index = 0; index < length; index++) {
-	      var currentKey = keys ? keys[index] : index;
-	      if (predicate(obj[currentKey], currentKey, obj)) return true;
-	    }
-	    return false;
-	  };
-
-	  // Determine if the array or object contains a given item (using `===`).
-	  // Aliased as `includes` and `include`.
-	  _.contains = _.includes = _.include = function(obj, item, fromIndex, guard) {
-	    if (!isArrayLike(obj)) obj = _.values(obj);
-	    if (typeof fromIndex != 'number' || guard) fromIndex = 0;
-	    return _.indexOf(obj, item, fromIndex) >= 0;
-	  };
-
-	  // Invoke a method (with arguments) on every item in a collection.
-	  _.invoke = function(obj, method) {
-	    var args = slice.call(arguments, 2);
-	    var isFunc = _.isFunction(method);
-	    return _.map(obj, function(value) {
-	      var func = isFunc ? method : value[method];
-	      return func == null ? func : func.apply(value, args);
-	    });
-	  };
-
-	  // Convenience version of a common use case of `map`: fetching a property.
-	  _.pluck = function(obj, key) {
-	    return _.map(obj, _.property(key));
-	  };
-
-	  // Convenience version of a common use case of `filter`: selecting only objects
-	  // containing specific `key:value` pairs.
-	  _.where = function(obj, attrs) {
-	    return _.filter(obj, _.matcher(attrs));
-	  };
-
-	  // Convenience version of a common use case of `find`: getting the first object
-	  // containing specific `key:value` pairs.
-	  _.findWhere = function(obj, attrs) {
-	    return _.find(obj, _.matcher(attrs));
-	  };
-
-	  // Return the maximum element (or element-based computation).
-	  _.max = function(obj, iteratee, context) {
-	    var result = -Infinity, lastComputed = -Infinity,
-	        value, computed;
-	    if (iteratee == null && obj != null) {
-	      obj = isArrayLike(obj) ? obj : _.values(obj);
-	      for (var i = 0, length = obj.length; i < length; i++) {
-	        value = obj[i];
-	        if (value > result) {
-	          result = value;
+	        /**
+	         * 
+	         * Creates a View for the Recommendations Collection.
+	         * @param {any} recsList
+	         */
+	        function showRecommendations(recsList) {
+	            console.log(recsList);
+	            var recsView = new _RecommendationsView2.default({ collection: recsList });
+	            (0, _jquery2.default)('.rec-container').append(recsView.render().el);
 	        }
-	      }
-	    } else {
-	      iteratee = cb(iteratee, context);
-	      _.each(obj, function(value, index, list) {
-	        computed = iteratee(value, index, list);
-	        if (computed > lastComputed || computed === -Infinity && result === -Infinity) {
-	          result = value;
-	          lastComputed = computed;
-	        }
-	      });
 	    }
-	    return result;
-	  };
+	});
 
-	  // Return the minimum element (or element-based computation).
-	  _.min = function(obj, iteratee, context) {
-	    var result = Infinity, lastComputed = Infinity,
-	        value, computed;
-	    if (iteratee == null && obj != null) {
-	      obj = isArrayLike(obj) ? obj : _.values(obj);
-	      for (var i = 0, length = obj.length; i < length; i++) {
-	        value = obj[i];
-	        if (value < result) {
-	          result = value;
-	        }
-	      }
-	    } else {
-	      iteratee = cb(iteratee, context);
-	      _.each(obj, function(value, index, list) {
-	        computed = iteratee(value, index, list);
-	        if (computed < lastComputed || computed === Infinity && result === Infinity) {
-	          result = value;
-	          lastComputed = computed;
-	        }
-	      });
-	    }
-	    return result;
-	  };
-
-	  // Shuffle a collection, using the modern version of the
-	  // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
-	  _.shuffle = function(obj) {
-	    var set = isArrayLike(obj) ? obj : _.values(obj);
-	    var length = set.length;
-	    var shuffled = Array(length);
-	    for (var index = 0, rand; index < length; index++) {
-	      rand = _.random(0, index);
-	      if (rand !== index) shuffled[index] = shuffled[rand];
-	      shuffled[rand] = set[index];
-	    }
-	    return shuffled;
-	  };
-
-	  // Sample **n** random values from a collection.
-	  // If **n** is not specified, returns a single random element.
-	  // The internal `guard` argument allows it to work with `map`.
-	  _.sample = function(obj, n, guard) {
-	    if (n == null || guard) {
-	      if (!isArrayLike(obj)) obj = _.values(obj);
-	      return obj[_.random(obj.length - 1)];
-	    }
-	    return _.shuffle(obj).slice(0, Math.max(0, n));
-	  };
-
-	  // Sort the object's values by a criterion produced by an iteratee.
-	  _.sortBy = function(obj, iteratee, context) {
-	    iteratee = cb(iteratee, context);
-	    return _.pluck(_.map(obj, function(value, index, list) {
-	      return {
-	        value: value,
-	        index: index,
-	        criteria: iteratee(value, index, list)
-	      };
-	    }).sort(function(left, right) {
-	      var a = left.criteria;
-	      var b = right.criteria;
-	      if (a !== b) {
-	        if (a > b || a === void 0) return 1;
-	        if (a < b || b === void 0) return -1;
-	      }
-	      return left.index - right.index;
-	    }), 'value');
-	  };
-
-	  // An internal function used for aggregate "group by" operations.
-	  var group = function(behavior) {
-	    return function(obj, iteratee, context) {
-	      var result = {};
-	      iteratee = cb(iteratee, context);
-	      _.each(obj, function(value, index) {
-	        var key = iteratee(value, index, obj);
-	        behavior(result, value, key);
-	      });
-	      return result;
-	    };
-	  };
-
-	  // Groups the object's values by a criterion. Pass either a string attribute
-	  // to group by, or a function that returns the criterion.
-	  _.groupBy = group(function(result, value, key) {
-	    if (_.has(result, key)) result[key].push(value); else result[key] = [value];
-	  });
-
-	  // Indexes the object's values by a criterion, similar to `groupBy`, but for
-	  // when you know that your index values will be unique.
-	  _.indexBy = group(function(result, value, key) {
-	    result[key] = value;
-	  });
-
-	  // Counts instances of an object that group by a certain criterion. Pass
-	  // either a string attribute to count by, or a function that returns the
-	  // criterion.
-	  _.countBy = group(function(result, value, key) {
-	    if (_.has(result, key)) result[key]++; else result[key] = 1;
-	  });
-
-	  // Safely create a real, live array from anything iterable.
-	  _.toArray = function(obj) {
-	    if (!obj) return [];
-	    if (_.isArray(obj)) return slice.call(obj);
-	    if (isArrayLike(obj)) return _.map(obj, _.identity);
-	    return _.values(obj);
-	  };
-
-	  // Return the number of elements in an object.
-	  _.size = function(obj) {
-	    if (obj == null) return 0;
-	    return isArrayLike(obj) ? obj.length : _.keys(obj).length;
-	  };
-
-	  // Split a collection into two arrays: one whose elements all satisfy the given
-	  // predicate, and one whose elements all do not satisfy the predicate.
-	  _.partition = function(obj, predicate, context) {
-	    predicate = cb(predicate, context);
-	    var pass = [], fail = [];
-	    _.each(obj, function(value, key, obj) {
-	      (predicate(value, key, obj) ? pass : fail).push(value);
-	    });
-	    return [pass, fail];
-	  };
-
-	  // Array Functions
-	  // ---------------
-
-	  // Get the first element of an array. Passing **n** will return the first N
-	  // values in the array. Aliased as `head` and `take`. The **guard** check
-	  // allows it to work with `_.map`.
-	  _.first = _.head = _.take = function(array, n, guard) {
-	    if (array == null) return void 0;
-	    if (n == null || guard) return array[0];
-	    return _.initial(array, array.length - n);
-	  };
-
-	  // Returns everything but the last entry of the array. Especially useful on
-	  // the arguments object. Passing **n** will return all the values in
-	  // the array, excluding the last N.
-	  _.initial = function(array, n, guard) {
-	    return slice.call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
-	  };
-
-	  // Get the last element of an array. Passing **n** will return the last N
-	  // values in the array.
-	  _.last = function(array, n, guard) {
-	    if (array == null) return void 0;
-	    if (n == null || guard) return array[array.length - 1];
-	    return _.rest(array, Math.max(0, array.length - n));
-	  };
-
-	  // Returns everything but the first entry of the array. Aliased as `tail` and `drop`.
-	  // Especially useful on the arguments object. Passing an **n** will return
-	  // the rest N values in the array.
-	  _.rest = _.tail = _.drop = function(array, n, guard) {
-	    return slice.call(array, n == null || guard ? 1 : n);
-	  };
-
-	  // Trim out all falsy values from an array.
-	  _.compact = function(array) {
-	    return _.filter(array, _.identity);
-	  };
-
-	  // Internal implementation of a recursive `flatten` function.
-	  var flatten = function(input, shallow, strict, startIndex) {
-	    var output = [], idx = 0;
-	    for (var i = startIndex || 0, length = getLength(input); i < length; i++) {
-	      var value = input[i];
-	      if (isArrayLike(value) && (_.isArray(value) || _.isArguments(value))) {
-	        //flatten current level of array or arguments object
-	        if (!shallow) value = flatten(value, shallow, strict);
-	        var j = 0, len = value.length;
-	        output.length += len;
-	        while (j < len) {
-	          output[idx++] = value[j++];
-	        }
-	      } else if (!strict) {
-	        output[idx++] = value;
-	      }
-	    }
-	    return output;
-	  };
-
-	  // Flatten out an array, either recursively (by default), or just one level.
-	  _.flatten = function(array, shallow) {
-	    return flatten(array, shallow, false);
-	  };
-
-	  // Return a version of the array that does not contain the specified value(s).
-	  _.without = function(array) {
-	    return _.difference(array, slice.call(arguments, 1));
-	  };
-
-	  // Produce a duplicate-free version of the array. If the array has already
-	  // been sorted, you have the option of using a faster algorithm.
-	  // Aliased as `unique`.
-	  _.uniq = _.unique = function(array, isSorted, iteratee, context) {
-	    if (!_.isBoolean(isSorted)) {
-	      context = iteratee;
-	      iteratee = isSorted;
-	      isSorted = false;
-	    }
-	    if (iteratee != null) iteratee = cb(iteratee, context);
-	    var result = [];
-	    var seen = [];
-	    for (var i = 0, length = getLength(array); i < length; i++) {
-	      var value = array[i],
-	          computed = iteratee ? iteratee(value, i, array) : value;
-	      if (isSorted) {
-	        if (!i || seen !== computed) result.push(value);
-	        seen = computed;
-	      } else if (iteratee) {
-	        if (!_.contains(seen, computed)) {
-	          seen.push(computed);
-	          result.push(value);
-	        }
-	      } else if (!_.contains(result, value)) {
-	        result.push(value);
-	      }
-	    }
-	    return result;
-	  };
-
-	  // Produce an array that contains the union: each distinct element from all of
-	  // the passed-in arrays.
-	  _.union = function() {
-	    return _.uniq(flatten(arguments, true, true));
-	  };
-
-	  // Produce an array that contains every item shared between all the
-	  // passed-in arrays.
-	  _.intersection = function(array) {
-	    var result = [];
-	    var argsLength = arguments.length;
-	    for (var i = 0, length = getLength(array); i < length; i++) {
-	      var item = array[i];
-	      if (_.contains(result, item)) continue;
-	      for (var j = 1; j < argsLength; j++) {
-	        if (!_.contains(arguments[j], item)) break;
-	      }
-	      if (j === argsLength) result.push(item);
-	    }
-	    return result;
-	  };
-
-	  // Take the difference between one array and a number of other arrays.
-	  // Only the elements present in just the first array will remain.
-	  _.difference = function(array) {
-	    var rest = flatten(arguments, true, true, 1);
-	    return _.filter(array, function(value){
-	      return !_.contains(rest, value);
-	    });
-	  };
-
-	  // Zip together multiple lists into a single array -- elements that share
-	  // an index go together.
-	  _.zip = function() {
-	    return _.unzip(arguments);
-	  };
-
-	  // Complement of _.zip. Unzip accepts an array of arrays and groups
-	  // each array's elements on shared indices
-	  _.unzip = function(array) {
-	    var length = array && _.max(array, getLength).length || 0;
-	    var result = Array(length);
-
-	    for (var index = 0; index < length; index++) {
-	      result[index] = _.pluck(array, index);
-	    }
-	    return result;
-	  };
-
-	  // Converts lists into objects. Pass either a single array of `[key, value]`
-	  // pairs, or two parallel arrays of the same length -- one of keys, and one of
-	  // the corresponding values.
-	  _.object = function(list, values) {
-	    var result = {};
-	    for (var i = 0, length = getLength(list); i < length; i++) {
-	      if (values) {
-	        result[list[i]] = values[i];
-	      } else {
-	        result[list[i][0]] = list[i][1];
-	      }
-	    }
-	    return result;
-	  };
-
-	  // Generator function to create the findIndex and findLastIndex functions
-	  function createPredicateIndexFinder(dir) {
-	    return function(array, predicate, context) {
-	      predicate = cb(predicate, context);
-	      var length = getLength(array);
-	      var index = dir > 0 ? 0 : length - 1;
-	      for (; index >= 0 && index < length; index += dir) {
-	        if (predicate(array[index], index, array)) return index;
-	      }
-	      return -1;
-	    };
-	  }
-
-	  // Returns the first index on an array-like that passes a predicate test
-	  _.findIndex = createPredicateIndexFinder(1);
-	  _.findLastIndex = createPredicateIndexFinder(-1);
-
-	  // Use a comparator function to figure out the smallest index at which
-	  // an object should be inserted so as to maintain order. Uses binary search.
-	  _.sortedIndex = function(array, obj, iteratee, context) {
-	    iteratee = cb(iteratee, context, 1);
-	    var value = iteratee(obj);
-	    var low = 0, high = getLength(array);
-	    while (low < high) {
-	      var mid = Math.floor((low + high) / 2);
-	      if (iteratee(array[mid]) < value) low = mid + 1; else high = mid;
-	    }
-	    return low;
-	  };
-
-	  // Generator function to create the indexOf and lastIndexOf functions
-	  function createIndexFinder(dir, predicateFind, sortedIndex) {
-	    return function(array, item, idx) {
-	      var i = 0, length = getLength(array);
-	      if (typeof idx == 'number') {
-	        if (dir > 0) {
-	            i = idx >= 0 ? idx : Math.max(idx + length, i);
-	        } else {
-	            length = idx >= 0 ? Math.min(idx + 1, length) : idx + length + 1;
-	        }
-	      } else if (sortedIndex && idx && length) {
-	        idx = sortedIndex(array, item);
-	        return array[idx] === item ? idx : -1;
-	      }
-	      if (item !== item) {
-	        idx = predicateFind(slice.call(array, i, length), _.isNaN);
-	        return idx >= 0 ? idx + i : -1;
-	      }
-	      for (idx = dir > 0 ? i : length - 1; idx >= 0 && idx < length; idx += dir) {
-	        if (array[idx] === item) return idx;
-	      }
-	      return -1;
-	    };
-	  }
-
-	  // Return the position of the first occurrence of an item in an array,
-	  // or -1 if the item is not included in the array.
-	  // If the array is large and already in sort order, pass `true`
-	  // for **isSorted** to use binary search.
-	  _.indexOf = createIndexFinder(1, _.findIndex, _.sortedIndex);
-	  _.lastIndexOf = createIndexFinder(-1, _.findLastIndex);
-
-	  // Generate an integer Array containing an arithmetic progression. A port of
-	  // the native Python `range()` function. See
-	  // [the Python documentation](http://docs.python.org/library/functions.html#range).
-	  _.range = function(start, stop, step) {
-	    if (stop == null) {
-	      stop = start || 0;
-	      start = 0;
-	    }
-	    step = step || 1;
-
-	    var length = Math.max(Math.ceil((stop - start) / step), 0);
-	    var range = Array(length);
-
-	    for (var idx = 0; idx < length; idx++, start += step) {
-	      range[idx] = start;
-	    }
-
-	    return range;
-	  };
-
-	  // Function (ahem) Functions
-	  // ------------------
-
-	  // Determines whether to execute a function as a constructor
-	  // or a normal function with the provided arguments
-	  var executeBound = function(sourceFunc, boundFunc, context, callingContext, args) {
-	    if (!(callingContext instanceof boundFunc)) return sourceFunc.apply(context, args);
-	    var self = baseCreate(sourceFunc.prototype);
-	    var result = sourceFunc.apply(self, args);
-	    if (_.isObject(result)) return result;
-	    return self;
-	  };
-
-	  // Create a function bound to a given object (assigning `this`, and arguments,
-	  // optionally). Delegates to **ECMAScript 5**'s native `Function.bind` if
-	  // available.
-	  _.bind = function(func, context) {
-	    if (nativeBind && func.bind === nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
-	    if (!_.isFunction(func)) throw new TypeError('Bind must be called on a function');
-	    var args = slice.call(arguments, 2);
-	    var bound = function() {
-	      return executeBound(func, bound, context, this, args.concat(slice.call(arguments)));
-	    };
-	    return bound;
-	  };
-
-	  // Partially apply a function by creating a version that has had some of its
-	  // arguments pre-filled, without changing its dynamic `this` context. _ acts
-	  // as a placeholder, allowing any combination of arguments to be pre-filled.
-	  _.partial = function(func) {
-	    var boundArgs = slice.call(arguments, 1);
-	    var bound = function() {
-	      var position = 0, length = boundArgs.length;
-	      var args = Array(length);
-	      for (var i = 0; i < length; i++) {
-	        args[i] = boundArgs[i] === _ ? arguments[position++] : boundArgs[i];
-	      }
-	      while (position < arguments.length) args.push(arguments[position++]);
-	      return executeBound(func, bound, this, this, args);
-	    };
-	    return bound;
-	  };
-
-	  // Bind a number of an object's methods to that object. Remaining arguments
-	  // are the method names to be bound. Useful for ensuring that all callbacks
-	  // defined on an object belong to it.
-	  _.bindAll = function(obj) {
-	    var i, length = arguments.length, key;
-	    if (length <= 1) throw new Error('bindAll must be passed function names');
-	    for (i = 1; i < length; i++) {
-	      key = arguments[i];
-	      obj[key] = _.bind(obj[key], obj);
-	    }
-	    return obj;
-	  };
-
-	  // Memoize an expensive function by storing its results.
-	  _.memoize = function(func, hasher) {
-	    var memoize = function(key) {
-	      var cache = memoize.cache;
-	      var address = '' + (hasher ? hasher.apply(this, arguments) : key);
-	      if (!_.has(cache, address)) cache[address] = func.apply(this, arguments);
-	      return cache[address];
-	    };
-	    memoize.cache = {};
-	    return memoize;
-	  };
-
-	  // Delays a function for the given number of milliseconds, and then calls
-	  // it with the arguments supplied.
-	  _.delay = function(func, wait) {
-	    var args = slice.call(arguments, 2);
-	    return setTimeout(function(){
-	      return func.apply(null, args);
-	    }, wait);
-	  };
-
-	  // Defers a function, scheduling it to run after the current call stack has
-	  // cleared.
-	  _.defer = _.partial(_.delay, _, 1);
-
-	  // Returns a function, that, when invoked, will only be triggered at most once
-	  // during a given window of time. Normally, the throttled function will run
-	  // as much as it can, without ever going more than once per `wait` duration;
-	  // but if you'd like to disable the execution on the leading edge, pass
-	  // `{leading: false}`. To disable execution on the trailing edge, ditto.
-	  _.throttle = function(func, wait, options) {
-	    var context, args, result;
-	    var timeout = null;
-	    var previous = 0;
-	    if (!options) options = {};
-	    var later = function() {
-	      previous = options.leading === false ? 0 : _.now();
-	      timeout = null;
-	      result = func.apply(context, args);
-	      if (!timeout) context = args = null;
-	    };
-	    return function() {
-	      var now = _.now();
-	      if (!previous && options.leading === false) previous = now;
-	      var remaining = wait - (now - previous);
-	      context = this;
-	      args = arguments;
-	      if (remaining <= 0 || remaining > wait) {
-	        if (timeout) {
-	          clearTimeout(timeout);
-	          timeout = null;
-	        }
-	        previous = now;
-	        result = func.apply(context, args);
-	        if (!timeout) context = args = null;
-	      } else if (!timeout && options.trailing !== false) {
-	        timeout = setTimeout(later, remaining);
-	      }
-	      return result;
-	    };
-	  };
-
-	  // Returns a function, that, as long as it continues to be invoked, will not
-	  // be triggered. The function will be called after it stops being called for
-	  // N milliseconds. If `immediate` is passed, trigger the function on the
-	  // leading edge, instead of the trailing.
-	  _.debounce = function(func, wait, immediate) {
-	    var timeout, args, context, timestamp, result;
-
-	    var later = function() {
-	      var last = _.now() - timestamp;
-
-	      if (last < wait && last >= 0) {
-	        timeout = setTimeout(later, wait - last);
-	      } else {
-	        timeout = null;
-	        if (!immediate) {
-	          result = func.apply(context, args);
-	          if (!timeout) context = args = null;
-	        }
-	      }
-	    };
-
-	    return function() {
-	      context = this;
-	      args = arguments;
-	      timestamp = _.now();
-	      var callNow = immediate && !timeout;
-	      if (!timeout) timeout = setTimeout(later, wait);
-	      if (callNow) {
-	        result = func.apply(context, args);
-	        context = args = null;
-	      }
-
-	      return result;
-	    };
-	  };
-
-	  // Returns the first function passed as an argument to the second,
-	  // allowing you to adjust arguments, run code before and after, and
-	  // conditionally execute the original function.
-	  _.wrap = function(func, wrapper) {
-	    return _.partial(wrapper, func);
-	  };
-
-	  // Returns a negated version of the passed-in predicate.
-	  _.negate = function(predicate) {
-	    return function() {
-	      return !predicate.apply(this, arguments);
-	    };
-	  };
-
-	  // Returns a function that is the composition of a list of functions, each
-	  // consuming the return value of the function that follows.
-	  _.compose = function() {
-	    var args = arguments;
-	    var start = args.length - 1;
-	    return function() {
-	      var i = start;
-	      var result = args[start].apply(this, arguments);
-	      while (i--) result = args[i].call(this, result);
-	      return result;
-	    };
-	  };
-
-	  // Returns a function that will only be executed on and after the Nth call.
-	  _.after = function(times, func) {
-	    return function() {
-	      if (--times < 1) {
-	        return func.apply(this, arguments);
-	      }
-	    };
-	  };
-
-	  // Returns a function that will only be executed up to (but not including) the Nth call.
-	  _.before = function(times, func) {
-	    var memo;
-	    return function() {
-	      if (--times > 0) {
-	        memo = func.apply(this, arguments);
-	      }
-	      if (times <= 1) func = null;
-	      return memo;
-	    };
-	  };
-
-	  // Returns a function that will be executed at most one time, no matter how
-	  // often you call it. Useful for lazy initialization.
-	  _.once = _.partial(_.before, 2);
-
-	  // Object Functions
-	  // ----------------
-
-	  // Keys in IE < 9 that won't be iterated by `for key in ...` and thus missed.
-	  var hasEnumBug = !{toString: null}.propertyIsEnumerable('toString');
-	  var nonEnumerableProps = ['valueOf', 'isPrototypeOf', 'toString',
-	                      'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
-
-	  function collectNonEnumProps(obj, keys) {
-	    var nonEnumIdx = nonEnumerableProps.length;
-	    var constructor = obj.constructor;
-	    var proto = (_.isFunction(constructor) && constructor.prototype) || ObjProto;
-
-	    // Constructor is a special case.
-	    var prop = 'constructor';
-	    if (_.has(obj, prop) && !_.contains(keys, prop)) keys.push(prop);
-
-	    while (nonEnumIdx--) {
-	      prop = nonEnumerableProps[nonEnumIdx];
-	      if (prop in obj && obj[prop] !== proto[prop] && !_.contains(keys, prop)) {
-	        keys.push(prop);
-	      }
-	    }
-	  }
-
-	  // Retrieve the names of an object's own properties.
-	  // Delegates to **ECMAScript 5**'s native `Object.keys`
-	  _.keys = function(obj) {
-	    if (!_.isObject(obj)) return [];
-	    if (nativeKeys) return nativeKeys(obj);
-	    var keys = [];
-	    for (var key in obj) if (_.has(obj, key)) keys.push(key);
-	    // Ahem, IE < 9.
-	    if (hasEnumBug) collectNonEnumProps(obj, keys);
-	    return keys;
-	  };
-
-	  // Retrieve all the property names of an object.
-	  _.allKeys = function(obj) {
-	    if (!_.isObject(obj)) return [];
-	    var keys = [];
-	    for (var key in obj) keys.push(key);
-	    // Ahem, IE < 9.
-	    if (hasEnumBug) collectNonEnumProps(obj, keys);
-	    return keys;
-	  };
-
-	  // Retrieve the values of an object's properties.
-	  _.values = function(obj) {
-	    var keys = _.keys(obj);
-	    var length = keys.length;
-	    var values = Array(length);
-	    for (var i = 0; i < length; i++) {
-	      values[i] = obj[keys[i]];
-	    }
-	    return values;
-	  };
-
-	  // Returns the results of applying the iteratee to each element of the object
-	  // In contrast to _.map it returns an object
-	  _.mapObject = function(obj, iteratee, context) {
-	    iteratee = cb(iteratee, context);
-	    var keys =  _.keys(obj),
-	          length = keys.length,
-	          results = {},
-	          currentKey;
-	      for (var index = 0; index < length; index++) {
-	        currentKey = keys[index];
-	        results[currentKey] = iteratee(obj[currentKey], currentKey, obj);
-	      }
-	      return results;
-	  };
-
-	  // Convert an object into a list of `[key, value]` pairs.
-	  _.pairs = function(obj) {
-	    var keys = _.keys(obj);
-	    var length = keys.length;
-	    var pairs = Array(length);
-	    for (var i = 0; i < length; i++) {
-	      pairs[i] = [keys[i], obj[keys[i]]];
-	    }
-	    return pairs;
-	  };
-
-	  // Invert the keys and values of an object. The values must be serializable.
-	  _.invert = function(obj) {
-	    var result = {};
-	    var keys = _.keys(obj);
-	    for (var i = 0, length = keys.length; i < length; i++) {
-	      result[obj[keys[i]]] = keys[i];
-	    }
-	    return result;
-	  };
-
-	  // Return a sorted list of the function names available on the object.
-	  // Aliased as `methods`
-	  _.functions = _.methods = function(obj) {
-	    var names = [];
-	    for (var key in obj) {
-	      if (_.isFunction(obj[key])) names.push(key);
-	    }
-	    return names.sort();
-	  };
-
-	  // Extend a given object with all the properties in passed-in object(s).
-	  _.extend = createAssigner(_.allKeys);
-
-	  // Assigns a given object with all the own properties in the passed-in object(s)
-	  // (https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
-	  _.extendOwn = _.assign = createAssigner(_.keys);
-
-	  // Returns the first key on an object that passes a predicate test
-	  _.findKey = function(obj, predicate, context) {
-	    predicate = cb(predicate, context);
-	    var keys = _.keys(obj), key;
-	    for (var i = 0, length = keys.length; i < length; i++) {
-	      key = keys[i];
-	      if (predicate(obj[key], key, obj)) return key;
-	    }
-	  };
-
-	  // Return a copy of the object only containing the whitelisted properties.
-	  _.pick = function(object, oiteratee, context) {
-	    var result = {}, obj = object, iteratee, keys;
-	    if (obj == null) return result;
-	    if (_.isFunction(oiteratee)) {
-	      keys = _.allKeys(obj);
-	      iteratee = optimizeCb(oiteratee, context);
-	    } else {
-	      keys = flatten(arguments, false, false, 1);
-	      iteratee = function(value, key, obj) { return key in obj; };
-	      obj = Object(obj);
-	    }
-	    for (var i = 0, length = keys.length; i < length; i++) {
-	      var key = keys[i];
-	      var value = obj[key];
-	      if (iteratee(value, key, obj)) result[key] = value;
-	    }
-	    return result;
-	  };
-
-	   // Return a copy of the object without the blacklisted properties.
-	  _.omit = function(obj, iteratee, context) {
-	    if (_.isFunction(iteratee)) {
-	      iteratee = _.negate(iteratee);
-	    } else {
-	      var keys = _.map(flatten(arguments, false, false, 1), String);
-	      iteratee = function(value, key) {
-	        return !_.contains(keys, key);
-	      };
-	    }
-	    return _.pick(obj, iteratee, context);
-	  };
-
-	  // Fill in a given object with default properties.
-	  _.defaults = createAssigner(_.allKeys, true);
-
-	  // Creates an object that inherits from the given prototype object.
-	  // If additional properties are provided then they will be added to the
-	  // created object.
-	  _.create = function(prototype, props) {
-	    var result = baseCreate(prototype);
-	    if (props) _.extendOwn(result, props);
-	    return result;
-	  };
-
-	  // Create a (shallow-cloned) duplicate of an object.
-	  _.clone = function(obj) {
-	    if (!_.isObject(obj)) return obj;
-	    return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
-	  };
-
-	  // Invokes interceptor with the obj, and then returns obj.
-	  // The primary purpose of this method is to "tap into" a method chain, in
-	  // order to perform operations on intermediate results within the chain.
-	  _.tap = function(obj, interceptor) {
-	    interceptor(obj);
-	    return obj;
-	  };
-
-	  // Returns whether an object has a given set of `key:value` pairs.
-	  _.isMatch = function(object, attrs) {
-	    var keys = _.keys(attrs), length = keys.length;
-	    if (object == null) return !length;
-	    var obj = Object(object);
-	    for (var i = 0; i < length; i++) {
-	      var key = keys[i];
-	      if (attrs[key] !== obj[key] || !(key in obj)) return false;
-	    }
-	    return true;
-	  };
-
-
-	  // Internal recursive comparison function for `isEqual`.
-	  var eq = function(a, b, aStack, bStack) {
-	    // Identical objects are equal. `0 === -0`, but they aren't identical.
-	    // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
-	    if (a === b) return a !== 0 || 1 / a === 1 / b;
-	    // A strict comparison is necessary because `null == undefined`.
-	    if (a == null || b == null) return a === b;
-	    // Unwrap any wrapped objects.
-	    if (a instanceof _) a = a._wrapped;
-	    if (b instanceof _) b = b._wrapped;
-	    // Compare `[[Class]]` names.
-	    var className = toString.call(a);
-	    if (className !== toString.call(b)) return false;
-	    switch (className) {
-	      // Strings, numbers, regular expressions, dates, and booleans are compared by value.
-	      case '[object RegExp]':
-	      // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
-	      case '[object String]':
-	        // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
-	        // equivalent to `new String("5")`.
-	        return '' + a === '' + b;
-	      case '[object Number]':
-	        // `NaN`s are equivalent, but non-reflexive.
-	        // Object(NaN) is equivalent to NaN
-	        if (+a !== +a) return +b !== +b;
-	        // An `egal` comparison is performed for other numeric values.
-	        return +a === 0 ? 1 / +a === 1 / b : +a === +b;
-	      case '[object Date]':
-	      case '[object Boolean]':
-	        // Coerce dates and booleans to numeric primitive values. Dates are compared by their
-	        // millisecond representations. Note that invalid dates with millisecond representations
-	        // of `NaN` are not equivalent.
-	        return +a === +b;
-	    }
-
-	    var areArrays = className === '[object Array]';
-	    if (!areArrays) {
-	      if (typeof a != 'object' || typeof b != 'object') return false;
-
-	      // Objects with different constructors are not equivalent, but `Object`s or `Array`s
-	      // from different frames are.
-	      var aCtor = a.constructor, bCtor = b.constructor;
-	      if (aCtor !== bCtor && !(_.isFunction(aCtor) && aCtor instanceof aCtor &&
-	                               _.isFunction(bCtor) && bCtor instanceof bCtor)
-	                          && ('constructor' in a && 'constructor' in b)) {
-	        return false;
-	      }
-	    }
-	    // Assume equality for cyclic structures. The algorithm for detecting cyclic
-	    // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
-
-	    // Initializing stack of traversed objects.
-	    // It's done here since we only need them for objects and arrays comparison.
-	    aStack = aStack || [];
-	    bStack = bStack || [];
-	    var length = aStack.length;
-	    while (length--) {
-	      // Linear search. Performance is inversely proportional to the number of
-	      // unique nested structures.
-	      if (aStack[length] === a) return bStack[length] === b;
-	    }
-
-	    // Add the first object to the stack of traversed objects.
-	    aStack.push(a);
-	    bStack.push(b);
-
-	    // Recursively compare objects and arrays.
-	    if (areArrays) {
-	      // Compare array lengths to determine if a deep comparison is necessary.
-	      length = a.length;
-	      if (length !== b.length) return false;
-	      // Deep compare the contents, ignoring non-numeric properties.
-	      while (length--) {
-	        if (!eq(a[length], b[length], aStack, bStack)) return false;
-	      }
-	    } else {
-	      // Deep compare objects.
-	      var keys = _.keys(a), key;
-	      length = keys.length;
-	      // Ensure that both objects contain the same number of properties before comparing deep equality.
-	      if (_.keys(b).length !== length) return false;
-	      while (length--) {
-	        // Deep compare each member
-	        key = keys[length];
-	        if (!(_.has(b, key) && eq(a[key], b[key], aStack, bStack))) return false;
-	      }
-	    }
-	    // Remove the first object from the stack of traversed objects.
-	    aStack.pop();
-	    bStack.pop();
-	    return true;
-	  };
-
-	  // Perform a deep comparison to check if two objects are equal.
-	  _.isEqual = function(a, b) {
-	    return eq(a, b);
-	  };
-
-	  // Is a given array, string, or object empty?
-	  // An "empty" object has no enumerable own-properties.
-	  _.isEmpty = function(obj) {
-	    if (obj == null) return true;
-	    if (isArrayLike(obj) && (_.isArray(obj) || _.isString(obj) || _.isArguments(obj))) return obj.length === 0;
-	    return _.keys(obj).length === 0;
-	  };
-
-	  // Is a given value a DOM element?
-	  _.isElement = function(obj) {
-	    return !!(obj && obj.nodeType === 1);
-	  };
-
-	  // Is a given value an array?
-	  // Delegates to ECMA5's native Array.isArray
-	  _.isArray = nativeIsArray || function(obj) {
-	    return toString.call(obj) === '[object Array]';
-	  };
-
-	  // Is a given variable an object?
-	  _.isObject = function(obj) {
-	    var type = typeof obj;
-	    return type === 'function' || type === 'object' && !!obj;
-	  };
-
-	  // Add some isType methods: isArguments, isFunction, isString, isNumber, isDate, isRegExp, isError.
-	  _.each(['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp', 'Error'], function(name) {
-	    _['is' + name] = function(obj) {
-	      return toString.call(obj) === '[object ' + name + ']';
-	    };
-	  });
-
-	  // Define a fallback version of the method in browsers (ahem, IE < 9), where
-	  // there isn't any inspectable "Arguments" type.
-	  if (!_.isArguments(arguments)) {
-	    _.isArguments = function(obj) {
-	      return _.has(obj, 'callee');
-	    };
-	  }
-
-	  // Optimize `isFunction` if appropriate. Work around some typeof bugs in old v8,
-	  // IE 11 (#1621), and in Safari 8 (#1929).
-	  if (typeof /./ != 'function' && typeof Int8Array != 'object') {
-	    _.isFunction = function(obj) {
-	      return typeof obj == 'function' || false;
-	    };
-	  }
-
-	  // Is a given object a finite number?
-	  _.isFinite = function(obj) {
-	    return isFinite(obj) && !isNaN(parseFloat(obj));
-	  };
-
-	  // Is the given value `NaN`? (NaN is the only number which does not equal itself).
-	  _.isNaN = function(obj) {
-	    return _.isNumber(obj) && obj !== +obj;
-	  };
-
-	  // Is a given value a boolean?
-	  _.isBoolean = function(obj) {
-	    return obj === true || obj === false || toString.call(obj) === '[object Boolean]';
-	  };
-
-	  // Is a given value equal to null?
-	  _.isNull = function(obj) {
-	    return obj === null;
-	  };
-
-	  // Is a given variable undefined?
-	  _.isUndefined = function(obj) {
-	    return obj === void 0;
-	  };
-
-	  // Shortcut function for checking if an object has a given property directly
-	  // on itself (in other words, not on a prototype).
-	  _.has = function(obj, key) {
-	    return obj != null && hasOwnProperty.call(obj, key);
-	  };
-
-	  // Utility Functions
-	  // -----------------
-
-	  // Run Underscore.js in *noConflict* mode, returning the `_` variable to its
-	  // previous owner. Returns a reference to the Underscore object.
-	  _.noConflict = function() {
-	    root._ = previousUnderscore;
-	    return this;
-	  };
-
-	  // Keep the identity function around for default iteratees.
-	  _.identity = function(value) {
-	    return value;
-	  };
-
-	  // Predicate-generating functions. Often useful outside of Underscore.
-	  _.constant = function(value) {
-	    return function() {
-	      return value;
-	    };
-	  };
-
-	  _.noop = function(){};
-
-	  _.property = property;
-
-	  // Generates a function for a given object that returns a given property.
-	  _.propertyOf = function(obj) {
-	    return obj == null ? function(){} : function(key) {
-	      return obj[key];
-	    };
-	  };
-
-	  // Returns a predicate for checking whether an object has a given set of
-	  // `key:value` pairs.
-	  _.matcher = _.matches = function(attrs) {
-	    attrs = _.extendOwn({}, attrs);
-	    return function(obj) {
-	      return _.isMatch(obj, attrs);
-	    };
-	  };
-
-	  // Run a function **n** times.
-	  _.times = function(n, iteratee, context) {
-	    var accum = Array(Math.max(0, n));
-	    iteratee = optimizeCb(iteratee, context, 1);
-	    for (var i = 0; i < n; i++) accum[i] = iteratee(i);
-	    return accum;
-	  };
-
-	  // Return a random integer between min and max (inclusive).
-	  _.random = function(min, max) {
-	    if (max == null) {
-	      max = min;
-	      min = 0;
-	    }
-	    return min + Math.floor(Math.random() * (max - min + 1));
-	  };
-
-	  // A (possibly faster) way to get the current timestamp as an integer.
-	  _.now = Date.now || function() {
-	    return new Date().getTime();
-	  };
-
-	   // List of HTML entities for escaping.
-	  var escapeMap = {
-	    '&': '&amp;',
-	    '<': '&lt;',
-	    '>': '&gt;',
-	    '"': '&quot;',
-	    "'": '&#x27;',
-	    '`': '&#x60;'
-	  };
-	  var unescapeMap = _.invert(escapeMap);
-
-	  // Functions for escaping and unescaping strings to/from HTML interpolation.
-	  var createEscaper = function(map) {
-	    var escaper = function(match) {
-	      return map[match];
-	    };
-	    // Regexes for identifying a key that needs to be escaped
-	    var source = '(?:' + _.keys(map).join('|') + ')';
-	    var testRegexp = RegExp(source);
-	    var replaceRegexp = RegExp(source, 'g');
-	    return function(string) {
-	      string = string == null ? '' : '' + string;
-	      return testRegexp.test(string) ? string.replace(replaceRegexp, escaper) : string;
-	    };
-	  };
-	  _.escape = createEscaper(escapeMap);
-	  _.unescape = createEscaper(unescapeMap);
-
-	  // If the value of the named `property` is a function then invoke it with the
-	  // `object` as context; otherwise, return it.
-	  _.result = function(object, property, fallback) {
-	    var value = object == null ? void 0 : object[property];
-	    if (value === void 0) {
-	      value = fallback;
-	    }
-	    return _.isFunction(value) ? value.call(object) : value;
-	  };
-
-	  // Generate a unique integer id (unique within the entire client session).
-	  // Useful for temporary DOM ids.
-	  var idCounter = 0;
-	  _.uniqueId = function(prefix) {
-	    var id = ++idCounter + '';
-	    return prefix ? prefix + id : id;
-	  };
-
-	  // By default, Underscore uses ERB-style template delimiters, change the
-	  // following template settings to use alternative delimiters.
-	  _.templateSettings = {
-	    evaluate    : /<%([\s\S]+?)%>/g,
-	    interpolate : /<%=([\s\S]+?)%>/g,
-	    escape      : /<%-([\s\S]+?)%>/g
-	  };
-
-	  // When customizing `templateSettings`, if you don't want to define an
-	  // interpolation, evaluation or escaping regex, we need one that is
-	  // guaranteed not to match.
-	  var noMatch = /(.)^/;
-
-	  // Certain characters need to be escaped so that they can be put into a
-	  // string literal.
-	  var escapes = {
-	    "'":      "'",
-	    '\\':     '\\',
-	    '\r':     'r',
-	    '\n':     'n',
-	    '\u2028': 'u2028',
-	    '\u2029': 'u2029'
-	  };
-
-	  var escaper = /\\|'|\r|\n|\u2028|\u2029/g;
-
-	  var escapeChar = function(match) {
-	    return '\\' + escapes[match];
-	  };
-
-	  // JavaScript micro-templating, similar to John Resig's implementation.
-	  // Underscore templating handles arbitrary delimiters, preserves whitespace,
-	  // and correctly escapes quotes within interpolated code.
-	  // NB: `oldSettings` only exists for backwards compatibility.
-	  _.template = function(text, settings, oldSettings) {
-	    if (!settings && oldSettings) settings = oldSettings;
-	    settings = _.defaults({}, settings, _.templateSettings);
-
-	    // Combine delimiters into one regular expression via alternation.
-	    var matcher = RegExp([
-	      (settings.escape || noMatch).source,
-	      (settings.interpolate || noMatch).source,
-	      (settings.evaluate || noMatch).source
-	    ].join('|') + '|$', 'g');
-
-	    // Compile the template source, escaping string literals appropriately.
-	    var index = 0;
-	    var source = "__p+='";
-	    text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
-	      source += text.slice(index, offset).replace(escaper, escapeChar);
-	      index = offset + match.length;
-
-	      if (escape) {
-	        source += "'+\n((__t=(" + escape + "))==null?'':_.escape(__t))+\n'";
-	      } else if (interpolate) {
-	        source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
-	      } else if (evaluate) {
-	        source += "';\n" + evaluate + "\n__p+='";
-	      }
-
-	      // Adobe VMs need the match returned to produce the correct offest.
-	      return match;
-	    });
-	    source += "';\n";
-
-	    // If a variable is not specified, place data values in local scope.
-	    if (!settings.variable) source = 'with(obj||{}){\n' + source + '}\n';
-
-	    source = "var __t,__p='',__j=Array.prototype.join," +
-	      "print=function(){__p+=__j.call(arguments,'');};\n" +
-	      source + 'return __p;\n';
-
-	    try {
-	      var render = new Function(settings.variable || 'obj', '_', source);
-	    } catch (e) {
-	      e.source = source;
-	      throw e;
-	    }
-
-	    var template = function(data) {
-	      return render.call(this, data, _);
-	    };
-
-	    // Provide the compiled source as a convenience for precompilation.
-	    var argument = settings.variable || 'obj';
-	    template.source = 'function(' + argument + '){\n' + source + '}';
-
-	    return template;
-	  };
-
-	  // Add a "chain" function. Start chaining a wrapped Underscore object.
-	  _.chain = function(obj) {
-	    var instance = _(obj);
-	    instance._chain = true;
-	    return instance;
-	  };
-
-	  // OOP
-	  // ---------------
-	  // If Underscore is called as a function, it returns a wrapped object that
-	  // can be used OO-style. This wrapper holds altered versions of all the
-	  // underscore functions. Wrapped objects may be chained.
-
-	  // Helper function to continue chaining intermediate results.
-	  var result = function(instance, obj) {
-	    return instance._chain ? _(obj).chain() : obj;
-	  };
-
-	  // Add your own custom functions to the Underscore object.
-	  _.mixin = function(obj) {
-	    _.each(_.functions(obj), function(name) {
-	      var func = _[name] = obj[name];
-	      _.prototype[name] = function() {
-	        var args = [this._wrapped];
-	        push.apply(args, arguments);
-	        return result(this, func.apply(_, args));
-	      };
-	    });
-	  };
-
-	  // Add all of the Underscore functions to the wrapper object.
-	  _.mixin(_);
-
-	  // Add all mutator Array functions to the wrapper.
-	  _.each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
-	    var method = ArrayProto[name];
-	    _.prototype[name] = function() {
-	      var obj = this._wrapped;
-	      method.apply(obj, arguments);
-	      if ((name === 'shift' || name === 'splice') && obj.length === 0) delete obj[0];
-	      return result(this, obj);
-	    };
-	  });
-
-	  // Add all accessor Array functions to the wrapper.
-	  _.each(['concat', 'join', 'slice'], function(name) {
-	    var method = ArrayProto[name];
-	    _.prototype[name] = function() {
-	      return result(this, method.apply(this._wrapped, arguments));
-	    };
-	  });
-
-	  // Extracts the result from a wrapped and chained object.
-	  _.prototype.value = function() {
-	    return this._wrapped;
-	  };
-
-	  // Provide unwrapping proxy for some methods used in engine operations
-	  // such as arithmetic and JSON stringification.
-	  _.prototype.valueOf = _.prototype.toJSON = _.prototype.value;
-
-	  _.prototype.toString = function() {
-	    return '' + this._wrapped;
-	  };
-
-	  // AMD registration happens at the end for compatibility with AMD loaders
-	  // that may not enforce next-turn semantics on modules. Even though general
-	  // practice for AMD registration is to be anonymous, underscore registers
-	  // as a named module because, like jQuery, it is a base library that is
-	  // popular enough to be bundled in a third party lib, but not be part of
-	  // an AMD load request. Those cases could generate an error when an
-	  // anonymous define() is called outside of a loader request.
-	  if (true) {
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
-	      return _;
-	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	  }
-	}.call(this));
-
+	exports.default = AppRouter;
+	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xccm91dGVyc1xcQXBwUm91dGVyLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztBQUFBOztBQUNBOzs7O0FBQ0E7Ozs7QUFFQTs7OztBQUNBOzs7O0FBQ0E7Ozs7QUFDQTs7OztBQUVBOzs7O0FBQ0E7Ozs7QUFDQTs7Ozs7Ozs7Ozs7QUFPQSxJQUFNLFlBQVksaUJBQU8sTUFBUCxDQUFjO0FBQzVCLFlBQVE7QUFDSixZQUFJLFNBREE7QUFFSixxQ0FBNkI7QUFGekIsS0FEb0I7QUFLNUIsYUFBUyxtQkFBWTtBQUNqQixZQUFJLFNBQVMsMEJBQWI7QUFDQSw4QkFBRSxPQUFGLEVBQVcsTUFBWCxDQUFrQixPQUFPLE1BQVAsR0FBZ0IsRUFBbEM7QUFDSCxLQVIyQjtBQVM1QixxQkFBaUIseUJBQVUsUUFBVixFQUFvQjs7QUFFakMsOEJBQUUsT0FBRixFQUFXLEtBQVg7O0FBRUEsWUFBSSxTQUFTLDZCQUFiO0FBQ0EsOEJBQUUsT0FBRixFQUFXLE1BQVgsQ0FBa0IsT0FBTyxNQUFQLEdBQWdCLEVBQWxDOztBQUVBLFlBQUksVUFBVSxzQkFBWSxFQUFFLFVBQVUsUUFBWixFQUFaLENBQWQ7QUFDQSwrQkFBdUIsT0FBdkI7Ozs7Ozs7O0FBUUEsaUJBQVMsc0JBQVQsQ0FBZ0MsT0FBaEMsRUFBeUM7QUFDckMsZ0JBQUksaUJBQWlCLHVDQUFyQjtBQUNBLGdCQUFJLGlCQUFpQixDQUFyQjs7QUFFQSxvQkFBUSxLQUFSLEdBQWdCLElBQWhCLENBQXFCLFlBQVk7O0FBRTdCLG9CQUFJLGlCQUFpQixRQUFRLEtBQVIsQ0FBYyxNQUFkLENBQXJCOztBQUVBLCtCQUFlLE9BQWYsQ0FBdUIsVUFBVSxPQUFWLEVBQW1CO0FBQ3RDLHdCQUFJLGlCQUFpQiw4QkFBb0IsRUFBRSxZQUFZLE9BQWQsRUFBcEIsQ0FBckI7O0FBRUEsbUNBQWUsS0FBZixDQUFxQjtBQUNqQixpQ0FBUyxpQkFBVSxVQUFWLEVBQXNCLFFBQXRCLEVBQWdDLE9BQWhDLEVBQXlDOztBQUU5QyxnQ0FBSSxjQUFjLGVBQWUsS0FBZixDQUFxQixnQkFBckIsQ0FBbEI7QUFDQSxnQ0FBSSxpQkFBaUIsWUFBWSxDQUFaLEVBQWUsTUFBcEM7O0FBRUEsMkNBQWUsT0FBZixDQUF1QixVQUFVLE9BQVYsRUFBbUI7QUFDdEMsb0NBQUksTUFBTSw2QkFBbUIsT0FBbkIsQ0FBVjtBQUNBLCtDQUFlLEdBQWYsQ0FBbUIsR0FBbkI7QUFDSCw2QkFIRDs7O0FBTUE7QUFDQSxnQ0FBSSxtQkFBbUIsZUFBZSxNQUF0QyxFQUE4QztBQUMxQyx3Q0FBUSxHQUFSLENBQVksZUFBWjtBQUNBLG9EQUFvQixjQUFwQjtBQUNIO0FBQ0oseUJBakJnQjtBQWtCakIsK0JBQU8sZUFBVSxVQUFWLEVBQXNCLFFBQXRCLEVBQWdDLE9BQWhDLEVBQXlDO0FBQzVDLG9DQUFRLEdBQVIsQ0FBWSxPQUFaO0FBQ0g7QUFwQmdCLHFCQUFyQjtBQXNCSCxpQkF6QkQ7QUEwQkgsYUE5QkQ7QUErQkg7Ozs7Ozs7QUFPRCxpQkFBUyxtQkFBVCxDQUE2QixRQUE3QixFQUF1QztBQUNuQyxvQkFBUSxHQUFSLENBQVksUUFBWjtBQUNBLGdCQUFJLFdBQVcsa0NBQXdCLEVBQUUsWUFBWSxRQUFkLEVBQXhCLENBQWY7QUFDQSxrQ0FBRSxnQkFBRixFQUFvQixNQUFwQixDQUEyQixTQUFTLE1BQVQsR0FBa0IsRUFBN0M7QUFDSDtBQUNKO0FBeEUyQixDQUFkLENBQWxCOztrQkEyRWUsUyIsImZpbGUiOiJBcHBSb3V0ZXIuanMiLCJzb3VyY2VSb290IjoiYzoveGFtcHAvaHRkb2NzL1NlcmlvdXNKUy9NZWxsb25NdXNpYyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7Um91dGVyfSBmcm9tICdiYWNrYm9uZSc7XHJcbmltcG9ydCBPcHRpb25WaWV3IGZyb20gJy4uL3ZpZXdzL09wdGlvblZpZXcnO1xyXG5pbXBvcnQgJCBmcm9tICdqcXVlcnknO1xyXG5cclxuaW1wb3J0IFJlY29tbWVuZGF0aW9uIGZyb20gJy4uL21vZGVscy9SZWNvbW1lbmRhdGlvbic7XHJcbmltcG9ydCBBcnRpc3RzIGZyb20gJy4uL2NvbGxlY3Rpb25zL0FydGlzdHMnO1xyXG5pbXBvcnQgUmVjb21tZW5kYXRpb25zIGZyb20gJy4uL2NvbGxlY3Rpb25zL1JlY29tbWVuZGF0aW9ucyc7XHJcbmltcG9ydCBDb21iaW5lZFJlY29tbWVuZGF0aW9ucyBmcm9tICcuLi9jb2xsZWN0aW9ucy9Db21iaW5lZFJlY29tbWVuZGF0aW9ucyc7XHJcblxyXG5pbXBvcnQgUmVjb21tZW5kYXRpb25WaWV3IGZyb20gJy4uL3ZpZXdzL1JlY29tbWVuZGF0aW9uVmlldyc7XHJcbmltcG9ydCBSZWNvbW1lbmRhdGlvbnNWaWV3IGZyb20gJy4uL3ZpZXdzL1JlY29tbWVuZGF0aW9uc1ZpZXcnO1xyXG5pbXBvcnQgRGFzaGJvYXJkVmlldyBmcm9tICcuLi92aWV3cy9EYXNoYm9hcmRWaWV3JztcclxuXHJcbi8qKlxyXG4gKiBSb3V0ZXIgZm9yIHRoZSBVUkwnc1xyXG4gKlxyXG4gKiBAY29uc3RydWN0b3JcclxuICovXHJcbmNvbnN0IEFwcFJvdXRlciA9IFJvdXRlci5leHRlbmQoe1xyXG4gICAgcm91dGVzOiB7XHJcbiAgICAgICAgJyc6ICdvcHRpb25zJyxcclxuICAgICAgICAncmVjb21tZW5kYXRpb25zLzp1c2VybmFtZSc6ICdyZWNvbW1lbmRhdGlvbnMnLFxyXG4gICAgfSxcclxuICAgIG9wdGlvbnM6IGZ1bmN0aW9uICgpIHtcclxuICAgICAgICB2YXIgb3B0aW9uID0gbmV3IE9wdGlvblZpZXcoKTtcclxuICAgICAgICAkKCcjbWFpbicpLmFwcGVuZChvcHRpb24ucmVuZGVyKCkuZWwpO1xyXG4gICAgfSxcclxuICAgIHJlY29tbWVuZGF0aW9uczogZnVuY3Rpb24gKHVzZXJuYW1lKSB7XHJcbiAgICAgICAgLy8gRW1wdHkgdGhlIG1haW4gZGl2XHJcbiAgICAgICAgJCgnI21haW4nKS5lbXB0eSgpO1xyXG4gICAgICAgIC8vIENyZWF0ZSB0aGUgRGFzaGJvYXJkIFZpZXdcclxuICAgICAgICB2YXIgZGJWaWV3ID0gbmV3IERhc2hib2FyZFZpZXcoKTtcclxuICAgICAgICAkKCcjbWFpbicpLmFwcGVuZChkYlZpZXcucmVuZGVyKCkuZWwpO1xyXG4gICAgICAgIC8vIENyZWF0ZXMgdGhlIGFydGlzdHMgY29sbGVjdGlvbiBhbmQgY2FsbHMgdGhlIGZ1bmN0aW9uIHRvIGdldCB0aGUgcmVjb21tZW5kYXRpb25zXHJcbiAgICAgICAgdmFyIGFydGlzdHMgPSBuZXcgQXJ0aXN0cyh7IHVzZXJuYW1lOiB1c2VybmFtZSB9KTtcclxuICAgICAgICBnZXRSZWNvbW1lbmRhdGlvbnNMaXN0KGFydGlzdHMpO1xyXG5cclxuICAgICAgICAvKipcclxuICAgICAgICAgKiBcclxuICAgICAgICAgKiBHZXRzIHJlY29tbWVuZGF0aW9ucyBiYXNlZCBvbiB0aGUgdXNlcnMgbGlzdGVucy5cclxuICAgICAgICAgKiBGZXRjaGVzIGFsbCB0aGUgbGlzdGVuZWQgYXJ0aXN0cyBlbiB0aGVuIGZldGNoZXMgc2ltaWxhciBhcnRpc3RzLlxyXG4gICAgICAgICAqIEBwYXJhbSB7YW55fSBhcnRpc3RzXHJcbiAgICAgICAgICovXHJcbiAgICAgICAgZnVuY3Rpb24gZ2V0UmVjb21tZW5kYXRpb25zTGlzdChhcnRpc3RzKSB7XHJcbiAgICAgICAgICAgIHZhciBhbGxDb2xsZWN0aW9ucyA9IG5ldyBDb21iaW5lZFJlY29tbWVuZGF0aW9ucygpO1xyXG4gICAgICAgICAgICB2YXIgaXRlbXNQcm9jZXNzZWQgPSAwO1xyXG5cclxuICAgICAgICAgICAgYXJ0aXN0cy5mZXRjaCgpLnRoZW4oZnVuY3Rpb24gKCkge1xyXG4gICAgICAgICAgICAgICAgLy8gR2V0cyB0aGUgYmFuZG5hbWVzIHRoZSB1c2VyIGxpc3RlbmVkIHRvLlxyXG4gICAgICAgICAgICAgICAgdmFyIGFydGlzdE5hbWVMaXN0ID0gYXJ0aXN0cy5wbHVjaygnbmFtZScpO1xyXG4gICAgICAgICAgICAgICAgLy8gZm9yZWFjaCBiYW5kbmFtZSBjcmVhdGUgYSBjb2xsZWN0aW9uIHdpdGggc2ltaWxhciBhcnRpc3RzIGFuZCBjb21iaW5lcyBhbGwgdGhvc2UgY29sbGVjdGlvbnNcclxuICAgICAgICAgICAgICAgIGFydGlzdE5hbWVMaXN0LmZvckVhY2goZnVuY3Rpb24gKGVsZW1lbnQpIHtcclxuICAgICAgICAgICAgICAgICAgICB2YXIgdGVtcENvbGxlY3Rpb24gPSBuZXcgUmVjb21tZW5kYXRpb25zKHsgYXJ0aXN0bmFtZTogZWxlbWVudCB9KTtcclxuXHJcbiAgICAgICAgICAgICAgICAgICAgdGVtcENvbGxlY3Rpb24uZmV0Y2goe1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdWNjZXNzOiBmdW5jdGlvbiAoY29sbGVjdGlvbiwgcmVzcG9uc2UsIG9wdGlvbnMpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIC8vIGdldCB0aGUgc2ltaWxhciBhcnRpc3Qgb2JqZWN0cyBmcm9tIHRoZSBjb2xsZWN0aW9uXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YXIgc2ltaWxhckxpc3QgPSB0ZW1wQ29sbGVjdGlvbi5wbHVjaygnc2ltaWxhcmFydGlzdHMnKTtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhciBzaW1pbGFyYXJ0aXN0cyA9IHNpbWlsYXJMaXN0WzBdLmFydGlzdDtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIC8vIG1ha2UgYW4gcmVjb21tZW5kYXRpb24gb2JqZWN0IGZvciBlYWNoIGFydGlzdCBhbmQgYWRkcyBpdCB0byB0aGUgY29tYmluZWQgY29sbGVjdGlvblxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgc2ltaWxhcmFydGlzdHMuZm9yRWFjaChmdW5jdGlvbiAoZWxlbWVudCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhciByZWMgPSBuZXcgUmVjb21tZW5kYXRpb24oZWxlbWVudCk7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYWxsQ29sbGVjdGlvbnMuYWRkKHJlYyk7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9KTtcclxuXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAvLyB0cmFja3MgaWYgYWxsIHRoZSBmZXRjaGVzIGFyZSBkb25lLCB0aGVuIGNhbGxzIHRoZSBzaG93UmVjb21tZW5kYXRpb25zIGZ1bmN0aW9uXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBpdGVtc1Byb2Nlc3NlZCsrO1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgaWYgKGl0ZW1zUHJvY2Vzc2VkID09PSBhcnRpc3ROYW1lTGlzdC5sZW5ndGgpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb25zb2xlLmxvZyhcImRvbmUgd2l0aCBhbGxcIik7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2hvd1JlY29tbWVuZGF0aW9ucyhhbGxDb2xsZWN0aW9ucyk7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGVycm9yOiBmdW5jdGlvbiAoY29sbGVjdGlvbiwgcmVzcG9uc2UsIG9wdGlvbnMpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnNvbGUubG9nKFwiZXJyb3JcIilcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH0pO1xyXG4gICAgICAgICAgICAgICAgfSk7XHJcbiAgICAgICAgICAgIH0pO1xyXG4gICAgICAgIH1cclxuICAgICAgIFxyXG4gICAgICAgIC8qKlxyXG4gICAgICAgICAqIFxyXG4gICAgICAgICAqIENyZWF0ZXMgYSBWaWV3IGZvciB0aGUgUmVjb21tZW5kYXRpb25zIENvbGxlY3Rpb24uXHJcbiAgICAgICAgICogQHBhcmFtIHthbnl9IHJlY3NMaXN0XHJcbiAgICAgICAgICovXHJcbiAgICAgICAgZnVuY3Rpb24gc2hvd1JlY29tbWVuZGF0aW9ucyhyZWNzTGlzdCkge1xyXG4gICAgICAgICAgICBjb25zb2xlLmxvZyhyZWNzTGlzdCk7XHJcbiAgICAgICAgICAgIHZhciByZWNzVmlldyA9IG5ldyBSZWNvbW1lbmRhdGlvbnNWaWV3KHsgY29sbGVjdGlvbjogcmVjc0xpc3QgfSk7XHJcbiAgICAgICAgICAgICQoJy5yZWMtY29udGFpbmVyJykuYXBwZW5kKHJlY3NWaWV3LnJlbmRlcigpLmVsKTtcclxuICAgICAgICB9XHJcbiAgICB9XHJcbn0pO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgQXBwUm91dGVyO1xyXG4iXX0=
 
 /***/ },
 /* 2 */
@@ -1632,7 +209,7 @@
 
 	  // Set up Backbone appropriately for the environment. Start with AMD.
 	  if (true) {
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1), __webpack_require__(3), exports], __WEBPACK_AMD_DEFINE_RESULT__ = function(_, $, exports) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(3), __webpack_require__(4), exports], __WEBPACK_AMD_DEFINE_RESULT__ = function(_, $, exports) {
 	      // Export global even in AMD case in case this script is loaded with
 	      // others that may still expect a global Backbone.
 	      root.Backbone = factory(root, exports, _, $);
@@ -3541,6 +2118,1560 @@
 
 /***/ },
 /* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
+	//     http://underscorejs.org
+	//     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	//     Underscore may be freely distributed under the MIT license.
+
+	(function() {
+
+	  // Baseline setup
+	  // --------------
+
+	  // Establish the root object, `window` in the browser, or `exports` on the server.
+	  var root = this;
+
+	  // Save the previous value of the `_` variable.
+	  var previousUnderscore = root._;
+
+	  // Save bytes in the minified (but not gzipped) version:
+	  var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
+
+	  // Create quick reference variables for speed access to core prototypes.
+	  var
+	    push             = ArrayProto.push,
+	    slice            = ArrayProto.slice,
+	    toString         = ObjProto.toString,
+	    hasOwnProperty   = ObjProto.hasOwnProperty;
+
+	  // All **ECMAScript 5** native function implementations that we hope to use
+	  // are declared here.
+	  var
+	    nativeIsArray      = Array.isArray,
+	    nativeKeys         = Object.keys,
+	    nativeBind         = FuncProto.bind,
+	    nativeCreate       = Object.create;
+
+	  // Naked function reference for surrogate-prototype-swapping.
+	  var Ctor = function(){};
+
+	  // Create a safe reference to the Underscore object for use below.
+	  var _ = function(obj) {
+	    if (obj instanceof _) return obj;
+	    if (!(this instanceof _)) return new _(obj);
+	    this._wrapped = obj;
+	  };
+
+	  // Export the Underscore object for **Node.js**, with
+	  // backwards-compatibility for the old `require()` API. If we're in
+	  // the browser, add `_` as a global object.
+	  if (true) {
+	    if (typeof module !== 'undefined' && module.exports) {
+	      exports = module.exports = _;
+	    }
+	    exports._ = _;
+	  } else {
+	    root._ = _;
+	  }
+
+	  // Current version.
+	  _.VERSION = '1.8.3';
+
+	  // Internal function that returns an efficient (for current engines) version
+	  // of the passed-in callback, to be repeatedly applied in other Underscore
+	  // functions.
+	  var optimizeCb = function(func, context, argCount) {
+	    if (context === void 0) return func;
+	    switch (argCount == null ? 3 : argCount) {
+	      case 1: return function(value) {
+	        return func.call(context, value);
+	      };
+	      case 2: return function(value, other) {
+	        return func.call(context, value, other);
+	      };
+	      case 3: return function(value, index, collection) {
+	        return func.call(context, value, index, collection);
+	      };
+	      case 4: return function(accumulator, value, index, collection) {
+	        return func.call(context, accumulator, value, index, collection);
+	      };
+	    }
+	    return function() {
+	      return func.apply(context, arguments);
+	    };
+	  };
+
+	  // A mostly-internal function to generate callbacks that can be applied
+	  // to each element in a collection, returning the desired result — either
+	  // identity, an arbitrary callback, a property matcher, or a property accessor.
+	  var cb = function(value, context, argCount) {
+	    if (value == null) return _.identity;
+	    if (_.isFunction(value)) return optimizeCb(value, context, argCount);
+	    if (_.isObject(value)) return _.matcher(value);
+	    return _.property(value);
+	  };
+	  _.iteratee = function(value, context) {
+	    return cb(value, context, Infinity);
+	  };
+
+	  // An internal function for creating assigner functions.
+	  var createAssigner = function(keysFunc, undefinedOnly) {
+	    return function(obj) {
+	      var length = arguments.length;
+	      if (length < 2 || obj == null) return obj;
+	      for (var index = 1; index < length; index++) {
+	        var source = arguments[index],
+	            keys = keysFunc(source),
+	            l = keys.length;
+	        for (var i = 0; i < l; i++) {
+	          var key = keys[i];
+	          if (!undefinedOnly || obj[key] === void 0) obj[key] = source[key];
+	        }
+	      }
+	      return obj;
+	    };
+	  };
+
+	  // An internal function for creating a new object that inherits from another.
+	  var baseCreate = function(prototype) {
+	    if (!_.isObject(prototype)) return {};
+	    if (nativeCreate) return nativeCreate(prototype);
+	    Ctor.prototype = prototype;
+	    var result = new Ctor;
+	    Ctor.prototype = null;
+	    return result;
+	  };
+
+	  var property = function(key) {
+	    return function(obj) {
+	      return obj == null ? void 0 : obj[key];
+	    };
+	  };
+
+	  // Helper for collection methods to determine whether a collection
+	  // should be iterated as an array or as an object
+	  // Related: http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength
+	  // Avoids a very nasty iOS 8 JIT bug on ARM-64. #2094
+	  var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
+	  var getLength = property('length');
+	  var isArrayLike = function(collection) {
+	    var length = getLength(collection);
+	    return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
+	  };
+
+	  // Collection Functions
+	  // --------------------
+
+	  // The cornerstone, an `each` implementation, aka `forEach`.
+	  // Handles raw objects in addition to array-likes. Treats all
+	  // sparse array-likes as if they were dense.
+	  _.each = _.forEach = function(obj, iteratee, context) {
+	    iteratee = optimizeCb(iteratee, context);
+	    var i, length;
+	    if (isArrayLike(obj)) {
+	      for (i = 0, length = obj.length; i < length; i++) {
+	        iteratee(obj[i], i, obj);
+	      }
+	    } else {
+	      var keys = _.keys(obj);
+	      for (i = 0, length = keys.length; i < length; i++) {
+	        iteratee(obj[keys[i]], keys[i], obj);
+	      }
+	    }
+	    return obj;
+	  };
+
+	  // Return the results of applying the iteratee to each element.
+	  _.map = _.collect = function(obj, iteratee, context) {
+	    iteratee = cb(iteratee, context);
+	    var keys = !isArrayLike(obj) && _.keys(obj),
+	        length = (keys || obj).length,
+	        results = Array(length);
+	    for (var index = 0; index < length; index++) {
+	      var currentKey = keys ? keys[index] : index;
+	      results[index] = iteratee(obj[currentKey], currentKey, obj);
+	    }
+	    return results;
+	  };
+
+	  // Create a reducing function iterating left or right.
+	  function createReduce(dir) {
+	    // Optimized iterator function as using arguments.length
+	    // in the main function will deoptimize the, see #1991.
+	    function iterator(obj, iteratee, memo, keys, index, length) {
+	      for (; index >= 0 && index < length; index += dir) {
+	        var currentKey = keys ? keys[index] : index;
+	        memo = iteratee(memo, obj[currentKey], currentKey, obj);
+	      }
+	      return memo;
+	    }
+
+	    return function(obj, iteratee, memo, context) {
+	      iteratee = optimizeCb(iteratee, context, 4);
+	      var keys = !isArrayLike(obj) && _.keys(obj),
+	          length = (keys || obj).length,
+	          index = dir > 0 ? 0 : length - 1;
+	      // Determine the initial value if none is provided.
+	      if (arguments.length < 3) {
+	        memo = obj[keys ? keys[index] : index];
+	        index += dir;
+	      }
+	      return iterator(obj, iteratee, memo, keys, index, length);
+	    };
+	  }
+
+	  // **Reduce** builds up a single result from a list of values, aka `inject`,
+	  // or `foldl`.
+	  _.reduce = _.foldl = _.inject = createReduce(1);
+
+	  // The right-associative version of reduce, also known as `foldr`.
+	  _.reduceRight = _.foldr = createReduce(-1);
+
+	  // Return the first value which passes a truth test. Aliased as `detect`.
+	  _.find = _.detect = function(obj, predicate, context) {
+	    var key;
+	    if (isArrayLike(obj)) {
+	      key = _.findIndex(obj, predicate, context);
+	    } else {
+	      key = _.findKey(obj, predicate, context);
+	    }
+	    if (key !== void 0 && key !== -1) return obj[key];
+	  };
+
+	  // Return all the elements that pass a truth test.
+	  // Aliased as `select`.
+	  _.filter = _.select = function(obj, predicate, context) {
+	    var results = [];
+	    predicate = cb(predicate, context);
+	    _.each(obj, function(value, index, list) {
+	      if (predicate(value, index, list)) results.push(value);
+	    });
+	    return results;
+	  };
+
+	  // Return all the elements for which a truth test fails.
+	  _.reject = function(obj, predicate, context) {
+	    return _.filter(obj, _.negate(cb(predicate)), context);
+	  };
+
+	  // Determine whether all of the elements match a truth test.
+	  // Aliased as `all`.
+	  _.every = _.all = function(obj, predicate, context) {
+	    predicate = cb(predicate, context);
+	    var keys = !isArrayLike(obj) && _.keys(obj),
+	        length = (keys || obj).length;
+	    for (var index = 0; index < length; index++) {
+	      var currentKey = keys ? keys[index] : index;
+	      if (!predicate(obj[currentKey], currentKey, obj)) return false;
+	    }
+	    return true;
+	  };
+
+	  // Determine if at least one element in the object matches a truth test.
+	  // Aliased as `any`.
+	  _.some = _.any = function(obj, predicate, context) {
+	    predicate = cb(predicate, context);
+	    var keys = !isArrayLike(obj) && _.keys(obj),
+	        length = (keys || obj).length;
+	    for (var index = 0; index < length; index++) {
+	      var currentKey = keys ? keys[index] : index;
+	      if (predicate(obj[currentKey], currentKey, obj)) return true;
+	    }
+	    return false;
+	  };
+
+	  // Determine if the array or object contains a given item (using `===`).
+	  // Aliased as `includes` and `include`.
+	  _.contains = _.includes = _.include = function(obj, item, fromIndex, guard) {
+	    if (!isArrayLike(obj)) obj = _.values(obj);
+	    if (typeof fromIndex != 'number' || guard) fromIndex = 0;
+	    return _.indexOf(obj, item, fromIndex) >= 0;
+	  };
+
+	  // Invoke a method (with arguments) on every item in a collection.
+	  _.invoke = function(obj, method) {
+	    var args = slice.call(arguments, 2);
+	    var isFunc = _.isFunction(method);
+	    return _.map(obj, function(value) {
+	      var func = isFunc ? method : value[method];
+	      return func == null ? func : func.apply(value, args);
+	    });
+	  };
+
+	  // Convenience version of a common use case of `map`: fetching a property.
+	  _.pluck = function(obj, key) {
+	    return _.map(obj, _.property(key));
+	  };
+
+	  // Convenience version of a common use case of `filter`: selecting only objects
+	  // containing specific `key:value` pairs.
+	  _.where = function(obj, attrs) {
+	    return _.filter(obj, _.matcher(attrs));
+	  };
+
+	  // Convenience version of a common use case of `find`: getting the first object
+	  // containing specific `key:value` pairs.
+	  _.findWhere = function(obj, attrs) {
+	    return _.find(obj, _.matcher(attrs));
+	  };
+
+	  // Return the maximum element (or element-based computation).
+	  _.max = function(obj, iteratee, context) {
+	    var result = -Infinity, lastComputed = -Infinity,
+	        value, computed;
+	    if (iteratee == null && obj != null) {
+	      obj = isArrayLike(obj) ? obj : _.values(obj);
+	      for (var i = 0, length = obj.length; i < length; i++) {
+	        value = obj[i];
+	        if (value > result) {
+	          result = value;
+	        }
+	      }
+	    } else {
+	      iteratee = cb(iteratee, context);
+	      _.each(obj, function(value, index, list) {
+	        computed = iteratee(value, index, list);
+	        if (computed > lastComputed || computed === -Infinity && result === -Infinity) {
+	          result = value;
+	          lastComputed = computed;
+	        }
+	      });
+	    }
+	    return result;
+	  };
+
+	  // Return the minimum element (or element-based computation).
+	  _.min = function(obj, iteratee, context) {
+	    var result = Infinity, lastComputed = Infinity,
+	        value, computed;
+	    if (iteratee == null && obj != null) {
+	      obj = isArrayLike(obj) ? obj : _.values(obj);
+	      for (var i = 0, length = obj.length; i < length; i++) {
+	        value = obj[i];
+	        if (value < result) {
+	          result = value;
+	        }
+	      }
+	    } else {
+	      iteratee = cb(iteratee, context);
+	      _.each(obj, function(value, index, list) {
+	        computed = iteratee(value, index, list);
+	        if (computed < lastComputed || computed === Infinity && result === Infinity) {
+	          result = value;
+	          lastComputed = computed;
+	        }
+	      });
+	    }
+	    return result;
+	  };
+
+	  // Shuffle a collection, using the modern version of the
+	  // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
+	  _.shuffle = function(obj) {
+	    var set = isArrayLike(obj) ? obj : _.values(obj);
+	    var length = set.length;
+	    var shuffled = Array(length);
+	    for (var index = 0, rand; index < length; index++) {
+	      rand = _.random(0, index);
+	      if (rand !== index) shuffled[index] = shuffled[rand];
+	      shuffled[rand] = set[index];
+	    }
+	    return shuffled;
+	  };
+
+	  // Sample **n** random values from a collection.
+	  // If **n** is not specified, returns a single random element.
+	  // The internal `guard` argument allows it to work with `map`.
+	  _.sample = function(obj, n, guard) {
+	    if (n == null || guard) {
+	      if (!isArrayLike(obj)) obj = _.values(obj);
+	      return obj[_.random(obj.length - 1)];
+	    }
+	    return _.shuffle(obj).slice(0, Math.max(0, n));
+	  };
+
+	  // Sort the object's values by a criterion produced by an iteratee.
+	  _.sortBy = function(obj, iteratee, context) {
+	    iteratee = cb(iteratee, context);
+	    return _.pluck(_.map(obj, function(value, index, list) {
+	      return {
+	        value: value,
+	        index: index,
+	        criteria: iteratee(value, index, list)
+	      };
+	    }).sort(function(left, right) {
+	      var a = left.criteria;
+	      var b = right.criteria;
+	      if (a !== b) {
+	        if (a > b || a === void 0) return 1;
+	        if (a < b || b === void 0) return -1;
+	      }
+	      return left.index - right.index;
+	    }), 'value');
+	  };
+
+	  // An internal function used for aggregate "group by" operations.
+	  var group = function(behavior) {
+	    return function(obj, iteratee, context) {
+	      var result = {};
+	      iteratee = cb(iteratee, context);
+	      _.each(obj, function(value, index) {
+	        var key = iteratee(value, index, obj);
+	        behavior(result, value, key);
+	      });
+	      return result;
+	    };
+	  };
+
+	  // Groups the object's values by a criterion. Pass either a string attribute
+	  // to group by, or a function that returns the criterion.
+	  _.groupBy = group(function(result, value, key) {
+	    if (_.has(result, key)) result[key].push(value); else result[key] = [value];
+	  });
+
+	  // Indexes the object's values by a criterion, similar to `groupBy`, but for
+	  // when you know that your index values will be unique.
+	  _.indexBy = group(function(result, value, key) {
+	    result[key] = value;
+	  });
+
+	  // Counts instances of an object that group by a certain criterion. Pass
+	  // either a string attribute to count by, or a function that returns the
+	  // criterion.
+	  _.countBy = group(function(result, value, key) {
+	    if (_.has(result, key)) result[key]++; else result[key] = 1;
+	  });
+
+	  // Safely create a real, live array from anything iterable.
+	  _.toArray = function(obj) {
+	    if (!obj) return [];
+	    if (_.isArray(obj)) return slice.call(obj);
+	    if (isArrayLike(obj)) return _.map(obj, _.identity);
+	    return _.values(obj);
+	  };
+
+	  // Return the number of elements in an object.
+	  _.size = function(obj) {
+	    if (obj == null) return 0;
+	    return isArrayLike(obj) ? obj.length : _.keys(obj).length;
+	  };
+
+	  // Split a collection into two arrays: one whose elements all satisfy the given
+	  // predicate, and one whose elements all do not satisfy the predicate.
+	  _.partition = function(obj, predicate, context) {
+	    predicate = cb(predicate, context);
+	    var pass = [], fail = [];
+	    _.each(obj, function(value, key, obj) {
+	      (predicate(value, key, obj) ? pass : fail).push(value);
+	    });
+	    return [pass, fail];
+	  };
+
+	  // Array Functions
+	  // ---------------
+
+	  // Get the first element of an array. Passing **n** will return the first N
+	  // values in the array. Aliased as `head` and `take`. The **guard** check
+	  // allows it to work with `_.map`.
+	  _.first = _.head = _.take = function(array, n, guard) {
+	    if (array == null) return void 0;
+	    if (n == null || guard) return array[0];
+	    return _.initial(array, array.length - n);
+	  };
+
+	  // Returns everything but the last entry of the array. Especially useful on
+	  // the arguments object. Passing **n** will return all the values in
+	  // the array, excluding the last N.
+	  _.initial = function(array, n, guard) {
+	    return slice.call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
+	  };
+
+	  // Get the last element of an array. Passing **n** will return the last N
+	  // values in the array.
+	  _.last = function(array, n, guard) {
+	    if (array == null) return void 0;
+	    if (n == null || guard) return array[array.length - 1];
+	    return _.rest(array, Math.max(0, array.length - n));
+	  };
+
+	  // Returns everything but the first entry of the array. Aliased as `tail` and `drop`.
+	  // Especially useful on the arguments object. Passing an **n** will return
+	  // the rest N values in the array.
+	  _.rest = _.tail = _.drop = function(array, n, guard) {
+	    return slice.call(array, n == null || guard ? 1 : n);
+	  };
+
+	  // Trim out all falsy values from an array.
+	  _.compact = function(array) {
+	    return _.filter(array, _.identity);
+	  };
+
+	  // Internal implementation of a recursive `flatten` function.
+	  var flatten = function(input, shallow, strict, startIndex) {
+	    var output = [], idx = 0;
+	    for (var i = startIndex || 0, length = getLength(input); i < length; i++) {
+	      var value = input[i];
+	      if (isArrayLike(value) && (_.isArray(value) || _.isArguments(value))) {
+	        //flatten current level of array or arguments object
+	        if (!shallow) value = flatten(value, shallow, strict);
+	        var j = 0, len = value.length;
+	        output.length += len;
+	        while (j < len) {
+	          output[idx++] = value[j++];
+	        }
+	      } else if (!strict) {
+	        output[idx++] = value;
+	      }
+	    }
+	    return output;
+	  };
+
+	  // Flatten out an array, either recursively (by default), or just one level.
+	  _.flatten = function(array, shallow) {
+	    return flatten(array, shallow, false);
+	  };
+
+	  // Return a version of the array that does not contain the specified value(s).
+	  _.without = function(array) {
+	    return _.difference(array, slice.call(arguments, 1));
+	  };
+
+	  // Produce a duplicate-free version of the array. If the array has already
+	  // been sorted, you have the option of using a faster algorithm.
+	  // Aliased as `unique`.
+	  _.uniq = _.unique = function(array, isSorted, iteratee, context) {
+	    if (!_.isBoolean(isSorted)) {
+	      context = iteratee;
+	      iteratee = isSorted;
+	      isSorted = false;
+	    }
+	    if (iteratee != null) iteratee = cb(iteratee, context);
+	    var result = [];
+	    var seen = [];
+	    for (var i = 0, length = getLength(array); i < length; i++) {
+	      var value = array[i],
+	          computed = iteratee ? iteratee(value, i, array) : value;
+	      if (isSorted) {
+	        if (!i || seen !== computed) result.push(value);
+	        seen = computed;
+	      } else if (iteratee) {
+	        if (!_.contains(seen, computed)) {
+	          seen.push(computed);
+	          result.push(value);
+	        }
+	      } else if (!_.contains(result, value)) {
+	        result.push(value);
+	      }
+	    }
+	    return result;
+	  };
+
+	  // Produce an array that contains the union: each distinct element from all of
+	  // the passed-in arrays.
+	  _.union = function() {
+	    return _.uniq(flatten(arguments, true, true));
+	  };
+
+	  // Produce an array that contains every item shared between all the
+	  // passed-in arrays.
+	  _.intersection = function(array) {
+	    var result = [];
+	    var argsLength = arguments.length;
+	    for (var i = 0, length = getLength(array); i < length; i++) {
+	      var item = array[i];
+	      if (_.contains(result, item)) continue;
+	      for (var j = 1; j < argsLength; j++) {
+	        if (!_.contains(arguments[j], item)) break;
+	      }
+	      if (j === argsLength) result.push(item);
+	    }
+	    return result;
+	  };
+
+	  // Take the difference between one array and a number of other arrays.
+	  // Only the elements present in just the first array will remain.
+	  _.difference = function(array) {
+	    var rest = flatten(arguments, true, true, 1);
+	    return _.filter(array, function(value){
+	      return !_.contains(rest, value);
+	    });
+	  };
+
+	  // Zip together multiple lists into a single array -- elements that share
+	  // an index go together.
+	  _.zip = function() {
+	    return _.unzip(arguments);
+	  };
+
+	  // Complement of _.zip. Unzip accepts an array of arrays and groups
+	  // each array's elements on shared indices
+	  _.unzip = function(array) {
+	    var length = array && _.max(array, getLength).length || 0;
+	    var result = Array(length);
+
+	    for (var index = 0; index < length; index++) {
+	      result[index] = _.pluck(array, index);
+	    }
+	    return result;
+	  };
+
+	  // Converts lists into objects. Pass either a single array of `[key, value]`
+	  // pairs, or two parallel arrays of the same length -- one of keys, and one of
+	  // the corresponding values.
+	  _.object = function(list, values) {
+	    var result = {};
+	    for (var i = 0, length = getLength(list); i < length; i++) {
+	      if (values) {
+	        result[list[i]] = values[i];
+	      } else {
+	        result[list[i][0]] = list[i][1];
+	      }
+	    }
+	    return result;
+	  };
+
+	  // Generator function to create the findIndex and findLastIndex functions
+	  function createPredicateIndexFinder(dir) {
+	    return function(array, predicate, context) {
+	      predicate = cb(predicate, context);
+	      var length = getLength(array);
+	      var index = dir > 0 ? 0 : length - 1;
+	      for (; index >= 0 && index < length; index += dir) {
+	        if (predicate(array[index], index, array)) return index;
+	      }
+	      return -1;
+	    };
+	  }
+
+	  // Returns the first index on an array-like that passes a predicate test
+	  _.findIndex = createPredicateIndexFinder(1);
+	  _.findLastIndex = createPredicateIndexFinder(-1);
+
+	  // Use a comparator function to figure out the smallest index at which
+	  // an object should be inserted so as to maintain order. Uses binary search.
+	  _.sortedIndex = function(array, obj, iteratee, context) {
+	    iteratee = cb(iteratee, context, 1);
+	    var value = iteratee(obj);
+	    var low = 0, high = getLength(array);
+	    while (low < high) {
+	      var mid = Math.floor((low + high) / 2);
+	      if (iteratee(array[mid]) < value) low = mid + 1; else high = mid;
+	    }
+	    return low;
+	  };
+
+	  // Generator function to create the indexOf and lastIndexOf functions
+	  function createIndexFinder(dir, predicateFind, sortedIndex) {
+	    return function(array, item, idx) {
+	      var i = 0, length = getLength(array);
+	      if (typeof idx == 'number') {
+	        if (dir > 0) {
+	            i = idx >= 0 ? idx : Math.max(idx + length, i);
+	        } else {
+	            length = idx >= 0 ? Math.min(idx + 1, length) : idx + length + 1;
+	        }
+	      } else if (sortedIndex && idx && length) {
+	        idx = sortedIndex(array, item);
+	        return array[idx] === item ? idx : -1;
+	      }
+	      if (item !== item) {
+	        idx = predicateFind(slice.call(array, i, length), _.isNaN);
+	        return idx >= 0 ? idx + i : -1;
+	      }
+	      for (idx = dir > 0 ? i : length - 1; idx >= 0 && idx < length; idx += dir) {
+	        if (array[idx] === item) return idx;
+	      }
+	      return -1;
+	    };
+	  }
+
+	  // Return the position of the first occurrence of an item in an array,
+	  // or -1 if the item is not included in the array.
+	  // If the array is large and already in sort order, pass `true`
+	  // for **isSorted** to use binary search.
+	  _.indexOf = createIndexFinder(1, _.findIndex, _.sortedIndex);
+	  _.lastIndexOf = createIndexFinder(-1, _.findLastIndex);
+
+	  // Generate an integer Array containing an arithmetic progression. A port of
+	  // the native Python `range()` function. See
+	  // [the Python documentation](http://docs.python.org/library/functions.html#range).
+	  _.range = function(start, stop, step) {
+	    if (stop == null) {
+	      stop = start || 0;
+	      start = 0;
+	    }
+	    step = step || 1;
+
+	    var length = Math.max(Math.ceil((stop - start) / step), 0);
+	    var range = Array(length);
+
+	    for (var idx = 0; idx < length; idx++, start += step) {
+	      range[idx] = start;
+	    }
+
+	    return range;
+	  };
+
+	  // Function (ahem) Functions
+	  // ------------------
+
+	  // Determines whether to execute a function as a constructor
+	  // or a normal function with the provided arguments
+	  var executeBound = function(sourceFunc, boundFunc, context, callingContext, args) {
+	    if (!(callingContext instanceof boundFunc)) return sourceFunc.apply(context, args);
+	    var self = baseCreate(sourceFunc.prototype);
+	    var result = sourceFunc.apply(self, args);
+	    if (_.isObject(result)) return result;
+	    return self;
+	  };
+
+	  // Create a function bound to a given object (assigning `this`, and arguments,
+	  // optionally). Delegates to **ECMAScript 5**'s native `Function.bind` if
+	  // available.
+	  _.bind = function(func, context) {
+	    if (nativeBind && func.bind === nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
+	    if (!_.isFunction(func)) throw new TypeError('Bind must be called on a function');
+	    var args = slice.call(arguments, 2);
+	    var bound = function() {
+	      return executeBound(func, bound, context, this, args.concat(slice.call(arguments)));
+	    };
+	    return bound;
+	  };
+
+	  // Partially apply a function by creating a version that has had some of its
+	  // arguments pre-filled, without changing its dynamic `this` context. _ acts
+	  // as a placeholder, allowing any combination of arguments to be pre-filled.
+	  _.partial = function(func) {
+	    var boundArgs = slice.call(arguments, 1);
+	    var bound = function() {
+	      var position = 0, length = boundArgs.length;
+	      var args = Array(length);
+	      for (var i = 0; i < length; i++) {
+	        args[i] = boundArgs[i] === _ ? arguments[position++] : boundArgs[i];
+	      }
+	      while (position < arguments.length) args.push(arguments[position++]);
+	      return executeBound(func, bound, this, this, args);
+	    };
+	    return bound;
+	  };
+
+	  // Bind a number of an object's methods to that object. Remaining arguments
+	  // are the method names to be bound. Useful for ensuring that all callbacks
+	  // defined on an object belong to it.
+	  _.bindAll = function(obj) {
+	    var i, length = arguments.length, key;
+	    if (length <= 1) throw new Error('bindAll must be passed function names');
+	    for (i = 1; i < length; i++) {
+	      key = arguments[i];
+	      obj[key] = _.bind(obj[key], obj);
+	    }
+	    return obj;
+	  };
+
+	  // Memoize an expensive function by storing its results.
+	  _.memoize = function(func, hasher) {
+	    var memoize = function(key) {
+	      var cache = memoize.cache;
+	      var address = '' + (hasher ? hasher.apply(this, arguments) : key);
+	      if (!_.has(cache, address)) cache[address] = func.apply(this, arguments);
+	      return cache[address];
+	    };
+	    memoize.cache = {};
+	    return memoize;
+	  };
+
+	  // Delays a function for the given number of milliseconds, and then calls
+	  // it with the arguments supplied.
+	  _.delay = function(func, wait) {
+	    var args = slice.call(arguments, 2);
+	    return setTimeout(function(){
+	      return func.apply(null, args);
+	    }, wait);
+	  };
+
+	  // Defers a function, scheduling it to run after the current call stack has
+	  // cleared.
+	  _.defer = _.partial(_.delay, _, 1);
+
+	  // Returns a function, that, when invoked, will only be triggered at most once
+	  // during a given window of time. Normally, the throttled function will run
+	  // as much as it can, without ever going more than once per `wait` duration;
+	  // but if you'd like to disable the execution on the leading edge, pass
+	  // `{leading: false}`. To disable execution on the trailing edge, ditto.
+	  _.throttle = function(func, wait, options) {
+	    var context, args, result;
+	    var timeout = null;
+	    var previous = 0;
+	    if (!options) options = {};
+	    var later = function() {
+	      previous = options.leading === false ? 0 : _.now();
+	      timeout = null;
+	      result = func.apply(context, args);
+	      if (!timeout) context = args = null;
+	    };
+	    return function() {
+	      var now = _.now();
+	      if (!previous && options.leading === false) previous = now;
+	      var remaining = wait - (now - previous);
+	      context = this;
+	      args = arguments;
+	      if (remaining <= 0 || remaining > wait) {
+	        if (timeout) {
+	          clearTimeout(timeout);
+	          timeout = null;
+	        }
+	        previous = now;
+	        result = func.apply(context, args);
+	        if (!timeout) context = args = null;
+	      } else if (!timeout && options.trailing !== false) {
+	        timeout = setTimeout(later, remaining);
+	      }
+	      return result;
+	    };
+	  };
+
+	  // Returns a function, that, as long as it continues to be invoked, will not
+	  // be triggered. The function will be called after it stops being called for
+	  // N milliseconds. If `immediate` is passed, trigger the function on the
+	  // leading edge, instead of the trailing.
+	  _.debounce = function(func, wait, immediate) {
+	    var timeout, args, context, timestamp, result;
+
+	    var later = function() {
+	      var last = _.now() - timestamp;
+
+	      if (last < wait && last >= 0) {
+	        timeout = setTimeout(later, wait - last);
+	      } else {
+	        timeout = null;
+	        if (!immediate) {
+	          result = func.apply(context, args);
+	          if (!timeout) context = args = null;
+	        }
+	      }
+	    };
+
+	    return function() {
+	      context = this;
+	      args = arguments;
+	      timestamp = _.now();
+	      var callNow = immediate && !timeout;
+	      if (!timeout) timeout = setTimeout(later, wait);
+	      if (callNow) {
+	        result = func.apply(context, args);
+	        context = args = null;
+	      }
+
+	      return result;
+	    };
+	  };
+
+	  // Returns the first function passed as an argument to the second,
+	  // allowing you to adjust arguments, run code before and after, and
+	  // conditionally execute the original function.
+	  _.wrap = function(func, wrapper) {
+	    return _.partial(wrapper, func);
+	  };
+
+	  // Returns a negated version of the passed-in predicate.
+	  _.negate = function(predicate) {
+	    return function() {
+	      return !predicate.apply(this, arguments);
+	    };
+	  };
+
+	  // Returns a function that is the composition of a list of functions, each
+	  // consuming the return value of the function that follows.
+	  _.compose = function() {
+	    var args = arguments;
+	    var start = args.length - 1;
+	    return function() {
+	      var i = start;
+	      var result = args[start].apply(this, arguments);
+	      while (i--) result = args[i].call(this, result);
+	      return result;
+	    };
+	  };
+
+	  // Returns a function that will only be executed on and after the Nth call.
+	  _.after = function(times, func) {
+	    return function() {
+	      if (--times < 1) {
+	        return func.apply(this, arguments);
+	      }
+	    };
+	  };
+
+	  // Returns a function that will only be executed up to (but not including) the Nth call.
+	  _.before = function(times, func) {
+	    var memo;
+	    return function() {
+	      if (--times > 0) {
+	        memo = func.apply(this, arguments);
+	      }
+	      if (times <= 1) func = null;
+	      return memo;
+	    };
+	  };
+
+	  // Returns a function that will be executed at most one time, no matter how
+	  // often you call it. Useful for lazy initialization.
+	  _.once = _.partial(_.before, 2);
+
+	  // Object Functions
+	  // ----------------
+
+	  // Keys in IE < 9 that won't be iterated by `for key in ...` and thus missed.
+	  var hasEnumBug = !{toString: null}.propertyIsEnumerable('toString');
+	  var nonEnumerableProps = ['valueOf', 'isPrototypeOf', 'toString',
+	                      'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
+
+	  function collectNonEnumProps(obj, keys) {
+	    var nonEnumIdx = nonEnumerableProps.length;
+	    var constructor = obj.constructor;
+	    var proto = (_.isFunction(constructor) && constructor.prototype) || ObjProto;
+
+	    // Constructor is a special case.
+	    var prop = 'constructor';
+	    if (_.has(obj, prop) && !_.contains(keys, prop)) keys.push(prop);
+
+	    while (nonEnumIdx--) {
+	      prop = nonEnumerableProps[nonEnumIdx];
+	      if (prop in obj && obj[prop] !== proto[prop] && !_.contains(keys, prop)) {
+	        keys.push(prop);
+	      }
+	    }
+	  }
+
+	  // Retrieve the names of an object's own properties.
+	  // Delegates to **ECMAScript 5**'s native `Object.keys`
+	  _.keys = function(obj) {
+	    if (!_.isObject(obj)) return [];
+	    if (nativeKeys) return nativeKeys(obj);
+	    var keys = [];
+	    for (var key in obj) if (_.has(obj, key)) keys.push(key);
+	    // Ahem, IE < 9.
+	    if (hasEnumBug) collectNonEnumProps(obj, keys);
+	    return keys;
+	  };
+
+	  // Retrieve all the property names of an object.
+	  _.allKeys = function(obj) {
+	    if (!_.isObject(obj)) return [];
+	    var keys = [];
+	    for (var key in obj) keys.push(key);
+	    // Ahem, IE < 9.
+	    if (hasEnumBug) collectNonEnumProps(obj, keys);
+	    return keys;
+	  };
+
+	  // Retrieve the values of an object's properties.
+	  _.values = function(obj) {
+	    var keys = _.keys(obj);
+	    var length = keys.length;
+	    var values = Array(length);
+	    for (var i = 0; i < length; i++) {
+	      values[i] = obj[keys[i]];
+	    }
+	    return values;
+	  };
+
+	  // Returns the results of applying the iteratee to each element of the object
+	  // In contrast to _.map it returns an object
+	  _.mapObject = function(obj, iteratee, context) {
+	    iteratee = cb(iteratee, context);
+	    var keys =  _.keys(obj),
+	          length = keys.length,
+	          results = {},
+	          currentKey;
+	      for (var index = 0; index < length; index++) {
+	        currentKey = keys[index];
+	        results[currentKey] = iteratee(obj[currentKey], currentKey, obj);
+	      }
+	      return results;
+	  };
+
+	  // Convert an object into a list of `[key, value]` pairs.
+	  _.pairs = function(obj) {
+	    var keys = _.keys(obj);
+	    var length = keys.length;
+	    var pairs = Array(length);
+	    for (var i = 0; i < length; i++) {
+	      pairs[i] = [keys[i], obj[keys[i]]];
+	    }
+	    return pairs;
+	  };
+
+	  // Invert the keys and values of an object. The values must be serializable.
+	  _.invert = function(obj) {
+	    var result = {};
+	    var keys = _.keys(obj);
+	    for (var i = 0, length = keys.length; i < length; i++) {
+	      result[obj[keys[i]]] = keys[i];
+	    }
+	    return result;
+	  };
+
+	  // Return a sorted list of the function names available on the object.
+	  // Aliased as `methods`
+	  _.functions = _.methods = function(obj) {
+	    var names = [];
+	    for (var key in obj) {
+	      if (_.isFunction(obj[key])) names.push(key);
+	    }
+	    return names.sort();
+	  };
+
+	  // Extend a given object with all the properties in passed-in object(s).
+	  _.extend = createAssigner(_.allKeys);
+
+	  // Assigns a given object with all the own properties in the passed-in object(s)
+	  // (https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+	  _.extendOwn = _.assign = createAssigner(_.keys);
+
+	  // Returns the first key on an object that passes a predicate test
+	  _.findKey = function(obj, predicate, context) {
+	    predicate = cb(predicate, context);
+	    var keys = _.keys(obj), key;
+	    for (var i = 0, length = keys.length; i < length; i++) {
+	      key = keys[i];
+	      if (predicate(obj[key], key, obj)) return key;
+	    }
+	  };
+
+	  // Return a copy of the object only containing the whitelisted properties.
+	  _.pick = function(object, oiteratee, context) {
+	    var result = {}, obj = object, iteratee, keys;
+	    if (obj == null) return result;
+	    if (_.isFunction(oiteratee)) {
+	      keys = _.allKeys(obj);
+	      iteratee = optimizeCb(oiteratee, context);
+	    } else {
+	      keys = flatten(arguments, false, false, 1);
+	      iteratee = function(value, key, obj) { return key in obj; };
+	      obj = Object(obj);
+	    }
+	    for (var i = 0, length = keys.length; i < length; i++) {
+	      var key = keys[i];
+	      var value = obj[key];
+	      if (iteratee(value, key, obj)) result[key] = value;
+	    }
+	    return result;
+	  };
+
+	   // Return a copy of the object without the blacklisted properties.
+	  _.omit = function(obj, iteratee, context) {
+	    if (_.isFunction(iteratee)) {
+	      iteratee = _.negate(iteratee);
+	    } else {
+	      var keys = _.map(flatten(arguments, false, false, 1), String);
+	      iteratee = function(value, key) {
+	        return !_.contains(keys, key);
+	      };
+	    }
+	    return _.pick(obj, iteratee, context);
+	  };
+
+	  // Fill in a given object with default properties.
+	  _.defaults = createAssigner(_.allKeys, true);
+
+	  // Creates an object that inherits from the given prototype object.
+	  // If additional properties are provided then they will be added to the
+	  // created object.
+	  _.create = function(prototype, props) {
+	    var result = baseCreate(prototype);
+	    if (props) _.extendOwn(result, props);
+	    return result;
+	  };
+
+	  // Create a (shallow-cloned) duplicate of an object.
+	  _.clone = function(obj) {
+	    if (!_.isObject(obj)) return obj;
+	    return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
+	  };
+
+	  // Invokes interceptor with the obj, and then returns obj.
+	  // The primary purpose of this method is to "tap into" a method chain, in
+	  // order to perform operations on intermediate results within the chain.
+	  _.tap = function(obj, interceptor) {
+	    interceptor(obj);
+	    return obj;
+	  };
+
+	  // Returns whether an object has a given set of `key:value` pairs.
+	  _.isMatch = function(object, attrs) {
+	    var keys = _.keys(attrs), length = keys.length;
+	    if (object == null) return !length;
+	    var obj = Object(object);
+	    for (var i = 0; i < length; i++) {
+	      var key = keys[i];
+	      if (attrs[key] !== obj[key] || !(key in obj)) return false;
+	    }
+	    return true;
+	  };
+
+
+	  // Internal recursive comparison function for `isEqual`.
+	  var eq = function(a, b, aStack, bStack) {
+	    // Identical objects are equal. `0 === -0`, but they aren't identical.
+	    // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
+	    if (a === b) return a !== 0 || 1 / a === 1 / b;
+	    // A strict comparison is necessary because `null == undefined`.
+	    if (a == null || b == null) return a === b;
+	    // Unwrap any wrapped objects.
+	    if (a instanceof _) a = a._wrapped;
+	    if (b instanceof _) b = b._wrapped;
+	    // Compare `[[Class]]` names.
+	    var className = toString.call(a);
+	    if (className !== toString.call(b)) return false;
+	    switch (className) {
+	      // Strings, numbers, regular expressions, dates, and booleans are compared by value.
+	      case '[object RegExp]':
+	      // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
+	      case '[object String]':
+	        // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
+	        // equivalent to `new String("5")`.
+	        return '' + a === '' + b;
+	      case '[object Number]':
+	        // `NaN`s are equivalent, but non-reflexive.
+	        // Object(NaN) is equivalent to NaN
+	        if (+a !== +a) return +b !== +b;
+	        // An `egal` comparison is performed for other numeric values.
+	        return +a === 0 ? 1 / +a === 1 / b : +a === +b;
+	      case '[object Date]':
+	      case '[object Boolean]':
+	        // Coerce dates and booleans to numeric primitive values. Dates are compared by their
+	        // millisecond representations. Note that invalid dates with millisecond representations
+	        // of `NaN` are not equivalent.
+	        return +a === +b;
+	    }
+
+	    var areArrays = className === '[object Array]';
+	    if (!areArrays) {
+	      if (typeof a != 'object' || typeof b != 'object') return false;
+
+	      // Objects with different constructors are not equivalent, but `Object`s or `Array`s
+	      // from different frames are.
+	      var aCtor = a.constructor, bCtor = b.constructor;
+	      if (aCtor !== bCtor && !(_.isFunction(aCtor) && aCtor instanceof aCtor &&
+	                               _.isFunction(bCtor) && bCtor instanceof bCtor)
+	                          && ('constructor' in a && 'constructor' in b)) {
+	        return false;
+	      }
+	    }
+	    // Assume equality for cyclic structures. The algorithm for detecting cyclic
+	    // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
+
+	    // Initializing stack of traversed objects.
+	    // It's done here since we only need them for objects and arrays comparison.
+	    aStack = aStack || [];
+	    bStack = bStack || [];
+	    var length = aStack.length;
+	    while (length--) {
+	      // Linear search. Performance is inversely proportional to the number of
+	      // unique nested structures.
+	      if (aStack[length] === a) return bStack[length] === b;
+	    }
+
+	    // Add the first object to the stack of traversed objects.
+	    aStack.push(a);
+	    bStack.push(b);
+
+	    // Recursively compare objects and arrays.
+	    if (areArrays) {
+	      // Compare array lengths to determine if a deep comparison is necessary.
+	      length = a.length;
+	      if (length !== b.length) return false;
+	      // Deep compare the contents, ignoring non-numeric properties.
+	      while (length--) {
+	        if (!eq(a[length], b[length], aStack, bStack)) return false;
+	      }
+	    } else {
+	      // Deep compare objects.
+	      var keys = _.keys(a), key;
+	      length = keys.length;
+	      // Ensure that both objects contain the same number of properties before comparing deep equality.
+	      if (_.keys(b).length !== length) return false;
+	      while (length--) {
+	        // Deep compare each member
+	        key = keys[length];
+	        if (!(_.has(b, key) && eq(a[key], b[key], aStack, bStack))) return false;
+	      }
+	    }
+	    // Remove the first object from the stack of traversed objects.
+	    aStack.pop();
+	    bStack.pop();
+	    return true;
+	  };
+
+	  // Perform a deep comparison to check if two objects are equal.
+	  _.isEqual = function(a, b) {
+	    return eq(a, b);
+	  };
+
+	  // Is a given array, string, or object empty?
+	  // An "empty" object has no enumerable own-properties.
+	  _.isEmpty = function(obj) {
+	    if (obj == null) return true;
+	    if (isArrayLike(obj) && (_.isArray(obj) || _.isString(obj) || _.isArguments(obj))) return obj.length === 0;
+	    return _.keys(obj).length === 0;
+	  };
+
+	  // Is a given value a DOM element?
+	  _.isElement = function(obj) {
+	    return !!(obj && obj.nodeType === 1);
+	  };
+
+	  // Is a given value an array?
+	  // Delegates to ECMA5's native Array.isArray
+	  _.isArray = nativeIsArray || function(obj) {
+	    return toString.call(obj) === '[object Array]';
+	  };
+
+	  // Is a given variable an object?
+	  _.isObject = function(obj) {
+	    var type = typeof obj;
+	    return type === 'function' || type === 'object' && !!obj;
+	  };
+
+	  // Add some isType methods: isArguments, isFunction, isString, isNumber, isDate, isRegExp, isError.
+	  _.each(['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp', 'Error'], function(name) {
+	    _['is' + name] = function(obj) {
+	      return toString.call(obj) === '[object ' + name + ']';
+	    };
+	  });
+
+	  // Define a fallback version of the method in browsers (ahem, IE < 9), where
+	  // there isn't any inspectable "Arguments" type.
+	  if (!_.isArguments(arguments)) {
+	    _.isArguments = function(obj) {
+	      return _.has(obj, 'callee');
+	    };
+	  }
+
+	  // Optimize `isFunction` if appropriate. Work around some typeof bugs in old v8,
+	  // IE 11 (#1621), and in Safari 8 (#1929).
+	  if (typeof /./ != 'function' && typeof Int8Array != 'object') {
+	    _.isFunction = function(obj) {
+	      return typeof obj == 'function' || false;
+	    };
+	  }
+
+	  // Is a given object a finite number?
+	  _.isFinite = function(obj) {
+	    return isFinite(obj) && !isNaN(parseFloat(obj));
+	  };
+
+	  // Is the given value `NaN`? (NaN is the only number which does not equal itself).
+	  _.isNaN = function(obj) {
+	    return _.isNumber(obj) && obj !== +obj;
+	  };
+
+	  // Is a given value a boolean?
+	  _.isBoolean = function(obj) {
+	    return obj === true || obj === false || toString.call(obj) === '[object Boolean]';
+	  };
+
+	  // Is a given value equal to null?
+	  _.isNull = function(obj) {
+	    return obj === null;
+	  };
+
+	  // Is a given variable undefined?
+	  _.isUndefined = function(obj) {
+	    return obj === void 0;
+	  };
+
+	  // Shortcut function for checking if an object has a given property directly
+	  // on itself (in other words, not on a prototype).
+	  _.has = function(obj, key) {
+	    return obj != null && hasOwnProperty.call(obj, key);
+	  };
+
+	  // Utility Functions
+	  // -----------------
+
+	  // Run Underscore.js in *noConflict* mode, returning the `_` variable to its
+	  // previous owner. Returns a reference to the Underscore object.
+	  _.noConflict = function() {
+	    root._ = previousUnderscore;
+	    return this;
+	  };
+
+	  // Keep the identity function around for default iteratees.
+	  _.identity = function(value) {
+	    return value;
+	  };
+
+	  // Predicate-generating functions. Often useful outside of Underscore.
+	  _.constant = function(value) {
+	    return function() {
+	      return value;
+	    };
+	  };
+
+	  _.noop = function(){};
+
+	  _.property = property;
+
+	  // Generates a function for a given object that returns a given property.
+	  _.propertyOf = function(obj) {
+	    return obj == null ? function(){} : function(key) {
+	      return obj[key];
+	    };
+	  };
+
+	  // Returns a predicate for checking whether an object has a given set of
+	  // `key:value` pairs.
+	  _.matcher = _.matches = function(attrs) {
+	    attrs = _.extendOwn({}, attrs);
+	    return function(obj) {
+	      return _.isMatch(obj, attrs);
+	    };
+	  };
+
+	  // Run a function **n** times.
+	  _.times = function(n, iteratee, context) {
+	    var accum = Array(Math.max(0, n));
+	    iteratee = optimizeCb(iteratee, context, 1);
+	    for (var i = 0; i < n; i++) accum[i] = iteratee(i);
+	    return accum;
+	  };
+
+	  // Return a random integer between min and max (inclusive).
+	  _.random = function(min, max) {
+	    if (max == null) {
+	      max = min;
+	      min = 0;
+	    }
+	    return min + Math.floor(Math.random() * (max - min + 1));
+	  };
+
+	  // A (possibly faster) way to get the current timestamp as an integer.
+	  _.now = Date.now || function() {
+	    return new Date().getTime();
+	  };
+
+	   // List of HTML entities for escaping.
+	  var escapeMap = {
+	    '&': '&amp;',
+	    '<': '&lt;',
+	    '>': '&gt;',
+	    '"': '&quot;',
+	    "'": '&#x27;',
+	    '`': '&#x60;'
+	  };
+	  var unescapeMap = _.invert(escapeMap);
+
+	  // Functions for escaping and unescaping strings to/from HTML interpolation.
+	  var createEscaper = function(map) {
+	    var escaper = function(match) {
+	      return map[match];
+	    };
+	    // Regexes for identifying a key that needs to be escaped
+	    var source = '(?:' + _.keys(map).join('|') + ')';
+	    var testRegexp = RegExp(source);
+	    var replaceRegexp = RegExp(source, 'g');
+	    return function(string) {
+	      string = string == null ? '' : '' + string;
+	      return testRegexp.test(string) ? string.replace(replaceRegexp, escaper) : string;
+	    };
+	  };
+	  _.escape = createEscaper(escapeMap);
+	  _.unescape = createEscaper(unescapeMap);
+
+	  // If the value of the named `property` is a function then invoke it with the
+	  // `object` as context; otherwise, return it.
+	  _.result = function(object, property, fallback) {
+	    var value = object == null ? void 0 : object[property];
+	    if (value === void 0) {
+	      value = fallback;
+	    }
+	    return _.isFunction(value) ? value.call(object) : value;
+	  };
+
+	  // Generate a unique integer id (unique within the entire client session).
+	  // Useful for temporary DOM ids.
+	  var idCounter = 0;
+	  _.uniqueId = function(prefix) {
+	    var id = ++idCounter + '';
+	    return prefix ? prefix + id : id;
+	  };
+
+	  // By default, Underscore uses ERB-style template delimiters, change the
+	  // following template settings to use alternative delimiters.
+	  _.templateSettings = {
+	    evaluate    : /<%([\s\S]+?)%>/g,
+	    interpolate : /<%=([\s\S]+?)%>/g,
+	    escape      : /<%-([\s\S]+?)%>/g
+	  };
+
+	  // When customizing `templateSettings`, if you don't want to define an
+	  // interpolation, evaluation or escaping regex, we need one that is
+	  // guaranteed not to match.
+	  var noMatch = /(.)^/;
+
+	  // Certain characters need to be escaped so that they can be put into a
+	  // string literal.
+	  var escapes = {
+	    "'":      "'",
+	    '\\':     '\\',
+	    '\r':     'r',
+	    '\n':     'n',
+	    '\u2028': 'u2028',
+	    '\u2029': 'u2029'
+	  };
+
+	  var escaper = /\\|'|\r|\n|\u2028|\u2029/g;
+
+	  var escapeChar = function(match) {
+	    return '\\' + escapes[match];
+	  };
+
+	  // JavaScript micro-templating, similar to John Resig's implementation.
+	  // Underscore templating handles arbitrary delimiters, preserves whitespace,
+	  // and correctly escapes quotes within interpolated code.
+	  // NB: `oldSettings` only exists for backwards compatibility.
+	  _.template = function(text, settings, oldSettings) {
+	    if (!settings && oldSettings) settings = oldSettings;
+	    settings = _.defaults({}, settings, _.templateSettings);
+
+	    // Combine delimiters into one regular expression via alternation.
+	    var matcher = RegExp([
+	      (settings.escape || noMatch).source,
+	      (settings.interpolate || noMatch).source,
+	      (settings.evaluate || noMatch).source
+	    ].join('|') + '|$', 'g');
+
+	    // Compile the template source, escaping string literals appropriately.
+	    var index = 0;
+	    var source = "__p+='";
+	    text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
+	      source += text.slice(index, offset).replace(escaper, escapeChar);
+	      index = offset + match.length;
+
+	      if (escape) {
+	        source += "'+\n((__t=(" + escape + "))==null?'':_.escape(__t))+\n'";
+	      } else if (interpolate) {
+	        source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
+	      } else if (evaluate) {
+	        source += "';\n" + evaluate + "\n__p+='";
+	      }
+
+	      // Adobe VMs need the match returned to produce the correct offest.
+	      return match;
+	    });
+	    source += "';\n";
+
+	    // If a variable is not specified, place data values in local scope.
+	    if (!settings.variable) source = 'with(obj||{}){\n' + source + '}\n';
+
+	    source = "var __t,__p='',__j=Array.prototype.join," +
+	      "print=function(){__p+=__j.call(arguments,'');};\n" +
+	      source + 'return __p;\n';
+
+	    try {
+	      var render = new Function(settings.variable || 'obj', '_', source);
+	    } catch (e) {
+	      e.source = source;
+	      throw e;
+	    }
+
+	    var template = function(data) {
+	      return render.call(this, data, _);
+	    };
+
+	    // Provide the compiled source as a convenience for precompilation.
+	    var argument = settings.variable || 'obj';
+	    template.source = 'function(' + argument + '){\n' + source + '}';
+
+	    return template;
+	  };
+
+	  // Add a "chain" function. Start chaining a wrapped Underscore object.
+	  _.chain = function(obj) {
+	    var instance = _(obj);
+	    instance._chain = true;
+	    return instance;
+	  };
+
+	  // OOP
+	  // ---------------
+	  // If Underscore is called as a function, it returns a wrapped object that
+	  // can be used OO-style. This wrapper holds altered versions of all the
+	  // underscore functions. Wrapped objects may be chained.
+
+	  // Helper function to continue chaining intermediate results.
+	  var result = function(instance, obj) {
+	    return instance._chain ? _(obj).chain() : obj;
+	  };
+
+	  // Add your own custom functions to the Underscore object.
+	  _.mixin = function(obj) {
+	    _.each(_.functions(obj), function(name) {
+	      var func = _[name] = obj[name];
+	      _.prototype[name] = function() {
+	        var args = [this._wrapped];
+	        push.apply(args, arguments);
+	        return result(this, func.apply(_, args));
+	      };
+	    });
+	  };
+
+	  // Add all of the Underscore functions to the wrapper object.
+	  _.mixin(_);
+
+	  // Add all mutator Array functions to the wrapper.
+	  _.each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
+	    var method = ArrayProto[name];
+	    _.prototype[name] = function() {
+	      var obj = this._wrapped;
+	      method.apply(obj, arguments);
+	      if ((name === 'shift' || name === 'splice') && obj.length === 0) delete obj[0];
+	      return result(this, obj);
+	    };
+	  });
+
+	  // Add all accessor Array functions to the wrapper.
+	  _.each(['concat', 'join', 'slice'], function(name) {
+	    var method = ArrayProto[name];
+	    _.prototype[name] = function() {
+	      return result(this, method.apply(this._wrapped, arguments));
+	    };
+	  });
+
+	  // Extracts the result from a wrapped and chained object.
+	  _.prototype.value = function() {
+	    return this._wrapped;
+	  };
+
+	  // Provide unwrapping proxy for some methods used in engine operations
+	  // such as arithmetic and JSON stringification.
+	  _.prototype.valueOf = _.prototype.toJSON = _.prototype.value;
+
+	  _.prototype.toString = function() {
+	    return '' + this._wrapped;
+	  };
+
+	  // AMD registration happens at the end for compatibility with AMD loaders
+	  // that may not enforce next-turn semantics on modules. Even though general
+	  // practice for AMD registration is to be anonymous, underscore registers
+	  // as a named module because, like jQuery, it is a base library that is
+	  // popular enough to be bundled in a third party lib, but not be part of
+	  // an AMD load request. Those cases could generate an error when an
+	  // anonymous define() is called outside of a loader request.
+	  if (true) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
+	      return _;
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  }
+	}.call(this));
+
+
+/***/ },
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -13360,34 +13491,6 @@
 
 
 /***/ },
-/* 4 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _backbone = __webpack_require__(2);
-
-	/**
-	 * Model for every match in the collection
-	 *
-	 * @constructor
-	 */
-	var Recommendation = _backbone.Model.extend({
-	    defaults: {
-	        name: 'artistname',
-	        url: "the artist url",
-	        image: "the artist image url"
-	    }
-	});
-
-	exports.default = Recommendation;
-	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xcbW9kZWxzXFxSZWNvbW1lbmRhdGlvbi5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTs7Ozs7OztBQU9BLElBQU0saUJBQWlCLGdCQUFNLE1BQU4sQ0FBYTtBQUNoQyxjQUFVO0FBQ04sY0FBTSxZQURBO0FBRU4sYUFBTSxnQkFGQTtBQUdOLGVBQVE7QUFIRjtBQURzQixDQUFiLENBQXZCOztrQkFRZSxjIiwiZmlsZSI6IlJlY29tbWVuZGF0aW9uLmpzIiwic291cmNlUm9vdCI6ImM6L3hhbXBwL2h0ZG9jcy9TZXJpb3VzSlMvTWVsbG9uTXVzaWMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge01vZGVsfSBmcm9tICdiYWNrYm9uZSc7XHJcblxyXG4vKipcclxuICogTW9kZWwgZm9yIGV2ZXJ5IG1hdGNoIGluIHRoZSBjb2xsZWN0aW9uXHJcbiAqXHJcbiAqIEBjb25zdHJ1Y3RvclxyXG4gKi9cclxuY29uc3QgUmVjb21tZW5kYXRpb24gPSBNb2RlbC5leHRlbmQoe1xyXG4gICAgZGVmYXVsdHM6IHtcclxuICAgICAgICBuYW1lOiAnYXJ0aXN0bmFtZScsXHJcbiAgICAgICAgdXJsIDogXCJ0aGUgYXJ0aXN0IHVybFwiLFxyXG4gICAgICAgIGltYWdlIDogXCJ0aGUgYXJ0aXN0IGltYWdlIHVybFwiLFxyXG4gICAgfVxyXG59KTtcclxuXHJcbmV4cG9ydCBkZWZhdWx0IFJlY29tbWVuZGF0aW9uO1xyXG4iXX0=
-
-/***/ },
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -13397,148 +13500,13 @@
 	    value: true
 	});
 
-	var _backbone = __webpack_require__(2);
-
-	var _Artist = __webpack_require__(6);
-
-	var _Artist2 = _interopRequireDefault(_Artist);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/**
-	 * Collection for the Artists
-	 */
-	var Artists = _backbone.Collection.extend({
-	    initialize: function initialize(options) {
-	        this.username = options.username;
-	    },
-	    url: function url() {
-	        return 'http://ws.audioscrobbler.com/2.0/?method=user.getweeklyartistchart&user=' + this.username + '&api_key=766d9ad802e564f2f59800e71319d1e9&format=json';
-	    },
-	    model: _Artist2.default,
-	    parse: function parse(response) {
-	        var items = response.weeklyartistchart.artist;
-	        // console.log(items);
-	        return items;
-	    }
-	});
-
-	exports.default = Artists;
-	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xcY29sbGVjdGlvbnNcXEFydGlzdHMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBQUE7O0FBQ0E7Ozs7Ozs7OztBQUtBLElBQU0sVUFBVSxxQkFBVyxNQUFYLENBQWtCO0FBQzlCLGdCQUFZLG9CQUFVLE9BQVYsRUFBbUI7QUFDM0IsYUFBSyxRQUFMLEdBQWdCLFFBQVEsUUFBeEI7QUFDSCxLQUg2QjtBQUk5QixTQUFLLGVBQVU7QUFDWCxlQUFPLDZFQUE2RSxLQUFLLFFBQWxGLEdBQTZGLHVEQUFwRztBQUNILEtBTjZCO0FBTzlCLDJCQVA4QjtBQVE5QixXQUFPLGVBQVUsUUFBVixFQUFvQjtBQUN2QixZQUFJLFFBQVEsU0FBUyxpQkFBVCxDQUEyQixNQUF2Qzs7QUFFQSxlQUFPLEtBQVA7QUFDSDtBQVo2QixDQUFsQixDQUFoQjs7a0JBZWUsTyIsImZpbGUiOiJBcnRpc3RzLmpzIiwic291cmNlUm9vdCI6ImM6L3hhbXBwL2h0ZG9jcy9TZXJpb3VzSlMvTWVsbG9uTXVzaWMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0NvbGxlY3Rpb259IGZyb20gJ2JhY2tib25lJztcclxuaW1wb3J0IEFydGlzdCBmcm9tICcuLi9tb2RlbHMvQXJ0aXN0JztcclxuXHJcbi8qKlxyXG4gKiBDb2xsZWN0aW9uIGZvciB0aGUgQXJ0aXN0c1xyXG4gKi9cclxuY29uc3QgQXJ0aXN0cyA9IENvbGxlY3Rpb24uZXh0ZW5kKHtcclxuICAgIGluaXRpYWxpemU6IGZ1bmN0aW9uIChvcHRpb25zKSB7XHJcbiAgICAgICAgdGhpcy51c2VybmFtZSA9IG9wdGlvbnMudXNlcm5hbWU7XHJcbiAgICB9LFxyXG4gICAgdXJsOiBmdW5jdGlvbigpe1xyXG4gICAgICAgIHJldHVybiAnaHR0cDovL3dzLmF1ZGlvc2Nyb2JibGVyLmNvbS8yLjAvP21ldGhvZD11c2VyLmdldHdlZWtseWFydGlzdGNoYXJ0JnVzZXI9JyArIHRoaXMudXNlcm5hbWUgKyAnJmFwaV9rZXk9NzY2ZDlhZDgwMmU1NjRmMmY1OTgwMGU3MTMxOWQxZTkmZm9ybWF0PWpzb24nO1xyXG4gICAgfSxcclxuICAgIG1vZGVsOiBBcnRpc3QsXHJcbiAgICBwYXJzZTogZnVuY3Rpb24gKHJlc3BvbnNlKSB7XHJcbiAgICAgICAgdmFyIGl0ZW1zID0gcmVzcG9uc2Uud2Vla2x5YXJ0aXN0Y2hhcnQuYXJ0aXN0O1xyXG4gICAgICAgIC8vIGNvbnNvbGUubG9nKGl0ZW1zKTtcclxuICAgICAgICByZXR1cm4gaXRlbXM7XHJcbiAgICB9XHJcbn0pO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgQXJ0aXN0cztcclxuXHJcblxyXG4iXX0=
-
-/***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _backbone = __webpack_require__(2);
-
-	/**
-	 * Model for every match in the collection
-	 *
-	 * @constructor
-	 */
-	var Artist = _backbone.Model.extend({
-	    defaults: {
-	        name: 'artistname'
-	    }
-	});
-
-	exports.default = Artist;
-	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xcbW9kZWxzXFxBcnRpc3QuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBQUE7Ozs7Ozs7QUFPQSxJQUFNLFNBQVMsZ0JBQU0sTUFBTixDQUFhO0FBQ3hCLGNBQVU7QUFDTixjQUFNO0FBREE7QUFEYyxDQUFiLENBQWY7O2tCQU1lLE0iLCJmaWxlIjoiQXJ0aXN0LmpzIiwic291cmNlUm9vdCI6ImM6L3hhbXBwL2h0ZG9jcy9TZXJpb3VzSlMvTWVsbG9uTXVzaWMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge01vZGVsfSBmcm9tICdiYWNrYm9uZSc7XHJcblxyXG4vKipcclxuICogTW9kZWwgZm9yIGV2ZXJ5IG1hdGNoIGluIHRoZSBjb2xsZWN0aW9uXHJcbiAqXHJcbiAqIEBjb25zdHJ1Y3RvclxyXG4gKi9cclxuY29uc3QgQXJ0aXN0ID0gTW9kZWwuZXh0ZW5kKHtcclxuICAgIGRlZmF1bHRzOiB7XHJcbiAgICAgICAgbmFtZTogJ2FydGlzdG5hbWUnXHJcbiAgICB9XHJcbn0pO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgQXJ0aXN0O1xyXG4iXX0=
-
-/***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _backbone = __webpack_require__(2);
-
-	var _Recommendation = __webpack_require__(4);
-
-	var _Recommendation2 = _interopRequireDefault(_Recommendation);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/**
-	 * Collection for the Artists
-	 */
-	var Recommendations = _backbone.Collection.extend({
-	    initialize: function initialize(options) {
-	        this.artistname = options.artistname;
-	    },
-	    url: function url() {
-	        return 'http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=' + this.artistname + '&api_key=766d9ad802e564f2f59800e71319d1e9&format=json&limit=5';
-	    },
-	    model: _Recommendation2.default
-	});
-
-	exports.default = Recommendations;
-	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xcY29sbGVjdGlvbnNcXFJlY29tbWVuZGF0aW9ucy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTs7QUFDQTs7Ozs7Ozs7O0FBS0EsSUFBTSxrQkFBa0IscUJBQVcsTUFBWCxDQUFrQjtBQUN0QyxnQkFBWSxvQkFBVSxPQUFWLEVBQW1CO0FBQzNCLGFBQUssVUFBTCxHQUFrQixRQUFRLFVBQTFCO0FBQ0gsS0FIcUM7QUFJdEMsU0FBSyxlQUFZO0FBQ2IsZUFBTyx1RUFBdUUsS0FBSyxVQUE1RSxHQUF5RiwrREFBaEc7QUFDSCxLQU5xQztBQU90QztBQVBzQyxDQUFsQixDQUF4Qjs7a0JBVWUsZSIsImZpbGUiOiJSZWNvbW1lbmRhdGlvbnMuanMiLCJzb3VyY2VSb290IjoiYzoveGFtcHAvaHRkb2NzL1NlcmlvdXNKUy9NZWxsb25NdXNpYyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7Q29sbGVjdGlvbn0gZnJvbSAnYmFja2JvbmUnO1xyXG5pbXBvcnQgUmVjb21tZW5kYXRpb24gZnJvbSAnLi4vbW9kZWxzL1JlY29tbWVuZGF0aW9uJztcclxuXHJcbi8qKlxyXG4gKiBDb2xsZWN0aW9uIGZvciB0aGUgQXJ0aXN0c1xyXG4gKi9cclxuY29uc3QgUmVjb21tZW5kYXRpb25zID0gQ29sbGVjdGlvbi5leHRlbmQoe1xyXG4gICAgaW5pdGlhbGl6ZTogZnVuY3Rpb24gKG9wdGlvbnMpIHtcclxuICAgICAgICB0aGlzLmFydGlzdG5hbWUgPSBvcHRpb25zLmFydGlzdG5hbWU7XHJcbiAgICB9LFxyXG4gICAgdXJsOiBmdW5jdGlvbiAoKSB7XHJcbiAgICAgICAgcmV0dXJuICdodHRwOi8vd3MuYXVkaW9zY3JvYmJsZXIuY29tLzIuMC8/bWV0aG9kPWFydGlzdC5nZXRzaW1pbGFyJmFydGlzdD0nICsgdGhpcy5hcnRpc3RuYW1lICsgJyZhcGlfa2V5PTc2NmQ5YWQ4MDJlNTY0ZjJmNTk4MDBlNzEzMTlkMWU5JmZvcm1hdD1qc29uJmxpbWl0PTUnO1xyXG4gICAgfSxcclxuICAgIG1vZGVsOiBSZWNvbW1lbmRhdGlvbixcclxufSk7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBSZWNvbW1lbmRhdGlvbnM7XHJcbiJdfQ==
-
-/***/ },
-/* 8 */,
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _underscore = __webpack_require__(1);
+	var _underscore = __webpack_require__(3);
 
 	var _underscore2 = _interopRequireDefault(_underscore);
 
 	var _backbone = __webpack_require__(2);
 
-	var _jquery = __webpack_require__(3);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var RecommendationView = _backbone.View.extend({
-	    template: _underscore2.default.template((0, _jquery2.default)("#RecViewTemplate").html()),
-	    tagName: 'div',
-	    className: 'recommendation-item',
-	    render: function render() {
-	        this.el.innerHTML = this.template(this.model.toJSON());
-	        return this;
-	    }
-	});
-
-	exports.default = RecommendationView;
-	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xcdmlld3NcXFJlY29tbWVuZGF0aW9uVmlldy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTs7OztBQUNBOztBQUNBOzs7Ozs7QUFFQSxJQUFNLHFCQUFxQixlQUFLLE1BQUwsQ0FBWTtBQUNuQyxjQUFVLHFCQUFFLFFBQUYsQ0FBVyxzQkFBRSxrQkFBRixFQUFzQixJQUF0QixFQUFYLENBRHlCO0FBRW5DLGFBQVMsS0FGMEI7QUFHbkMsZUFBVSxxQkFIeUI7QUFJbkMsWUFBUSxrQkFBWTtBQUNoQixhQUFLLEVBQUwsQ0FBUSxTQUFSLEdBQW9CLEtBQUssUUFBTCxDQUFjLEtBQUssS0FBTCxDQUFXLE1BQVgsRUFBZCxDQUFwQjtBQUNBLGVBQU8sSUFBUDtBQUNIO0FBUGtDLENBQVosQ0FBM0I7O2tCQVdlLGtCIiwiZmlsZSI6IlJlY29tbWVuZGF0aW9uVmlldy5qcyIsInNvdXJjZVJvb3QiOiJjOi94YW1wcC9odGRvY3MvU2VyaW91c0pTL01lbGxvbk11c2ljIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IF8gZnJvbSAndW5kZXJzY29yZSc7XHJcbmltcG9ydCB7Vmlld30gZnJvbSAnYmFja2JvbmUnO1xyXG5pbXBvcnQgJCBmcm9tICdqcXVlcnknO1xyXG5cclxuY29uc3QgUmVjb21tZW5kYXRpb25WaWV3ID0gVmlldy5leHRlbmQoe1xyXG4gICAgdGVtcGxhdGU6IF8udGVtcGxhdGUoJChcIiNSZWNWaWV3VGVtcGxhdGVcIikuaHRtbCgpKSxcclxuICAgIHRhZ05hbWU6ICdkaXYnLFxyXG4gICAgY2xhc3NOYW1lOidyZWNvbW1lbmRhdGlvbi1pdGVtJyxcclxuICAgIHJlbmRlcjogZnVuY3Rpb24gKCkge1xyXG4gICAgICAgIHRoaXMuZWwuaW5uZXJIVE1MID0gdGhpcy50ZW1wbGF0ZSh0aGlzLm1vZGVsLnRvSlNPTigpKTtcclxuICAgICAgICByZXR1cm4gdGhpcztcclxuICAgIH1cclxufSk7XHJcblxyXG5cclxuZXhwb3J0IGRlZmF1bHQgUmVjb21tZW5kYXRpb25WaWV3OyJdfQ==
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _underscore = __webpack_require__(1);
-
-	var _underscore2 = _interopRequireDefault(_underscore);
-
-	var _backbone = __webpack_require__(2);
-
-	var _jquery = __webpack_require__(3);
+	var _jquery = __webpack_require__(4);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -13581,6 +13549,161 @@
 	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xcdmlld3NcXE9wdGlvblZpZXcuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBQUE7Ozs7QUFDQTs7QUFDQTs7Ozs7O0FBRUEsSUFBTSxhQUFhLGVBQUssTUFBTCxDQUFZO0FBQzNCLGNBQVUscUJBQUUsUUFBRixDQUFXLHNCQUFFLGlCQUFGLEVBQXFCLElBQXJCLEVBQVgsQ0FEaUI7QUFFM0IsZ0JBQVksc0JBQVksQ0FFdkIsQ0FKMEI7QUFLM0IsWUFBUTtBQUNKLHlCQUFpQixvQkFEYjtBQUVKLCtCQUF1QjtBQUZuQixLQUxtQjtBQVMzQixZQUFRLGtCQUFZO0FBQ2hCLGFBQUssRUFBTCxDQUFRLFNBQVIsR0FBb0IsS0FBSyxRQUFMLEVBQXBCOztBQUVBLGVBQU8sSUFBUDtBQUNILEtBYjBCO0FBYzNCLHdCQUFvQiw0QkFBVSxHQUFWLEVBQWU7QUFDL0IsOEJBQUUsU0FBRixFQUFhLElBQWIsQ0FBa0IsSUFBbEIsRUFBd0IsS0FBeEI7QUFDQSw4QkFBRSxTQUFGLEVBQWEsSUFBYixDQUFrQixTQUFsQixFQUE2QixNQUE3QjtBQUNILEtBakIwQjtBQWtCM0IsaUJBQWEscUJBQVUsS0FBVixFQUFpQjtBQUMxQixjQUFNLGNBQU47QUFDQSxZQUFJLE9BQU8sc0JBQUUsV0FBRixFQUFlLEdBQWYsRUFBWDs7Ozs7Ozs7O0FBU0EsaUJBQVMsT0FBVCxDQUFpQixRQUFqQixDQUEwQixxQkFBb0IsSUFBcEIsR0FBMEIsRUFBcEQsRUFBeUQsRUFBRSxTQUFTLElBQVgsRUFBekQ7QUFFSCxLQS9CMEI7QUFnQzNCLGFBQVMsS0FoQ2tCO0FBaUMzQixlQUFXO0FBakNnQixDQUFaLENBQW5COztrQkFvQ2UsVSIsImZpbGUiOiJPcHRpb25WaWV3LmpzIiwic291cmNlUm9vdCI6ImM6L3hhbXBwL2h0ZG9jcy9TZXJpb3VzSlMvTWVsbG9uTXVzaWMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgXyBmcm9tICd1bmRlcnNjb3JlJztcclxuaW1wb3J0IHtWaWV3fSBmcm9tICdiYWNrYm9uZSc7XHJcbmltcG9ydCAkIGZyb20gJ2pxdWVyeSc7XHJcblxyXG5jb25zdCBPcHRpb25WaWV3ID0gVmlldy5leHRlbmQoe1xyXG4gICAgdGVtcGxhdGU6IF8udGVtcGxhdGUoJChcIiNPcHRpb25UZW1wbGF0ZVwiKS5odG1sKCkpLFxyXG4gICAgaW5pdGlhbGl6ZTogZnVuY3Rpb24gKCkge1xyXG5cclxuICAgIH0sXHJcbiAgICBldmVudHM6IHtcclxuICAgICAgICAnY2xpY2sgI2xhc3RmbSc6ICdsYXN0Zm1DbGlja0hhbmRsZXInLFxyXG4gICAgICAgICdzdWJtaXQgI29wdGlvbi1mb3JtJzogJ2Zvcm1IYW5kbGVyJ1xyXG4gICAgfSxcclxuICAgIHJlbmRlcjogZnVuY3Rpb24gKCkge1xyXG4gICAgICAgIHRoaXMuZWwuaW5uZXJIVE1MID0gdGhpcy50ZW1wbGF0ZSgpO1xyXG5cclxuICAgICAgICByZXR1cm4gdGhpcztcclxuICAgIH0sXHJcbiAgICBsYXN0Zm1DbGlja0hhbmRsZXI6IGZ1bmN0aW9uIChldnQpIHtcclxuICAgICAgICAkKCcjbGFzdGZtJykuZmluZCgnaDInKS5lbXB0eSgpO1xyXG4gICAgICAgICQoJyNsYXN0Zm0nKS5maW5kKCcuaGlkZGVuJykuZmFkZUluKCk7XHJcbiAgICB9LFxyXG4gICAgZm9ybUhhbmRsZXI6IGZ1bmN0aW9uIChldmVudCkge1xyXG4gICAgICAgIGV2ZW50LnByZXZlbnREZWZhdWx0KCk7XHJcbiAgICAgICAgdmFyIG5hbWUgPSAkKCcjdXNlcm5hbWUnKS52YWwoKTtcclxuICAgICAgICAvLyBjb25zb2xlLmxvZyhuYW1lKTtcclxuXHJcbiAgICAgICAgLy8gdmFyIGV2ZW50ID0gbmV3IEN1c3RvbUV2ZW50KFwiVXNlclwiLCB7XHJcbiAgICAgICAgLy8gICAgIGRldGFpbDoge1xyXG4gICAgICAgIC8vICAgICAgICAgdXNlcm5hbWU6IG5hbWVcclxuICAgICAgICAvLyAgICAgfVxyXG4gICAgICAgIC8vIH0pO1xyXG4gICAgICAgIC8vIGRvY3VtZW50LmRpc3BhdGNoRXZlbnQoZXZlbnQpO1xyXG4gICAgICAgIEJhY2tib25lLmhpc3RvcnkubmF2aWdhdGUoJ3JlY29tbWVuZGF0aW9ucy8nKyBuYW1lICsnJyAsIHsgdHJpZ2dlcjogdHJ1ZSB9KTtcclxuXHJcbiAgICB9LFxyXG4gICAgdGFnTmFtZTogJ2RpdicsXHJcbiAgICBjbGFzc05hbWU6ICdtcC1jb250YWluZXInXHJcbn0pO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgT3B0aW9uVmlldzsiXX0=
 
 /***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _backbone = __webpack_require__(2);
+
+	/**
+	 * Model for every match in the collection
+	 *
+	 * @constructor
+	 */
+	var Recommendation = _backbone.Model.extend({
+	    defaults: {
+	        name: 'artistname',
+	        url: "the artist url",
+	        image: "the artist image url"
+	    }
+	});
+
+	exports.default = Recommendation;
+	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xcbW9kZWxzXFxSZWNvbW1lbmRhdGlvbi5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTs7Ozs7OztBQU9BLElBQU0saUJBQWlCLGdCQUFNLE1BQU4sQ0FBYTtBQUNoQyxjQUFVO0FBQ04sY0FBTSxZQURBO0FBRU4sYUFBTSxnQkFGQTtBQUdOLGVBQVE7QUFIRjtBQURzQixDQUFiLENBQXZCOztrQkFRZSxjIiwiZmlsZSI6IlJlY29tbWVuZGF0aW9uLmpzIiwic291cmNlUm9vdCI6ImM6L3hhbXBwL2h0ZG9jcy9TZXJpb3VzSlMvTWVsbG9uTXVzaWMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge01vZGVsfSBmcm9tICdiYWNrYm9uZSc7XHJcblxyXG4vKipcclxuICogTW9kZWwgZm9yIGV2ZXJ5IG1hdGNoIGluIHRoZSBjb2xsZWN0aW9uXHJcbiAqXHJcbiAqIEBjb25zdHJ1Y3RvclxyXG4gKi9cclxuY29uc3QgUmVjb21tZW5kYXRpb24gPSBNb2RlbC5leHRlbmQoe1xyXG4gICAgZGVmYXVsdHM6IHtcclxuICAgICAgICBuYW1lOiAnYXJ0aXN0bmFtZScsXHJcbiAgICAgICAgdXJsIDogXCJ0aGUgYXJ0aXN0IHVybFwiLFxyXG4gICAgICAgIGltYWdlIDogXCJ0aGUgYXJ0aXN0IGltYWdlIHVybFwiLFxyXG4gICAgfVxyXG59KTtcclxuXHJcbmV4cG9ydCBkZWZhdWx0IFJlY29tbWVuZGF0aW9uO1xyXG4iXX0=
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _backbone = __webpack_require__(2);
+
+	var _Artist = __webpack_require__(8);
+
+	var _Artist2 = _interopRequireDefault(_Artist);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * Collection for the Artists
+	 */
+	var Artists = _backbone.Collection.extend({
+	    initialize: function initialize(options) {
+	        this.username = options.username;
+	    },
+	    url: function url() {
+	        return 'http://ws.audioscrobbler.com/2.0/?method=user.getweeklyartistchart&user=' + this.username + '&api_key=766d9ad802e564f2f59800e71319d1e9&format=json';
+	    },
+	    model: _Artist2.default,
+	    parse: function parse(response) {
+	        var items = response.weeklyartistchart.artist;
+	        // console.log(items);
+	        return items;
+	    }
+	});
+
+	exports.default = Artists;
+	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xcY29sbGVjdGlvbnNcXEFydGlzdHMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBQUE7O0FBQ0E7Ozs7Ozs7OztBQUtBLElBQU0sVUFBVSxxQkFBVyxNQUFYLENBQWtCO0FBQzlCLGdCQUFZLG9CQUFVLE9BQVYsRUFBbUI7QUFDM0IsYUFBSyxRQUFMLEdBQWdCLFFBQVEsUUFBeEI7QUFDSCxLQUg2QjtBQUk5QixTQUFLLGVBQVU7QUFDWCxlQUFPLDZFQUE2RSxLQUFLLFFBQWxGLEdBQTZGLHVEQUFwRztBQUNILEtBTjZCO0FBTzlCLDJCQVA4QjtBQVE5QixXQUFPLGVBQVUsUUFBVixFQUFvQjtBQUN2QixZQUFJLFFBQVEsU0FBUyxpQkFBVCxDQUEyQixNQUF2Qzs7QUFFQSxlQUFPLEtBQVA7QUFDSDtBQVo2QixDQUFsQixDQUFoQjs7a0JBZWUsTyIsImZpbGUiOiJBcnRpc3RzLmpzIiwic291cmNlUm9vdCI6ImM6L3hhbXBwL2h0ZG9jcy9TZXJpb3VzSlMvTWVsbG9uTXVzaWMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0NvbGxlY3Rpb259IGZyb20gJ2JhY2tib25lJztcclxuaW1wb3J0IEFydGlzdCBmcm9tICcuLi9tb2RlbHMvQXJ0aXN0JztcclxuXHJcbi8qKlxyXG4gKiBDb2xsZWN0aW9uIGZvciB0aGUgQXJ0aXN0c1xyXG4gKi9cclxuY29uc3QgQXJ0aXN0cyA9IENvbGxlY3Rpb24uZXh0ZW5kKHtcclxuICAgIGluaXRpYWxpemU6IGZ1bmN0aW9uIChvcHRpb25zKSB7XHJcbiAgICAgICAgdGhpcy51c2VybmFtZSA9IG9wdGlvbnMudXNlcm5hbWU7XHJcbiAgICB9LFxyXG4gICAgdXJsOiBmdW5jdGlvbigpe1xyXG4gICAgICAgIHJldHVybiAnaHR0cDovL3dzLmF1ZGlvc2Nyb2JibGVyLmNvbS8yLjAvP21ldGhvZD11c2VyLmdldHdlZWtseWFydGlzdGNoYXJ0JnVzZXI9JyArIHRoaXMudXNlcm5hbWUgKyAnJmFwaV9rZXk9NzY2ZDlhZDgwMmU1NjRmMmY1OTgwMGU3MTMxOWQxZTkmZm9ybWF0PWpzb24nO1xyXG4gICAgfSxcclxuICAgIG1vZGVsOiBBcnRpc3QsXHJcbiAgICBwYXJzZTogZnVuY3Rpb24gKHJlc3BvbnNlKSB7XHJcbiAgICAgICAgdmFyIGl0ZW1zID0gcmVzcG9uc2Uud2Vla2x5YXJ0aXN0Y2hhcnQuYXJ0aXN0O1xyXG4gICAgICAgIC8vIGNvbnNvbGUubG9nKGl0ZW1zKTtcclxuICAgICAgICByZXR1cm4gaXRlbXM7XHJcbiAgICB9XHJcbn0pO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgQXJ0aXN0cztcclxuXHJcblxyXG4iXX0=
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _backbone = __webpack_require__(2);
+
+	/**
+	 * Model for every match in the collection
+	 *
+	 * @constructor
+	 */
+	var Artist = _backbone.Model.extend({
+	    defaults: {
+	        name: 'artistname'
+	    }
+	});
+
+	exports.default = Artist;
+	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xcbW9kZWxzXFxBcnRpc3QuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBQUE7Ozs7Ozs7QUFPQSxJQUFNLFNBQVMsZ0JBQU0sTUFBTixDQUFhO0FBQ3hCLGNBQVU7QUFDTixjQUFNO0FBREE7QUFEYyxDQUFiLENBQWY7O2tCQU1lLE0iLCJmaWxlIjoiQXJ0aXN0LmpzIiwic291cmNlUm9vdCI6ImM6L3hhbXBwL2h0ZG9jcy9TZXJpb3VzSlMvTWVsbG9uTXVzaWMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge01vZGVsfSBmcm9tICdiYWNrYm9uZSc7XHJcblxyXG4vKipcclxuICogTW9kZWwgZm9yIGV2ZXJ5IG1hdGNoIGluIHRoZSBjb2xsZWN0aW9uXHJcbiAqXHJcbiAqIEBjb25zdHJ1Y3RvclxyXG4gKi9cclxuY29uc3QgQXJ0aXN0ID0gTW9kZWwuZXh0ZW5kKHtcclxuICAgIGRlZmF1bHRzOiB7XHJcbiAgICAgICAgbmFtZTogJ2FydGlzdG5hbWUnXHJcbiAgICB9XHJcbn0pO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgQXJ0aXN0O1xyXG4iXX0=
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _backbone = __webpack_require__(2);
+
+	var _Recommendation = __webpack_require__(6);
+
+	var _Recommendation2 = _interopRequireDefault(_Recommendation);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * Collection for the Artists
+	 */
+	var Recommendations = _backbone.Collection.extend({
+	    initialize: function initialize(options) {
+	        this.artistname = options.artistname;
+	    },
+	    url: function url() {
+	        return 'http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=' + this.artistname + '&api_key=766d9ad802e564f2f59800e71319d1e9&format=json&limit=5';
+	    },
+	    model: _Recommendation2.default
+	});
+
+	exports.default = Recommendations;
+	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xcY29sbGVjdGlvbnNcXFJlY29tbWVuZGF0aW9ucy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTs7QUFDQTs7Ozs7Ozs7O0FBS0EsSUFBTSxrQkFBa0IscUJBQVcsTUFBWCxDQUFrQjtBQUN0QyxnQkFBWSxvQkFBVSxPQUFWLEVBQW1CO0FBQzNCLGFBQUssVUFBTCxHQUFrQixRQUFRLFVBQTFCO0FBQ0gsS0FIcUM7QUFJdEMsU0FBSyxlQUFZO0FBQ2IsZUFBTyx1RUFBdUUsS0FBSyxVQUE1RSxHQUF5RiwrREFBaEc7QUFDSCxLQU5xQztBQU90QztBQVBzQyxDQUFsQixDQUF4Qjs7a0JBVWUsZSIsImZpbGUiOiJSZWNvbW1lbmRhdGlvbnMuanMiLCJzb3VyY2VSb290IjoiYzoveGFtcHAvaHRkb2NzL1NlcmlvdXNKUy9NZWxsb25NdXNpYyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7Q29sbGVjdGlvbn0gZnJvbSAnYmFja2JvbmUnO1xyXG5pbXBvcnQgUmVjb21tZW5kYXRpb24gZnJvbSAnLi4vbW9kZWxzL1JlY29tbWVuZGF0aW9uJztcclxuXHJcbi8qKlxyXG4gKiBDb2xsZWN0aW9uIGZvciB0aGUgQXJ0aXN0c1xyXG4gKi9cclxuY29uc3QgUmVjb21tZW5kYXRpb25zID0gQ29sbGVjdGlvbi5leHRlbmQoe1xyXG4gICAgaW5pdGlhbGl6ZTogZnVuY3Rpb24gKG9wdGlvbnMpIHtcclxuICAgICAgICB0aGlzLmFydGlzdG5hbWUgPSBvcHRpb25zLmFydGlzdG5hbWU7XHJcbiAgICB9LFxyXG4gICAgdXJsOiBmdW5jdGlvbiAoKSB7XHJcbiAgICAgICAgcmV0dXJuICdodHRwOi8vd3MuYXVkaW9zY3JvYmJsZXIuY29tLzIuMC8/bWV0aG9kPWFydGlzdC5nZXRzaW1pbGFyJmFydGlzdD0nICsgdGhpcy5hcnRpc3RuYW1lICsgJyZhcGlfa2V5PTc2NmQ5YWQ4MDJlNTY0ZjJmNTk4MDBlNzEzMTlkMWU5JmZvcm1hdD1qc29uJmxpbWl0PTUnO1xyXG4gICAgfSxcclxuICAgIG1vZGVsOiBSZWNvbW1lbmRhdGlvbixcclxufSk7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBSZWNvbW1lbmRhdGlvbnM7XHJcbiJdfQ==
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _backbone = __webpack_require__(2);
+
+	var _Recommendation = __webpack_require__(6);
+
+	var _Recommendation2 = _interopRequireDefault(_Recommendation);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * Collection for the Artists
+	 */
+	var CombinedRecommendations = _backbone.Collection.extend({
+	  model: _Recommendation2.default
+	});
+
+	exports.default = CombinedRecommendations;
+	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xcY29sbGVjdGlvbnNcXENvbWJpbmVkUmVjb21tZW5kYXRpb25zLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztBQUFBOztBQUNBOzs7Ozs7Ozs7QUFLQSxJQUFNLDBCQUEwQixxQkFBVyxNQUFYLENBQWtCO0FBQzlDO0FBRDhDLENBQWxCLENBQWhDOztrQkFJZSx1QiIsImZpbGUiOiJDb21iaW5lZFJlY29tbWVuZGF0aW9ucy5qcyIsInNvdXJjZVJvb3QiOiJjOi94YW1wcC9odGRvY3MvU2VyaW91c0pTL01lbGxvbk11c2ljIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtDb2xsZWN0aW9ufSBmcm9tICdiYWNrYm9uZSc7XHJcbmltcG9ydCBSZWNvbW1lbmRhdGlvbiBmcm9tICcuLi9tb2RlbHMvUmVjb21tZW5kYXRpb24nO1xyXG5cclxuLyoqXHJcbiAqIENvbGxlY3Rpb24gZm9yIHRoZSBBcnRpc3RzXHJcbiAqL1xyXG5jb25zdCBDb21iaW5lZFJlY29tbWVuZGF0aW9ucyA9IENvbGxlY3Rpb24uZXh0ZW5kKHtcclxuICAgIG1vZGVsOiBSZWNvbW1lbmRhdGlvbixcclxufSk7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBDb21iaW5lZFJlY29tbWVuZGF0aW9ucztcclxuIl19
+
+/***/ },
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -13590,99 +13713,76 @@
 	    value: true
 	});
 
+	var _underscore = __webpack_require__(3);
+
+	var _underscore2 = _interopRequireDefault(_underscore);
+
 	var _backbone = __webpack_require__(2);
 
-	var _OptionView = __webpack_require__(10);
-
-	var _OptionView2 = _interopRequireDefault(_OptionView);
-
-	var _jquery = __webpack_require__(3);
+	var _jquery = __webpack_require__(4);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _Recommendation = __webpack_require__(4);
-
-	var _Recommendation2 = _interopRequireDefault(_Recommendation);
-
-	var _Artists = __webpack_require__(5);
-
-	var _Artists2 = _interopRequireDefault(_Artists);
-
-	var _Recommendations = __webpack_require__(7);
-
-	var _Recommendations2 = _interopRequireDefault(_Recommendations);
-
-	var _RecommendationView = __webpack_require__(9);
-
-	var _RecommendationView2 = _interopRequireDefault(_RecommendationView);
-
-	var _DashboardView = __webpack_require__(13);
-
-	var _DashboardView2 = _interopRequireDefault(_DashboardView);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	/**
-	 * Router for the URL's
-	 *
-	 * @constructor
-	 */
-	var AppRouter = _backbone.Router.extend({
-	    routes: {
-	        '': 'options',
-	        'recommendations/:username': 'recommendations'
-	    },
-	    options: function options() {
-	        var option = new _OptionView2.default();
-	        (0, _jquery2.default)('#main').append(option.render().el);
-	    },
-	    recommendations: function recommendations(username) {
-	        (0, _jquery2.default)('#main').empty();
-	        var artists = new _Artists2.default({ username: username });
-	        getArtistsListened(artists);
-
-	        var dbView = new _DashboardView2.default();
-	        (0, _jquery2.default)('#main').append(dbView.render().el);
-	        /**
-	         * Gets the artists/bands the user listened to in that last week.
-	         * Then calls the getRecommendations function to get recommendations based on the listened artists.
-	         * 
-	         * @param {any} artists
-	         */
-	        function getArtistsListened(artists) {
-	            artists.fetch().then(function () {
-	                var artistNameList = artists.pluck('name');
-	                artistNameList.forEach(function (element) {
-	                    getRecommendations(new _Recommendations2.default({ artistname: element }));
-	                });
-	            });
-	        }
-
-	        /**
-	         * Gets 100 recommendations based on the given collection. Then Creates the collection views.
-	         * 
-	         * @param {any} recsList
-	         */
-	        function getRecommendations(recsList) {
-	            recsList.fetch().then(function () {
-	                var similarList = recsList.pluck('similarartists');
-	                var similarartists = similarList[0].artist;
-
-	                similarartists.forEach(function (element) {
-	                    var rec = new _Recommendation2.default(element);
-	                    var recView = new _RecommendationView2.default({ model: rec });
-	                    (0, _jquery2.default)('.rec-container').append(recView.render().el);
-	                });
-	            });
-	        }
+	var RecommendationView = _backbone.View.extend({
+	    template: _underscore2.default.template((0, _jquery2.default)("#RecViewTemplate").html()),
+	    tagName: 'div',
+	    className: 'recommendation-item',
+	    render: function render() {
+	        this.el.innerHTML = this.template(this.model.toJSON());
+	        return this;
 	    }
 	});
 
-	exports.default = AppRouter;
-	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xccm91dGVyc1xcQXBwUm91dGVyLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztBQUFBOztBQUNBOzs7O0FBQ0E7Ozs7QUFFQTs7OztBQUNBOzs7O0FBQ0E7Ozs7QUFDQTs7OztBQUNBOzs7Ozs7Ozs7OztBQU9BLElBQU0sWUFBWSxpQkFBTyxNQUFQLENBQWM7QUFDNUIsWUFBUTtBQUNKLFlBQUksU0FEQTtBQUVKLHFDQUE2QjtBQUZ6QixLQURvQjtBQUs1QixhQUFTLG1CQUFZO0FBQ2pCLFlBQUksU0FBUywwQkFBYjtBQUNBLDhCQUFFLE9BQUYsRUFBVyxNQUFYLENBQWtCLE9BQU8sTUFBUCxHQUFnQixFQUFsQztBQUNILEtBUjJCO0FBUzVCLHFCQUFpQix5QkFBVSxRQUFWLEVBQW9CO0FBQ2pDLDhCQUFFLE9BQUYsRUFBVyxLQUFYO0FBQ0EsWUFBSSxVQUFVLHNCQUFZLEVBQUUsVUFBVSxRQUFaLEVBQVosQ0FBZDtBQUNBLDJCQUFtQixPQUFuQjs7QUFFQSxZQUFJLFNBQVMsNkJBQWI7QUFDQSw4QkFBRSxPQUFGLEVBQVcsTUFBWCxDQUFrQixPQUFPLE1BQVAsR0FBZ0IsRUFBbEM7Ozs7Ozs7QUFPQSxpQkFBUyxrQkFBVCxDQUE0QixPQUE1QixFQUFxQztBQUNqQyxvQkFBUSxLQUFSLEdBQWdCLElBQWhCLENBQXFCLFlBQVk7QUFDN0Isb0JBQUksaUJBQWlCLFFBQVEsS0FBUixDQUFjLE1BQWQsQ0FBckI7QUFDQSwrQkFBZSxPQUFmLENBQXVCLFVBQVUsT0FBVixFQUFtQjtBQUN0Qyx1Q0FBbUIsOEJBQW9CLEVBQUUsWUFBWSxPQUFkLEVBQXBCLENBQW5CO0FBQ0gsaUJBRkQ7QUFHSCxhQUxEO0FBTUg7Ozs7Ozs7QUFPRCxpQkFBUyxrQkFBVCxDQUE0QixRQUE1QixFQUFzQztBQUNsQyxxQkFBUyxLQUFULEdBQWlCLElBQWpCLENBQXNCLFlBQVk7QUFDOUIsb0JBQUksY0FBYyxTQUFTLEtBQVQsQ0FBZSxnQkFBZixDQUFsQjtBQUNBLG9CQUFJLGlCQUFpQixZQUFZLENBQVosRUFBZSxNQUFwQzs7QUFFQSwrQkFBZSxPQUFmLENBQXVCLFVBQVUsT0FBVixFQUFtQjtBQUN0Qyx3QkFBSSxNQUFNLDZCQUFtQixPQUFuQixDQUFWO0FBQ0Esd0JBQUksVUFBVSxpQ0FBdUIsRUFBRSxPQUFPLEdBQVQsRUFBdkIsQ0FBZDtBQUNBLDBDQUFFLGdCQUFGLEVBQW9CLE1BQXBCLENBQTJCLFFBQVEsTUFBUixHQUFpQixFQUE1QztBQUNILGlCQUpEO0FBS0gsYUFURDtBQVVIO0FBQ0o7QUFoRDJCLENBQWQsQ0FBbEI7O2tCQW1EZSxTIiwiZmlsZSI6IkFwcFJvdXRlci5qcyIsInNvdXJjZVJvb3QiOiJjOi94YW1wcC9odGRvY3MvU2VyaW91c0pTL01lbGxvbk11c2ljIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtSb3V0ZXJ9IGZyb20gJ2JhY2tib25lJztcclxuaW1wb3J0IE9wdGlvblZpZXcgZnJvbSAnLi4vdmlld3MvT3B0aW9uVmlldyc7XHJcbmltcG9ydCAkIGZyb20gJ2pxdWVyeSc7XHJcblxyXG5pbXBvcnQgUmVjb21tZW5kYXRpb24gZnJvbSAnLi4vbW9kZWxzL1JlY29tbWVuZGF0aW9uJztcclxuaW1wb3J0IEFydGlzdHMgZnJvbSAnLi4vY29sbGVjdGlvbnMvQXJ0aXN0cyc7XHJcbmltcG9ydCBSZWNvbW1lbmRhdGlvbnMgZnJvbSAnLi4vY29sbGVjdGlvbnMvUmVjb21tZW5kYXRpb25zJztcclxuaW1wb3J0IFJlY29tbWVuZGF0aW9uVmlldyBmcm9tICcuLi92aWV3cy9SZWNvbW1lbmRhdGlvblZpZXcnO1xyXG5pbXBvcnQgRGFzaGJvYXJkVmlldyBmcm9tICcuLi92aWV3cy9EYXNoYm9hcmRWaWV3JztcclxuXHJcbi8qKlxyXG4gKiBSb3V0ZXIgZm9yIHRoZSBVUkwnc1xyXG4gKlxyXG4gKiBAY29uc3RydWN0b3JcclxuICovXHJcbmNvbnN0IEFwcFJvdXRlciA9IFJvdXRlci5leHRlbmQoe1xyXG4gICAgcm91dGVzOiB7XHJcbiAgICAgICAgJyc6ICdvcHRpb25zJyxcclxuICAgICAgICAncmVjb21tZW5kYXRpb25zLzp1c2VybmFtZSc6ICdyZWNvbW1lbmRhdGlvbnMnLFxyXG4gICAgfSxcclxuICAgIG9wdGlvbnM6IGZ1bmN0aW9uICgpIHtcclxuICAgICAgICB2YXIgb3B0aW9uID0gbmV3IE9wdGlvblZpZXcoKTtcclxuICAgICAgICAkKCcjbWFpbicpLmFwcGVuZChvcHRpb24ucmVuZGVyKCkuZWwpO1xyXG4gICAgfSxcclxuICAgIHJlY29tbWVuZGF0aW9uczogZnVuY3Rpb24gKHVzZXJuYW1lKSB7XHJcbiAgICAgICAgJCgnI21haW4nKS5lbXB0eSgpO1xyXG4gICAgICAgIHZhciBhcnRpc3RzID0gbmV3IEFydGlzdHMoeyB1c2VybmFtZTogdXNlcm5hbWUgfSk7XHJcbiAgICAgICAgZ2V0QXJ0aXN0c0xpc3RlbmVkKGFydGlzdHMpO1xyXG5cclxuICAgICAgICB2YXIgZGJWaWV3ID0gbmV3IERhc2hib2FyZFZpZXcoKTtcclxuICAgICAgICAkKCcjbWFpbicpLmFwcGVuZChkYlZpZXcucmVuZGVyKCkuZWwpO1xyXG4gICAgICAgIC8qKlxyXG4gICAgICAgICAqIEdldHMgdGhlIGFydGlzdHMvYmFuZHMgdGhlIHVzZXIgbGlzdGVuZWQgdG8gaW4gdGhhdCBsYXN0IHdlZWsuXHJcbiAgICAgICAgICogVGhlbiBjYWxscyB0aGUgZ2V0UmVjb21tZW5kYXRpb25zIGZ1bmN0aW9uIHRvIGdldCByZWNvbW1lbmRhdGlvbnMgYmFzZWQgb24gdGhlIGxpc3RlbmVkIGFydGlzdHMuXHJcbiAgICAgICAgICogXHJcbiAgICAgICAgICogQHBhcmFtIHthbnl9IGFydGlzdHNcclxuICAgICAgICAgKi9cclxuICAgICAgICBmdW5jdGlvbiBnZXRBcnRpc3RzTGlzdGVuZWQoYXJ0aXN0cykge1xyXG4gICAgICAgICAgICBhcnRpc3RzLmZldGNoKCkudGhlbihmdW5jdGlvbiAoKSB7XHJcbiAgICAgICAgICAgICAgICB2YXIgYXJ0aXN0TmFtZUxpc3QgPSBhcnRpc3RzLnBsdWNrKCduYW1lJyk7XHJcbiAgICAgICAgICAgICAgICBhcnRpc3ROYW1lTGlzdC5mb3JFYWNoKGZ1bmN0aW9uIChlbGVtZW50KSB7XHJcbiAgICAgICAgICAgICAgICAgICAgZ2V0UmVjb21tZW5kYXRpb25zKG5ldyBSZWNvbW1lbmRhdGlvbnMoeyBhcnRpc3RuYW1lOiBlbGVtZW50IH0pKTtcclxuICAgICAgICAgICAgICAgIH0pO1xyXG4gICAgICAgICAgICB9KTtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgIC8qKlxyXG4gICAgICAgICAqIEdldHMgMTAwIHJlY29tbWVuZGF0aW9ucyBiYXNlZCBvbiB0aGUgZ2l2ZW4gY29sbGVjdGlvbi4gVGhlbiBDcmVhdGVzIHRoZSBjb2xsZWN0aW9uIHZpZXdzLlxyXG4gICAgICAgICAqIFxyXG4gICAgICAgICAqIEBwYXJhbSB7YW55fSByZWNzTGlzdFxyXG4gICAgICAgICAqL1xyXG4gICAgICAgIGZ1bmN0aW9uIGdldFJlY29tbWVuZGF0aW9ucyhyZWNzTGlzdCkge1xyXG4gICAgICAgICAgICByZWNzTGlzdC5mZXRjaCgpLnRoZW4oZnVuY3Rpb24gKCkge1xyXG4gICAgICAgICAgICAgICAgdmFyIHNpbWlsYXJMaXN0ID0gcmVjc0xpc3QucGx1Y2soJ3NpbWlsYXJhcnRpc3RzJyk7XHJcbiAgICAgICAgICAgICAgICB2YXIgc2ltaWxhcmFydGlzdHMgPSBzaW1pbGFyTGlzdFswXS5hcnRpc3Q7XHJcblxyXG4gICAgICAgICAgICAgICAgc2ltaWxhcmFydGlzdHMuZm9yRWFjaChmdW5jdGlvbiAoZWxlbWVudCkge1xyXG4gICAgICAgICAgICAgICAgICAgIHZhciByZWMgPSBuZXcgUmVjb21tZW5kYXRpb24oZWxlbWVudCk7XHJcbiAgICAgICAgICAgICAgICAgICAgdmFyIHJlY1ZpZXcgPSBuZXcgUmVjb21tZW5kYXRpb25WaWV3KHsgbW9kZWw6IHJlYyB9KTtcclxuICAgICAgICAgICAgICAgICAgICAkKCcucmVjLWNvbnRhaW5lcicpLmFwcGVuZChyZWNWaWV3LnJlbmRlcigpLmVsKTtcclxuICAgICAgICAgICAgICAgIH0pO1xyXG4gICAgICAgICAgICB9KTtcclxuICAgICAgICB9XHJcbiAgICB9XHJcbn0pO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgQXBwUm91dGVyO1xyXG4iXX0=
+	exports.default = RecommendationView;
+	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xcdmlld3NcXFJlY29tbWVuZGF0aW9uVmlldy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTs7OztBQUNBOztBQUNBOzs7Ozs7QUFFQSxJQUFNLHFCQUFxQixlQUFLLE1BQUwsQ0FBWTtBQUNuQyxjQUFVLHFCQUFFLFFBQUYsQ0FBVyxzQkFBRSxrQkFBRixFQUFzQixJQUF0QixFQUFYLENBRHlCO0FBRW5DLGFBQVMsS0FGMEI7QUFHbkMsZUFBVSxxQkFIeUI7QUFJbkMsWUFBUSxrQkFBWTtBQUNoQixhQUFLLEVBQUwsQ0FBUSxTQUFSLEdBQW9CLEtBQUssUUFBTCxDQUFjLEtBQUssS0FBTCxDQUFXLE1BQVgsRUFBZCxDQUFwQjtBQUNBLGVBQU8sSUFBUDtBQUNIO0FBUGtDLENBQVosQ0FBM0I7O2tCQVdlLGtCIiwiZmlsZSI6IlJlY29tbWVuZGF0aW9uVmlldy5qcyIsInNvdXJjZVJvb3QiOiJjOi94YW1wcC9odGRvY3MvU2VyaW91c0pTL01lbGxvbk11c2ljIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IF8gZnJvbSAndW5kZXJzY29yZSc7XHJcbmltcG9ydCB7Vmlld30gZnJvbSAnYmFja2JvbmUnO1xyXG5pbXBvcnQgJCBmcm9tICdqcXVlcnknO1xyXG5cclxuY29uc3QgUmVjb21tZW5kYXRpb25WaWV3ID0gVmlldy5leHRlbmQoe1xyXG4gICAgdGVtcGxhdGU6IF8udGVtcGxhdGUoJChcIiNSZWNWaWV3VGVtcGxhdGVcIikuaHRtbCgpKSxcclxuICAgIHRhZ05hbWU6ICdkaXYnLFxyXG4gICAgY2xhc3NOYW1lOidyZWNvbW1lbmRhdGlvbi1pdGVtJyxcclxuICAgIHJlbmRlcjogZnVuY3Rpb24gKCkge1xyXG4gICAgICAgIHRoaXMuZWwuaW5uZXJIVE1MID0gdGhpcy50ZW1wbGF0ZSh0aGlzLm1vZGVsLnRvSlNPTigpKTtcclxuICAgICAgICByZXR1cm4gdGhpcztcclxuICAgIH1cclxufSk7XHJcblxyXG5cclxuZXhwb3J0IGRlZmF1bHQgUmVjb21tZW5kYXRpb25WaWV3OyJdfQ==
 
 /***/ },
-/* 12 */,
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _underscore = __webpack_require__(3);
+
+	var _underscore2 = _interopRequireDefault(_underscore);
+
+	var _backbone = __webpack_require__(2);
+
+	var _RecommendationView = __webpack_require__(11);
+
+	var _RecommendationView2 = _interopRequireDefault(_RecommendationView);
+
+	var _jquery = __webpack_require__(4);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var RecommendationsView = _backbone.View.extend({
+	    template: _underscore2.default.template((0, _jquery2.default)("#RecsViewTemplate").html()),
+
+	    render: function render() {
+	        this.el.innerHTML = this.template(this.collection);
+	        var ul = this.$('ul');
+
+	        this.collection.each(function (model) {
+	            var recView = new _RecommendationView2.default({ model: model });
+	            ul.append(recView.render().el);
+	        });
+	        return this;
+	    }
+	});
+
+	exports.default = RecommendationsView;
+	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyY1xcdmlld3NcXFJlY29tbWVuZGF0aW9uc1ZpZXcuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBQUE7Ozs7QUFDQTs7QUFDQTs7OztBQUNBOzs7Ozs7QUFFQSxJQUFNLHNCQUFzQixlQUFLLE1BQUwsQ0FBWTtBQUNwQyxjQUFVLHFCQUFFLFFBQUYsQ0FBVyxzQkFBRSxtQkFBRixFQUF1QixJQUF2QixFQUFYLENBRDBCOztBQUdwQyxZQUFPLGtCQUFVO0FBQ2IsYUFBSyxFQUFMLENBQVEsU0FBUixHQUFvQixLQUFLLFFBQUwsQ0FBYyxLQUFLLFVBQW5CLENBQXBCO0FBQ0EsWUFBSSxLQUFLLEtBQUssQ0FBTCxDQUFPLElBQVAsQ0FBVDs7QUFFQSxhQUFLLFVBQUwsQ0FBZ0IsSUFBaEIsQ0FBcUIsVUFBUyxLQUFULEVBQWU7QUFDaEMsZ0JBQUksVUFBVSxpQ0FBdUIsRUFBQyxPQUFRLEtBQVQsRUFBdkIsQ0FBZDtBQUNBLGVBQUcsTUFBSCxDQUFVLFFBQVEsTUFBUixHQUFpQixFQUEzQjtBQUNILFNBSEQ7QUFJQSxlQUFPLElBQVA7QUFDSDtBQVptQyxDQUFaLENBQTVCOztrQkFnQmUsbUIiLCJmaWxlIjoiUmVjb21tZW5kYXRpb25zVmlldy5qcyIsInNvdXJjZVJvb3QiOiJjOi94YW1wcC9odGRvY3MvU2VyaW91c0pTL01lbGxvbk11c2ljIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IF8gZnJvbSAndW5kZXJzY29yZSc7XHJcbmltcG9ydCB7Vmlld30gZnJvbSAnYmFja2JvbmUnO1xyXG5pbXBvcnQgUmVjb21tZW5kYXRpb25WaWV3IGZyb20gJy4uL3ZpZXdzL1JlY29tbWVuZGF0aW9uVmlldyc7XHJcbmltcG9ydCAkIGZyb20gJ2pxdWVyeSc7XHJcblxyXG5jb25zdCBSZWNvbW1lbmRhdGlvbnNWaWV3ID0gVmlldy5leHRlbmQoe1xyXG4gICAgdGVtcGxhdGU6IF8udGVtcGxhdGUoJChcIiNSZWNzVmlld1RlbXBsYXRlXCIpLmh0bWwoKSksXHJcbiAgICBcclxuICAgIHJlbmRlcjpmdW5jdGlvbigpe1xyXG4gICAgICAgIHRoaXMuZWwuaW5uZXJIVE1MID0gdGhpcy50ZW1wbGF0ZSh0aGlzLmNvbGxlY3Rpb24pO1xyXG4gICAgICAgIHZhciB1bCA9IHRoaXMuJCgndWwnKTtcclxuXHJcbiAgICAgICAgdGhpcy5jb2xsZWN0aW9uLmVhY2goZnVuY3Rpb24obW9kZWwpe1xyXG4gICAgICAgICAgICB2YXIgcmVjVmlldyA9IG5ldyBSZWNvbW1lbmRhdGlvblZpZXcoe21vZGVsIDogbW9kZWx9KTtcclxuICAgICAgICAgICAgdWwuYXBwZW5kKHJlY1ZpZXcucmVuZGVyKCkuZWwpO1xyXG4gICAgICAgIH0pO1xyXG4gICAgICAgIHJldHVybiB0aGlzO1xyXG4gICAgfVxyXG59KTtcclxuXHJcblxyXG5leHBvcnQgZGVmYXVsdCBSZWNvbW1lbmRhdGlvbnNWaWV3OyJdfQ==
+
+/***/ },
 /* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -13692,13 +13792,13 @@
 	    value: true
 	});
 
-	var _underscore = __webpack_require__(1);
+	var _underscore = __webpack_require__(3);
 
 	var _underscore2 = _interopRequireDefault(_underscore);
 
 	var _backbone = __webpack_require__(2);
 
-	var _jquery = __webpack_require__(3);
+	var _jquery = __webpack_require__(4);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
