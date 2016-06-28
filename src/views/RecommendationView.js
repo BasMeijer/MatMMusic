@@ -2,6 +2,10 @@ import _ from 'underscore';
 import {View} from 'backbone';
 import $ from 'jquery';
 
+/**
+ * View for a single Recommendation.
+ * 
+ */
 const RecommendationView = View.extend({
     template: _.template($("#RecViewTemplate").html()),
     tagName: 'div',

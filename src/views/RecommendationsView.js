@@ -3,6 +3,10 @@ import {View} from 'backbone';
 import RecommendationView from '../views/RecommendationView';
 import $ from 'jquery';
 
+/**
+ * The Collection view for the Recommendations. 
+ * Creates a Recommendation view for each Recommendation.
+ */
 const RecommendationsView = View.extend({
     template: _.template($("#RecsViewTemplate").html()),
     className:'item-container',

@@ -1,8 +1,11 @@
-
+// Import the diffrent Routers
 import AppRouter from './routers/AppRouter';
 import ArtistRouter from './routers/ArtistRouter';
+import TrendingRouter from './routers/TrendingRouter';
 
-var router = new AppRouter();
-var router2 = new ArtistRouter();
+// Create all the needed Routers
+var appRouter = new AppRouter();
+var artistRouter = new ArtistRouter();
+var trendingRouter = new TrendingRouter();
 
 Backbone.history.start({pushState: true, root: '/SeriousJS/MellonMusic/'});

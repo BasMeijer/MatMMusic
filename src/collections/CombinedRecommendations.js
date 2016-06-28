@@ -2,7 +2,8 @@ import {Collection} from 'backbone';
 import Recommendation from '../models/Recommendation';
 
 /**
- * Collection for the Artists
+ * Combined collection of recommendations, used to store many Recommendations collections in. Without needing an url to fetch. 
+ * 
  */
 const CombinedRecommendations = Collection.extend({
     model: Recommendation,

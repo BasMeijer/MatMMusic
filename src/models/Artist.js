@@ -1,7 +1,7 @@
 import {Model} from 'backbone';
 
 /**
- * Model for every match in the collection
+ * Model for the Artists from the API
  *
  * @constructor
  */

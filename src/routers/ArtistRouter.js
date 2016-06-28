@@ -33,10 +33,17 @@ const ArtistRouter = Router.extend({
 
         getRecommendations(bandname);
 
+
+        /**
+         * Gets the recommendations items, filters through the reponse and then creates a recommendation for each artist.
+         * 
+         * @param {any} artistName
+         */
         function getRecommendations(artistName) {
             var tempCollection = new Recommendations({ artistname: artistName });
             tempCollection.fetch().then(function () {
                 // get the similar artist objects from the collection
+                console.log(tempCollection);
                 var similarList = tempCollection.pluck('similarartists');
                 var similarartists = similarList[0].artist;
                 // make an recommendation object for each artist and adds it to the combined collection
@@ -46,9 +53,16 @@ const ArtistRouter = Router.extend({
                     $('.rec-container').append(recView.render().el);
                 });
             });
+            // stops the loading animation
             $('.rolling').addClass('hidden');
         }
 
+
+        /**
+         * Shows the recommendations on screen with the RecommendationsView
+         * 
+         * @param {any} recsList
+         */
         function showRecommendations(recsList) {
             var recsView = new RecommendationsView({ collection: recsList });
             $('.rec-container').append(recsView.render().el);

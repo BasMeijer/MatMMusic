@@ -20,7 +20,6 @@ const AppRouter = Router.extend({
     routes: {
         '': 'options',
         'recommendations/user/:username/': 'userrecommendations',
-        'recommendations/artist/:artistname/': 'artistsrecommendations',
     },
     options: function () {
         var option = new OptionView();
@@ -48,6 +47,11 @@ const AppRouter = Router.extend({
             });
         }
 
+        /**
+         * Gets the recommendations items, filters through the reponse and then creates a recommendation for each artist.
+         * 
+         * @param {any} artistName
+         */
         function getRecommendations(artistNameList) {
             var allCollections = new CombinedRecommendations();
             var itemsProcessed = 0;

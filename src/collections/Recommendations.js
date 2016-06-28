@@ -2,7 +2,7 @@ import {Collection} from 'backbone';
 import Recommendation from '../models/Recommendation';
 
 /**
- * Collection for the Artists
+ * Collection for the Recommendations, must have an url and username to fetch.
  */
 const Recommendations = Collection.extend({
     initialize: function (options) {
