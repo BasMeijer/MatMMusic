@@ -18,25 +18,25 @@ const TrendingRouter = Router.extend({
         'recommendations/trending/': 'trendingrecommendations',
     },
     options: function () {
-        var option = new OptionView();
+        let option = new OptionView();
         $('#main').append(option.render().el);
     },
     trendingrecommendations: function () {
         // Empty the main div
         $('#main').empty();
         // Create the Dashboard View
-        var dbView = new DashboardView();
+        let dbView = new DashboardView();
         $('#main').append(dbView.render().el);
 
         getTrendingRecommendations();
 
         // Gets Trending Recommendations Based on the collection
         function getTrendingRecommendations() {
-            var trendingCollection = new TrendingArtists();
+            let trendingCollection = new TrendingArtists();
             trendingCollection.fetch().then(function () {
                 // Fetches the artists, then filters through the api response to get the artists
-                var similarList = trendingCollection.pluck('artists');
-                var similarartists = similarList[0].artist;
+                let similarList = trendingCollection.pluck('artists');
+                let similarartists = similarList[0].artist;
                 showRecommendations(similarartists);
             });
             // Removes the loading animation
@@ -49,13 +49,13 @@ const TrendingRouter = Router.extend({
          * @param {any} recsList
          */
         function showRecommendations(recsList) {
-            var recs = new CombinedRecommendations();
+            let recs = new CombinedRecommendations();
             recsList.forEach(function(element){
-                var rec = new Recommendation(element);
+                let rec = new Recommendation(element);
                 recs.add(rec);
             });
 
-            var recsView = new RecommendationsView({ collection: recs });
+            let recsView = new RecommendationsView({ collection: recs });
             $('.rec-container').append(recsView.render().el);
             $('.rolling').addClass('hidden');
             

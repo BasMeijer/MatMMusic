@@ -43,13 +43,13 @@ const OptionView = View.extend({
     formHandler: function (event) {
         // Gets the value from the form and constructs the url.
         event.preventDefault();
-        var name = $('#username').val();
+        let name = $('#username').val();
         Backbone.history.navigate('recommendations/user/'+ name +'/' , { trigger: true });
     },
     artistHandler: function (event) {
          // Gets the value from the form and constructs the url.
         event.preventDefault();
-        var artistname = $('#artistname').val();
+        let artistname = $('#artistname').val();
         Backbone.history.navigate('recommendations/artist/'+ artistname +'/' , { trigger: true });
     },
     trendingHandler: function(event){

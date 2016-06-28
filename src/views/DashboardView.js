@@ -11,7 +11,6 @@ const DashboardView = View.extend({
 
     render: function () {
         this.el.innerHTML = this.template(this.collection);
-
         return this;
     },
     tagName: 'div',

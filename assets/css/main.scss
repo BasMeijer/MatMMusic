@@ -23,6 +23,10 @@ html,body,#main{
   display:none;
 }
 
+#main{
+  background-image: url("../images/matm-background.jpg");
+}
+
 //  ----------- Main Page STYLES -----------
 
 .mp-container{
@@ -32,7 +36,7 @@ html,body,#main{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("../images/mwbg.jpg");
+  background-image: url("../images/matm-background.jpg");
 
   .intro-text{
       color: white;
@@ -137,6 +141,9 @@ nav{
               text-decoration: none;
               color: $white;
             }
+            a:hover{
+              border-bottom: 2px solid #fff;
+            }
           }
         }
 }
@@ -151,7 +158,6 @@ nav{
   .rec-container{
     box-sizing: border-box;
     padding: 25px 0 25px 25px;
-    background-color: $red;
     width:100%;
     float:left;
     .item-container{
@@ -175,6 +181,20 @@ nav{
         width:100%;
         float:left;
         // opacity: 0.9;
+      }
+    }
+    .error-container{
+      width:500px;
+      margin:0 auto;
+      padding:50px;
+      border: 2px solid #fff;
+      box-shadow: 10px 15px 10px rgba(#1c1c1c, 0.10);
+      
+      h2{
+        font-size:1.5rem;
+      }
+      p{
+        margin-top:25px;
       }
     }
   }

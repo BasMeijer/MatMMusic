@@ -15,7 +15,7 @@ const RecommendationsView = View.extend({
         var ul = this.$('ul');
 
         this.collection.each(function(model){
-            var recView = new RecommendationView({model : model});
+            let recView = new RecommendationView({model : model});
             ul.append(recView.render().el);
         });
         return this;

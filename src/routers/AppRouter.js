@@ -21,14 +21,14 @@ const AppRouter = Router.extend({
         'recommendations/user/:username/': 'userrecommendations',
     },
     options: function () {
-        var option = new OptionView();
+        let option = new OptionView();
         $('#main').append(option.render().el);
     },
     userrecommendations: function (username) {
         // Empty the main div
         $('#main').empty();
         // Create the Dashboard View
-        var dbView = new DashboardView();
+        let dbView = new DashboardView();
         $('#main').append(dbView.render().el);
 
         getArtists(username);
@@ -42,11 +42,12 @@ const AppRouter = Router.extend({
             artists.fetch().then(function () {
                 // Checks if the user was not found or if there was an error.
                 if (artists == false || artists.length <= 0) {
-                    var errorView = new ErrorView();
+                    let errorView = new ErrorView();
                     $('.rec-container').append(errorView.render().el);
+                    $('.rolling').addClass('hidden');
                 } else {
                     // Gets the bandnames the user listened to.
-                    var artistNameList = artists.pluck('name');
+                    let artistNameList = artists.pluck('name');
                     getRecommendations(artistNameList);
                 }
             });
@@ -64,27 +65,26 @@ const AppRouter = Router.extend({
             // foreach bandname create a collection with similar artists and combines all those collections
             artistNameList.forEach(function (element) {
                 var tempCollection = new Recommendations({ artistname: element });
-
+                
                 tempCollection.fetch({
                     success: function (collection, response, options) {
                         // get the similar artist objects from the collection
-                        var similarList = tempCollection.pluck('similarartists');
-                        var similarartists = similarList[0].artist;
+                        let similarList = tempCollection.pluck('similarartists');
+                        let similarartists = similarList[0].artist;
                         // make an recommendation object for each artist and adds it to the combined collection
                         similarartists.forEach(function (element) {
-                            var rec = new Recommendation(element);
+                            let rec = new Recommendation(element);
                             allCollections.add(rec);
                         });
 
                         // tracks if all the fetches are done, then calls the showRecommendations function
                         itemsProcessed++;
                         if (itemsProcessed === artistNameList.length) {
-                            console.log("done with all");
                             showRecommendations(allCollections);
                         }
                     },
                     error: function (collection, response, options) {
-                        console.log("error")
+                        console.log("error");
                     }
                 });
             });
@@ -96,7 +96,7 @@ const AppRouter = Router.extend({
          * @param {any} recsList
          */
         function showRecommendations(recsList) {
-            var recsView = new RecommendationsView({ collection: recsList });
+            let recsView = new RecommendationsView({ collection: recsList });
             $('.rec-container').append(recsView.render().el);
             $('.rolling').addClass('hidden');
         }
