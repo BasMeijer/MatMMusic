@@ -13,9 +13,13 @@ const Artists = Collection.extend({
     },
     model: Artist,
     parse: function (response) {
-        var items = response.weeklyartistchart.artist;
-        // console.log(items);
-        return items;
+        // Checks if there was an error loading the artists.
+        if(response.weeklyartistchart == undefined){
+            return false;
+        }else{
+            var items = response.weeklyartistchart.artist;
+            return items;
+        }
     }
 });
 

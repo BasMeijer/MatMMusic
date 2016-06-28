@@ -5,11 +5,10 @@ import $ from 'jquery';
 import Recommendation from '../models/Recommendation';
 import Artists from '../collections/Artists';
 import Recommendations from '../collections/Recommendations';
-import CombinedRecommendations from '../collections/CombinedRecommendations';
-
 import RecommendationView from '../views/RecommendationView';
 import RecommendationsView from '../views/RecommendationsView';
 import DashboardView from '../views/DashboardView';
+import ErrorView from '../views/ErrorView';
 
 /**
  * Router for the URL's
@@ -43,15 +42,20 @@ const ArtistRouter = Router.extend({
             var tempCollection = new Recommendations({ artistname: artistName });
             tempCollection.fetch().then(function () {
                 // get the similar artist objects from the collection
-                console.log(tempCollection);
                 var similarList = tempCollection.pluck('similarartists');
-                var similarartists = similarList[0].artist;
-                // make an recommendation object for each artist and adds it to the combined collection
-                similarartists.forEach(function (element) {
-                    var rec = new Recommendation(element);
-                    var recView = new RecommendationView({ model: rec });
-                    $('.rec-container').append(recView.render().el);
-                });
+                // Checks if something went from and shows an errorview if so.
+                if (similarList[0] == null) {
+                    var errorView = new ErrorView();
+                    $('.rec-container').append(errorView.render().el);
+                } else {
+                    var similarartists = similarList[0].artist;
+                    // make an recommendation object for each artist and adds it to the combined collection
+                    similarartists.forEach(function (element) {
+                        var rec = new Recommendation(element);
+                        var recView = new RecommendationView({ model: rec });
+                        $('.rec-container').append(recView.render().el);
+                    });
+                }
             });
             // stops the loading animation
             $('.rolling').addClass('hidden');

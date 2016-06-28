@@ -6,10 +6,9 @@ import Recommendation from '../models/Recommendation';
 import Artists from '../collections/Artists';
 import Recommendations from '../collections/Recommendations';
 import CombinedRecommendations from '../collections/CombinedRecommendations';
-
-import RecommendationView from '../views/RecommendationView';
 import RecommendationsView from '../views/RecommendationsView';
 import DashboardView from '../views/DashboardView';
+import ErrorView from '../views/ErrorView';
 
 /**
  * Router for the URL's
@@ -41,9 +40,15 @@ const AppRouter = Router.extend({
             // Creates the artists collection and calls the function to get the recommendations
             var artists = new Artists({ username: username });
             artists.fetch().then(function () {
-                // Gets the bandnames the user listened to.
-                var artistNameList = artists.pluck('name');
-                getRecommendations(artistNameList);
+                // Checks if the user was not found or if there was an error.
+                if (artists == false || artists.length <= 0) {
+                    var errorView = new ErrorView();
+                    $('.rec-container').append(errorView.render().el);
+                } else {
+                    // Gets the bandnames the user listened to.
+                    var artistNameList = artists.pluck('name');
+                    getRecommendations(artistNameList);
+                }
             });
         }
 

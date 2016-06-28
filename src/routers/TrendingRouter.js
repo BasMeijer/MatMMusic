@@ -1,6 +1,7 @@
 import {Router} from 'backbone';
 import OptionView from '../views/OptionView';
 import $ from 'jquery';
+
 import TrendingArtists from '../collections/TrendingArtists';
 import CombinedRecommendations from '../collections/CombinedRecommendations';
 import Recommendation from '../models/Recommendation';
