@@ -1,4 +1,6 @@
-## MATMMusic is an application build for the course Frontend Development.
+## MATMMusic
+### An application build for the course Frontend Development.
+
 Build with Backbone + Webpack and Babel for ES6 Features.
 
 The application generates music / artist recommendations based on your input. Users without an last.fm account
