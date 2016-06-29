@@ -1,24 +1,25 @@
-MATMMusic is an application build for the course Frontend Development.
-
+## MATMMusic is an application build for the course Frontend Development.
 Build with Backbone + Webpack and Babel for ES6 Features.
 
-The application generates music / artist recommendations based on your input.
+The application generates music / artist recommendations based on your input. Users without an last.fm account
+can use the 2 most basic features to generate recommendations based on an artistname and based on trending artists.
 
+Users with an last.fm account can use their account name to generate a personalized list of recommendations based on their listening behaviour.
 
-The user can generate recommendations in 3 ways:
+The users can generate recommendations in 3 ways:
 
-1. : Based on a artist name. (generates 10 similar recommendations.)
+#### Based on a artist name. (generates 10 similar recommendations.)
 
 Collections used :
-http://www.last.fm/api/show/artist.getSimilar
+- http://www.last.fm/api/show/artist.getSimilar
 
-2. : Based on a last.fm username. (generates 10 recommendations for every artist they listened to this week.)
-
-Collections Used : 
-http://www.last.fm/api/show/user.getWeeklyArtistChart
-http://www.last.fm/api/show/artist.getSimilar
-
-3. : Based on trending artists. ( generates 50 recommendations based on the most trending ones globally. )
+#### Based on a last.fm username. (generates 10 recommendations for every artist they listened to this week.)
 
 Collections Used : 
-http://www.last.fm/api/show/chart.getTopArtists
+- http://www.last.fm/api/show/user.getWeeklyArtistChart
+- http://www.last.fm/api/show/artist.getSimilar
+
+#### Based on trending artists. ( generates 50 recommendations based on the most trending ones globally. )
+
+Collections Used : 
+- http://www.last.fm/api/show/chart.getTopArtists
